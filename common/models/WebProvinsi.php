@@ -28,6 +28,7 @@ class WebProvinsi extends \yii\db\ActiveRecord
     {
         return [
             [['provinsiNama', 'provinsiStatus'], 'required'],
+            [['provinsiNama'], 'unique','message' => 'Nama Provinsi Sudah Tersedia'],
             [['provinsiStatus'], 'string'],
             [['provinsiNama'], 'string', 'max' => 200],
         ];

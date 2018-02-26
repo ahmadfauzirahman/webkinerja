@@ -29,10 +29,11 @@ class WebJurusan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'jurusanNama', 'jurusanFakultasID','jurusanUnivID'], 'required'],
-            [['jurusanID', 'jurusanFakultasID'], 'integer'],
+            [[ 'jurusanNama'], 'required'],
+            [['jurusanID', 'jurusanUnivID'], 'integer'],
             [['jurusanStatus'], 'string'],
             [['jurusanNama'], 'string', 'max' => 200],
+            [['jurusanNama'], 'unique','message' =>'Nama Jurusan Sudah Tersedia'],
         ];
     }
 
@@ -44,7 +45,6 @@ class WebJurusan extends \yii\db\ActiveRecord
         return [
             'jurusanID' => 'ID Jurusan',
             'jurusanNama' => 'Nama Jurusan',
-            'jurusanFakultasID' => 'Nama Fakultas',
             'jurusanUnivID' => 'Nama Universitas',
             'jurusanStatus' => 'Status',
         ];

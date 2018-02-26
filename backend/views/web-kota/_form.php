@@ -12,14 +12,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'kotaProvinsiID')->textInput() ?>
+    <?= $form->field($model, 'kotaProvinsiID')->dropDownList(\yii\helpers\ArrayHelper::map(
+       \common\models\WebProvinsi::find()->all(),'provinsiID','provinsiNama'),['prompt'=>'Pilih Nama Provinsi']) ?>
 
-    <?= $form->field($model, 'kotaNama')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'kotaNama')->textInput(['maxlength' => true,'placeholder'=>'Masukan Nama Kota']) ?>
 
     <?= $form->field($model, 'kotaStatus')->dropDownList(['Aktif' => 'Aktif','Non Aktif' => 'Non Aktif']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('<i class="fa fa-save"></i> Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

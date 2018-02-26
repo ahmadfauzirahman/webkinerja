@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebJenjangPendidikan */
 
-$this->title = 'Update Web Jenjang Pendidikan: ' . $model->jenjangPendidikanID;
-$this->params['breadcrumbs'][] = ['label' => 'Web Jenjang Pendidikans', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->jenjangPendidikanID, 'url' => ['view', 'id' => $model->jenjangPendidikanID]];
+$this->title = 'Update Jenjang Pendidikan: ' . $model->jenjangPendidikanNama;
+$this->params['breadcrumbs'][] = ['label' => 'Jenjang Pendidikan', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->jenjangPendidikanNama, 'url' => ['view', 'id' => $model->jenjangPendidikanNama]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="web-jenjang-pendidikan-update">

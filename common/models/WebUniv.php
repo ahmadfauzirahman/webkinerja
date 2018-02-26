@@ -28,6 +28,7 @@ class WebUniv extends \yii\db\ActiveRecord
     {
         return [
             [['univNama'], 'required'],
+            [['univNama'], 'unique','message' => 'Nama Universitas Sudah Tersedia'],
             [['univStatus'], 'string'],
             [['univNama'], 'string', 'max' => 200],
         ];

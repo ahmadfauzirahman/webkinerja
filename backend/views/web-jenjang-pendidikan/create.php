@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebJenjangPendidikan */
 
-$this->title = 'Create Web Jenjang Pendidikan';
-$this->params['breadcrumbs'][] = ['label' => 'Web Jenjang Pendidikans', 'url' => ['index']];
+$this->title = 'Tambah Jenjang Pendidikan';
+$this->params['breadcrumbs'][] = ['label' => 'Jenjang Pendidikan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-jenjang-pendidikan-create">

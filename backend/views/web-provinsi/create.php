@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebProvinsi */
 
-$this->title = 'Create Web Provinsi';
-$this->params['breadcrumbs'][] = ['label' => 'Web Provinsis', 'url' => ['index']];
+$this->title = 'Tambah Provinsi';
+$this->params['breadcrumbs'][] = ['label' => 'Nama Provinsi', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-provinsi-create">

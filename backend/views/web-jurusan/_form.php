@@ -22,8 +22,9 @@ use kartik\widgets\DepDrop;
         ],
     ]) ?>
     <?= $form->field($model, 'jurusanNama')->textInput(['maxlength' => true, 'placeholder' => 'Nama Jurusan']) ?>
+    <?= $form->field($model, 'jurusanStatus')->dropDownList(['Aktif'=>'Aktif','Tidak Aktif' => 'Tidak Aktif'])?>
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('<i class="fa fa-save"></i> Save', ['class' => 'btn btn-success']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

@@ -33,11 +33,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['nip', 'username', 'password'], 'required'],
-            [['nip',], 'integer'],
+            [['userID', 'username', 'password'], 'required'],
+            [['userID',], 'integer'],
             [['role'], 'string'],
             [['username', 'password'], 'string', 'max' => 255],
-            [['nama_staff', 'email'], 'string', 'max' => 35],
+            [['nama', 'email'], 'string', 'max' => 35],
             [['telepon'], 'string', 'max' => 20]
         ];
     }
@@ -48,10 +48,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'nip' => Yii::t('app', 'NIP'),
+            'userID' => Yii::t('app', 'user ID'),
             'username' => Yii::t('app', 'Username'),
             'password' => Yii::t('app', 'Password'),
-            'nama_staff' => Yii::t('app', 'Nama Staff'),
+            'nama' => Yii::t('app', 'Nama'),
             'email' => Yii::t('app', 'Email'),
             'telepon' => Yii::t('app', 'Telepon'),
             'role' => Yii::t('app', 'Role'),
@@ -71,7 +71,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['nip' => $id]);
+        return static::findOne(['userID' => $id]);
     }
 
     /**
@@ -108,7 +108,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public function getAuthKey()
     {
-        return self::findOne(['nip' => $this->getId()]);
+        return self::findOne(['userID' => $this->getId()]);
     }
 
     /**
@@ -133,8 +133,4 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdDepartement()
-    {
-        return $this->hasOne(Departement::className(), ['id_departement' => 'id_departement']);
-    }
 }

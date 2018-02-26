@@ -122,10 +122,10 @@ use common\widgets\Alert;
                     'items' => [
                         ['label' => 'Menu', 'options' => ['class' => 'header']],
                         ['label' => 'Home', 'icon' => 'home', 'url' => ['/site']],
+                        ['label' => 'Data Pengguna', 'icon' => 'users', 'url' => ['/user']],
                         ['label' => 'Data Provinsi', 'icon' => 'file', 'url' => ['/web-provinsi']],
                         ['label' => 'Data Kota', 'icon' => 'file', 'url' => ['/web-kota']],
                         ['label' => 'Data Universitas', 'icon' => 'file', 'url' => ['/web-univ']],
-                        ['label' => 'Data Fakultas', 'icon' => 'file', 'url' => ['/web-fakultas']],
                         ['label' => 'Data Jurusan', 'icon' => 'file', 'url' => ['/web-jurusan']],
                         ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan']],
 

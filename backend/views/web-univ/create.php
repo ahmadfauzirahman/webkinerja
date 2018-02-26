@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebUniv */
 
-$this->title = 'Create Web Univ';
-$this->params['breadcrumbs'][] = ['label' => 'Web Univs', 'url' => ['index']];
+$this->title = 'Tambah Nama Universitas';
+$this->params['breadcrumbs'][] = ['label' => 'Nama Universitas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-univ-create">

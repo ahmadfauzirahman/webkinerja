@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebKota */
 
-$this->title = 'Update Web Kota: ' . $model->kotaID;
-$this->params['breadcrumbs'][] = ['label' => 'Web Kotas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->kotaID, 'url' => ['view', 'id' => $model->kotaID]];
+$this->title = 'Nama Kota: ' . $model->kotaNama;
+$this->params['breadcrumbs'][] = ['label' => 'Nama Kota', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->kotaNama, 'url' => ['view', 'id' => $model->kotaNama]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="web-kota-update">

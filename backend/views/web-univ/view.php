@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebUniv */
 
-$this->title = $model->univID;
-$this->params['breadcrumbs'][] = ['label' => 'Web Univs', 'url' => ['index']];
+$this->title = $model->univNama;
+$this->params['breadcrumbs'][] = ['label' => 'Nama Universitas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-univ-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->univID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->univID], [
+        <?= Html::a('<i class="fa fa-pencil"></i> Update', ['update', 'id' => $model->univID], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="fa fa-trash"></i> Delete', ['delete', 'id' => $model->univID], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'univID',
+//            'univID',
             'univNama',
             'univStatus:ntext',
         ],

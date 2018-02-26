@@ -18,7 +18,7 @@ class WebJurusanSearch extends WebJurusan
     public function rules()
     {
         return [
-            [['jurusanID', 'jurusanFakultasID','jurusanUnivID'], 'integer'],
+            [['jurusanID'], 'integer'],
             [['jurusanNama', 'jurusanStatus'], 'safe'],
         ];
     }
@@ -47,6 +47,9 @@ class WebJurusanSearch extends WebJurusan
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10
+            ]
         ]);
 
         $this->load($params);
@@ -60,11 +63,9 @@ class WebJurusanSearch extends WebJurusan
         // grid filtering conditions
         $query->andFilterWhere([
             'jurusanID' => $this->jurusanID,
-            'jurusanFakultasID' => $this->jurusanFakultasID,
         ]);
 
-        $query->andFilterWhere(['like', 'jurusanNama', $this->jurusanNama])->
-        andFilterWhere(['like', 'jurusanUnivID', $this->jurusanUnivID])
+        $query->andFilterWhere(['like', 'jurusanNama', $this->jurusanNama])
             ->andFilterWhere(['like', 'jurusanStatus', $this->jurusanStatus]);
 
         return $dataProvider;

@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebJenjangPendidikan */
 
-$this->title = $model->jenjangPendidikanID;
-$this->params['breadcrumbs'][] = ['label' => 'Web Jenjang Pendidikans', 'url' => ['index']];
+$this->title = $model->jenjangPendidikanNama;
+$this->params['breadcrumbs'][] = ['label' => 'Tambah Jenjang Pendidikan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-jenjang-pendidikan-view">
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'jenjangPendidikanID',
+//            'jenjangPendidikanID',
             'jenjangPendidikanNama:ntext',
             'jenjangPendidikanStatus:ntext',
         ],

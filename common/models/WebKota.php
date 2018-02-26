@@ -29,6 +29,7 @@ class WebKota extends \yii\db\ActiveRecord
     {
         return [
             [['kotaProvinsiID', 'kotaNama'], 'required'],
+            [['kotaNama'], 'unique','message' => 'Nama Kota Sudah Tersedia'],
             [['kotaProvinsiID'], 'integer'],
             [['kotaStatus'], 'string'],
             [['kotaNama'], 'string', 'max' => 200],
@@ -42,7 +43,7 @@ class WebKota extends \yii\db\ActiveRecord
     {
         return [
             'kotaID' => 'ID Kota',
-            'kotaProvinsiID' => 'ID Provinsi',
+            'kotaProvinsiID' => 'Nama Provinsi',
             'kotaNama' => 'Nama Kota',
             'kotaStatus' => 'Status',
         ];

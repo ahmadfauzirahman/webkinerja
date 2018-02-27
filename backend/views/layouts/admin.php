@@ -24,7 +24,7 @@ use common\widgets\Alert;
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="hold-transition skin-purple-light sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <?php $this->beginBody() ?>
 <div class="wrapper">
 
@@ -36,7 +36,7 @@ use common\widgets\Alert;
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b> Web Kinerja</span>
+            <span class="logo-lg"><b>Admin</b> Web</span>
         </a>
 
         <!-- Header Navbar -->
@@ -54,16 +54,14 @@ use common\widgets\Alert;
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="<?= Yii::$app->request->baseUrl ?>/foto/<?= Yii::$app->user->identity->foto ?>"
-                                 class="user-image" alt="User Image">
+                            <img src="<?= Yii::$app->request->baseUrl ?>/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs text-capitalize"><?= Yii::$app->user->identity->username ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/foto/<?= Yii::$app->user->identity->foto ?>"
-                                     class="img-circle" alt="User Image">
+                                <img src="<?= Yii::$app->request->baseUrl ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p class="text-capitalize">
                                     <?= Yii::$app->user->identity->username ?>
@@ -75,8 +73,7 @@ use common\widgets\Alert;
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="?r=site/logout" data-method="post" class="btn btn-default btn-flat">Sign
-                                        out</a>
+                                    <a href="<?= \yii\helpers\Url::to('site/logout')?>" data-method="post" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -98,8 +95,7 @@ use common\widgets\Alert;
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?= Yii::$app->request->baseUrl ?>/foto/<?= Yii::$app->user->identity->foto ?>"
-                         class="img-circle" alt="User Image">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p class="text-capitalize">
@@ -127,25 +123,12 @@ use common\widgets\Alert;
                         ['label' => 'Menu', 'options' => ['class' => 'header']],
                         ['label' => 'Home', 'icon' => 'home', 'url' => ['/site']],
                         ['label' => 'Data Pengguna', 'icon' => 'users', 'url' => ['/user']],
-                        [
-                            'label' => 'Data Master Umum',
-                            'icon' => 'share',
-                            'url' => '#',
-                            'items' => [
-                                ['label' => 'Data Provinsi', 'icon' => 'users', 'url' => ['/web-provinsi'],],
-                                ['label' => 'Data Kota', 'icon' => 'file', 'url' => ['/web-kota'],],
-                            ],
-                        ],
-                        [
-                            'label' => 'Data Universitas',
-                            'icon' => 'share',
-                            'url' => '#',
-                            'items' => [
-                                ['label' => 'Nama Universitas', 'icon' => 'file', 'url' => ['/web-univ'],],
-                                ['label' => 'Nama Jurusan', 'icon' => 'file', 'url' => ['/web-jurusan'],],
-                                ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan'],],
-                            ],
-                        ],
+                        ['label' => 'Data Provinsi', 'icon' => 'file', 'url' => ['/web-provinsi']],
+                        ['label' => 'Data Kota', 'icon' => 'file', 'url' => ['/web-kota']],
+                        ['label' => 'Data Universitas', 'icon' => 'file', 'url' => ['/web-univ']],
+                        ['label' => 'Data Jurusan', 'icon' => 'file', 'url' => ['/web-jurusan']],
+                        ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan']],
+                        ['label' => 'Data Events', 'icon' => 'file', 'url' => ['/web-events']],
 
 
                     ],

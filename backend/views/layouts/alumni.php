@@ -24,7 +24,7 @@ use common\widgets\Alert;
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green-light sidebar-mini">
 <?php $this->beginBody() ?>
 <div class="wrapper">
 
@@ -36,7 +36,7 @@ use common\widgets\Alert;
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Alumni</b> Web</span>
+            <span class="logo-lg"><b>Alumni</b> Panel</span>
         </a>
 
         <!-- Header Navbar -->

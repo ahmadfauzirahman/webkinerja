@@ -62,6 +62,12 @@ class Auth extends AuthAbstract
             'web-jenjang-pendidikan.delete',
             'web-jenjang-pendidikan.view',
 
+            'web-events.index',
+            'web-events.create',
+            'web-events.update',
+            'web-events.delete',
+            'web-events.view',
+
         ],
         // untuk alumni
         'alumni' => [

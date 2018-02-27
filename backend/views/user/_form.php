@@ -31,13 +31,15 @@ use yii\widgets\ActiveForm;
         <?php
         $data = isset($model->foto) ? [
             'pluginOptions' => [
-                'initialPreview' => 'assets/foto/' . $model->foto,
+                'initialPreview' => 'foto/' . $model->foto,
                 'initialPreviewAsData' => TRUE,
                 'initialCaption' => "$model->nama",
+//                'value' => "$model->nama"
             ],
         ] : [];
         ?>
-        <?= $form->field($model, 'foto')->widget(\kartik\file\FileInput::className(), $data) ?>
+        <?= $form->field($model, 'foto')->
+        widget(\kartik\file\FileInput::className(), $data ,['value'=> $model->foto]) ?>
         <div class="form-group">
             <?= Html::submitButton(
                 "&nbsp;<span class='fa fa-save'></span>&nbsp;" . ($model->isNewRecord ?

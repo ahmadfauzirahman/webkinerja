@@ -95,11 +95,15 @@ class UserController extends Controller
         if ($model->foto != null) {
             $data['User']['foto'] = $model->foto;
         }
-
-        if ($model->load($data) && $model->save()) {
+//        echo '<pre>';
+//        print_r($data);
+//        die();
+        if ($model->load($data)) {
             if ($data['User']['foto'] != "") {
                 $model->foto->saveAs(Yii::$app->basePath . "/web/foto/" .
                     $model->foto->name);
+                $model->save();
+
             }
 
             return $this->redirect([

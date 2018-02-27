@@ -75,12 +75,9 @@ use common\widgets\Alert;
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-<<<<<<< Updated upstream
+
                                     <a href="?r=site/logout" data-method="post" class="btn btn-default btn-flat">Sign
                                         out</a>
-=======
-                                    <a href="<?= \yii\helpers\Url::to('site/logout')?>" data-method="post" class="btn btn-default btn-flat">Sign out</a>
->>>>>>> Stashed changes
                                 </div>
                             </li>
                         </ul>
@@ -131,7 +128,7 @@ use common\widgets\Alert;
                         ['label' => 'Menu', 'options' => ['class' => 'header']],
                         ['label' => 'Home', 'icon' => 'home', 'url' => ['/site']],
                         ['label' => 'Data Pengguna', 'icon' => 'users', 'url' => ['/user']],
-<<<<<<< Updated upstream
+
                         [
                             'label' => 'Data Master Umum',
                             'icon' => 'share',
@@ -151,15 +148,8 @@ use common\widgets\Alert;
                                 ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan'],],
                             ],
                         ],
-=======
-                        ['label' => 'Data Provinsi', 'icon' => 'file', 'url' => ['/web-provinsi']],
-                        ['label' => 'Data Kota', 'icon' => 'file', 'url' => ['/web-kota']],
-                        ['label' => 'Data Universitas', 'icon' => 'file', 'url' => ['/web-univ']],
-                        ['label' => 'Data Jurusan', 'icon' => 'file', 'url' => ['/web-jurusan']],
-                        ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan']],
-                        ['label' => 'Data Events', 'icon' => 'file', 'url' => ['/web-events']],
->>>>>>> Stashed changes
 
+                        ['label' => 'Data Events', 'icon' => 'file', 'url' => ['/web-events']],
 
                     ],
                 ]

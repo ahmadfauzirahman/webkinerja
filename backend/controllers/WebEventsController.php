@@ -9,6 +9,7 @@ use yii\web\Controller;
 use common\auth\Auth;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * WebEventsController implements the CRUD actions for WebEvents model.
@@ -67,13 +68,18 @@ class WebEventsController extends Controller
         $this->layout = Auth::getRole();
         $model = new WebEvents();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->eventsID]);
+        $data = Yii::$app->request->post();
+        $model->eventsThumbnails = UploadedFile::getInstance($model, 'eventsThumbnails');
+        if ($model->eventsThumbnails != NULL)
+            $data['WebEvents']['eventsThumbnails']
+            = $model->eventsThumbnails;
+        if ($model->load($data) && $model->save()) {
+            $model->eventsThumbnails->saveAs(Yii::$app->basePath . "/web/foto_events/" . $model->eventsThumbnails->name);
+            return $this->redirect([
+                'view', 'id' => $model->eventsID,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->render('create', ['model' => $model,]);
     }
 
     /**
@@ -85,13 +91,27 @@ class WebEventsController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $this->layout = Auth::getRole();
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->eventsID]);
+        $data = Yii::$app->request->post();
+        $model->eventsThumbnails = UploadedFile::getInstance($model, 'eventsThumbnails');
+        if ($model->eventsThumbnails!= null) {
+            $data['WebEvents']['eventsThumbnails'] = $model->eventsThumbnails;
         }
 
+        if ($model->load($data) && $model->save()) {
+            if ($data['WebEvents']['eventsThumbnails'] != "") {
+                $model->eventsThumbnails->saveAs(Yii::$app->basePath . "/web/foto_events/" .
+                    $model->eventsThumbnails->name);
+            }
+
+            return $this->redirect([
+                'view',
+                'id' => $model->eventsID,
+            ]);
+        }
+        $model = $this->findModel($id);
         return $this->render('update', [
             'model' => $model,
         ]);

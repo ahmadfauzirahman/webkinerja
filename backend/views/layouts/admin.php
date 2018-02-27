@@ -75,12 +75,9 @@ use common\widgets\Alert;
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-<<<<<<< Updated upstream
+
                                     <a href="?r=site/logout" data-method="post" class="btn btn-default btn-flat">Sign
                                         out</a>
-=======
-                                    <a href="<?= \yii\helpers\Url::to('site/logout')?>" data-method="post" class="btn btn-default btn-flat">Sign out</a>
->>>>>>> Stashed changes
                                 </div>
                             </li>
                         </ul>

@@ -47,6 +47,9 @@ class UserSearch extends User
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10
+            ]
         ]);
 
         $this->load($params);
@@ -59,7 +62,7 @@ class UserSearch extends User
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'nip' => $this->userID,
+            'userID' => $this->userID,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])

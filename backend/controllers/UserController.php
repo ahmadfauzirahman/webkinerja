@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\auth\Auth;
+use yii\web\UploadedFile;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -65,13 +66,17 @@ class UserController extends Controller
         $this->layout = Auth::getRole();
         $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->nip]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
+        $data = Yii::$app->request->post();
+        $model->foto = UploadedFile::getInstance($model, 'foto');
+        if ($model->foto != NULL) $data['User']['foto'] = $model->foto;
+        $model->tanggal_pendaftaran = date('Y-m-d H:i:s');
+        if ($model->load($data) && $model->save()) {
+            $model->foto->saveAs(Yii::$app->basePath . "/web/foto/" . $model->foto->name);
+            return $this->redirect([
+                'view', 'id' => $model->userID,
             ]);
         }
+        return $this->render('create', ['model' => $model,]);
     }
 
     /**
@@ -82,16 +87,30 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $this->layout = Auth::getRole();
         $model = $this->findModel($id);
+        $data = Yii::$app->request->post();
+        $model->foto = UploadedFile::getInstance($model, 'foto');
+        if ($model->foto != null) {
+            $data['User']['foto'] = $model->foto;
+        }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->nip]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
+        if ($model->load($data) && $model->save()) {
+            if ($data['User']['foto'] != "") {
+                $model->foto->saveAs(Yii::$app->basePath . "/web/foto/" .
+                    $model->foto->name);
+            }
+
+            return $this->redirect([
+                'view',
+                'id' => $model->userID,
             ]);
         }
+        $model = $this->findModel($id);
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**

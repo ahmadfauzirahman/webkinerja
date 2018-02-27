@@ -1,8 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
+if (\common\auth\Auth::getRole() == 'admin'){
+    $this->title = 'Admin WEB';
+} else {
 
-$this->title = 'Admin WEB';
+    $this->title = 'Web Kinerja Uin Suska';
+}
 ?>
 <div class="site-index">
 

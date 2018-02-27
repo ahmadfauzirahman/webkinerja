@@ -13,6 +13,8 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $nama
  * @property string $email
+ * @property string $foto
+ * @property string $tanggal_pendaftaran
  * @property string $telepon
  * @property string $role
  *
@@ -33,9 +35,16 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['userID', 'username', 'password'], 'required'],
-            [['userID',], 'integer'],
-            [['role'], 'string'],
+            [['username', 'password'], 'required'],
+            [['username'], 'unique','message' =>'Username Sudah Tersedia'],
+            [
+
+                ['foto'] ,
+                'file' ,
+                'skipOnEmpty' => TRUE ,
+                'extensions'  => 'png, jpg' ,
+            ],
+            [['role','tanggal_pendaftaran'], 'string'],
             [['username', 'password'], 'string', 'max' => 255],
             [['nama', 'email'], 'string', 'max' => 35],
             [['telepon'], 'string', 'max' => 20]

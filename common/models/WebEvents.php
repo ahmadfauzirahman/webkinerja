@@ -32,7 +32,14 @@ class WebEvents extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['eventsJudul', 'eventsLokasi', 'eventsKeterangan', 'eventsThumbnails'], 'string'],
+            [['eventsJudul', 'eventsLokasi', 'eventsKeterangan'], 'string'],
+            [
+
+                ['eventsThumbnails'] ,
+                'file' ,
+                'skipOnEmpty' => TRUE ,
+                'extensions'  => 'png, jpg' ,
+            ],
             [['eventsTanggalMulai', 'eventsTanggalSelesai'], 'safe'],
             [['eventsStatus'], 'string', 'max' => 50],
         ];

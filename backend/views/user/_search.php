@@ -14,26 +14,26 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
+    <div class="row">
+        <div class="col-lg-4">
+            <?= $form->field($model, 'username') ?>
+        </div>
+        <div class="col-lg-4">
+            <?= $form->field($model, 'nama') ?>
+        </div>
+        <div class="col-lg-4">
+            <?php echo $form->field($model, 'role')->dropDownList(
+                [
+                    'admin' => 'Admin'
+                    , 'perusahaan' => 'Perusahaan',
+                    'alumni' => 'Alumni'],['prompt'=>'Pilih']) ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'nip') ?>
-
-    <?= $form->field($model, 'username') ?>
-
-    <?= $form->field($model, 'password') ?>
-
-    <?= $form->field($model, 'nama_staff') ?>
-
-    <?= $form->field($model, 'id_departement') ?>
-
-    <?php // echo $form->field($model, 'email') ?>
-
-    <?php // echo $form->field($model, 'telepon') ?>
-
-    <?php // echo $form->field($model, 'role') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', '<i class="fa fa-search"></i> Search'), ['class' => 'btn btn-primary']) ?>
+        <a href="?r=user" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</a>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * WebKategoriArtikelController implements the CRUD actions for WebKategoriArtikel model..
+ * WebKategoriArtikelController implements the CRUD actiohfhfhfhfns for WebKategoriArtikel model..
  */
 class WebKategoriArtikelController extends Controller
 {

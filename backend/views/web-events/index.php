@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\WebEventsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Web Events';
+$this->title = 'Evants';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-events-index">
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Web Events', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="fa fa-plus"></i> Tambah Events', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'eventsID',
+//            'eventsID',
             'eventsJudul:ntext',
-            'eventsTanggalMulai',
-            'eventsTanggalSelesai',
+            'eventsTanggalMulai:date',
+            'eventsTanggalSelesai:date',
             'eventsLokasi:ntext',
             //'eventsKeterangan:ntext',
             //'eventsThumbnails:ntext',

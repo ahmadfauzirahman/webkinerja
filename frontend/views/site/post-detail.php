@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+use kartik\social\Disqus;
 use yii\helpers\Html;
 
 //$this->title = 'My Yii Application';
@@ -53,6 +54,12 @@ use yii\helpers\Html;
             <div class="el-content text-left  animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
                 <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $data->artikelThumbnails ?>" style="width:100%; height:auto; max-height: 500px; margin-bottom:20px; border: 10px solid #efefef;" />
                 <p class="m-t-30"><?= $data->artikelIsi; ?>
+                </p>
+                <br>
+                <p>
+                    <?php
+                    echo Disqus::widget(['settings'=>['shortname'=>'DISQUS_SHORTNAME']]);
+                    ?>
                 </p>
             </div>
         </div>

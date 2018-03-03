@@ -1,11 +1,8 @@
 <?php
-
 namespace common\auth;
-
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-
 class Auth extends AuthAbstract
 {
     /**
@@ -22,6 +19,7 @@ class Auth extends AuthAbstract
             'user.update',
             'user.delete',
             'user.view',
+
             'site.index',
             'site.logout',
 
@@ -82,6 +80,9 @@ class Auth extends AuthAbstract
 
             'web-tiket-events.index',
 
+            'web-setting.index',
+            'web-setting.update',
+            'web-setting.view',
         ],
         // untuk alumni
         'alumni' => [
@@ -99,10 +100,8 @@ class Auth extends AuthAbstract
 //            'pengaduan.view',
         ]
     ];
-
     private static $controller;
     private static $action;
-
     /**
      * Periksa authorization
      *
@@ -115,10 +114,8 @@ class Auth extends AuthAbstract
     {
         self::$action = $action->id;
         self::$controller = $action->controller->id;
-
         $user = isset(Yii::$app->user->identity->role) ?
             Yii::$app->user->identity->role : $user;
-
         if ($user) {
             if (isset(self::$roles[$user])) {
                 return in_array(
@@ -127,10 +124,8 @@ class Auth extends AuthAbstract
                 );
             }
         }
-
         return self::checkOpenAuth();
     }
-
     /**
      * handle all behaviors of controller class
      *
@@ -140,9 +135,7 @@ class Auth extends AuthAbstract
     public static function behaviors($params)
     {
         $params = new \ArrayObject($params, \ArrayObject::ARRAY_AS_PROPS);
-
         self::setOpenAuth('site', 'login');
-
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -172,7 +165,6 @@ class Auth extends AuthAbstract
                                 },
                     ],
                 ],
-
                 'denyCallback' =>
                     isset($params->deny) ?
                         $params->deny : new \Exception()
@@ -185,9 +177,7 @@ class Auth extends AuthAbstract
             ],
         ];
     }
-
     private static $openAuth = [];
-
     /**
      * memeriksa akses control yang terbuka
      *
@@ -199,10 +189,8 @@ class Auth extends AuthAbstract
             return in_array(self::$controller . '.' . self::$action,
                 self::$openAuth) ? true : false;
         }
-
         return false;
     }
-
     /**
      * mengatur controller dengan action yang terbuka
      *
@@ -213,7 +201,6 @@ class Auth extends AuthAbstract
     {
         self::$openAuth[] = $controller . "." . $action;
     }
-
     /**
      * mengambil role saat ini
      *
@@ -223,7 +210,6 @@ class Auth extends AuthAbstract
     {
         return Yii::$app->user->identity->role;
     }
-
     /**
      * memeriksa role
      *

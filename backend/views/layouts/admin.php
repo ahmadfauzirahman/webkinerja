@@ -164,6 +164,8 @@ use common\widgets\Alert;
                             ],
                         ],
 
+                        ['label' => 'Frontend', 'icon' => 'desktop', 'url' => Yii::$app->request->baseUrl.'/../../' ],
+
                     ],
                 ]
             ) ?>

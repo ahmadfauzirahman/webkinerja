@@ -14,7 +14,7 @@ use kartik\widgets\FileInput;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype'=>'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'eventsJudul')->textarea(['rows' => 2]) ?>
+    <?= $form->field($model, 'eventsJudul')->textInput() ?>
 
     <?= $form->field($model, 'eventsTanggalMulai')->widget(DatePicker::className(),[
             'options' => ['placeholder'=>'Masukkan Tanggal Mulai'],
@@ -32,7 +32,7 @@ use kartik\widgets\FileInput;
         ]
     ]) ?>
 
-    <?= $form->field($model, 'eventsLokasi')->textarea(['rows' => 2]) ?>
+    <?= $form->field($model, 'eventsLokasi')->textInput() ?>
 
     <?= $form->field($model, 'eventsKeterangan')->textarea(['rows' => 2]) ?>
 
@@ -46,7 +46,7 @@ use kartik\widgets\FileInput;
     <?= $form->field($model, 'eventsStatus')->dropDownList(['aktif'=>'Aktif','tidak-aktif'=>'Tidak Aktif']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Simpan', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

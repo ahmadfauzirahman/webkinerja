@@ -10,6 +10,8 @@ use common\auth\Auth;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use common\models\WebJadwalEvents;
+use common\models\WebJadwalEventsSearch;
 
 /**
  * WebEventsController implements the CRUD actions for WebEvents model.
@@ -53,8 +55,17 @@ class WebEventsController extends Controller
     public function actionView($id)
     {
         $this->layout = Auth::getRole();
+        $jadwal = WebJadwalEvents::find()->where(['jadwalEventsEventsID'=>$id])->orderBy(['jadwalEventsTglMulai'=>SORT_ASC])->all();
+        $jadwal_count = WebJadwalEvents::find()->where(['jadwalEventsEventsID'=>$id])->count();
+        $tiket_count = \common\models\WebTiketEvents::find()->where(['tiketEventsEventsID'=>$id])->count();
+        $jadwal_presentasi_count = \common\models\WebPresentasi::find()->where(['presentasiEventsID'=> $id])->count();
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'jadwal' => $jadwal,
+            'jadwal_count' => $jadwal_count,
+            'tiket_count' => $tiket_count,
+            'jadwal_presentasi_count'=> $jadwal_presentasi_count,
         ]);
     }
 

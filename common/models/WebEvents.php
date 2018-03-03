@@ -40,7 +40,8 @@ class WebEvents extends \yii\db\ActiveRecord
                 'skipOnEmpty' => TRUE ,
                 'extensions'  => 'png, jpg' ,
             ],
-            [['eventsTanggalMulai', 'eventsTanggalSelesai'], 'safe'],
+            [['eventsTanggalMulai', 'eventsTanggalSelesai'], 'date', 'format' => 'yyyy-mm-dd'],
+            ['eventsTanggalMulai', 'compare', 'compareAttribute' => 'eventsTanggalSelesai', 'operator' => '<=','enableClientValidation' => false],
             [['eventsStatus'], 'string', 'max' => 50],
         ];
     }
@@ -52,13 +53,13 @@ class WebEvents extends \yii\db\ActiveRecord
     {
         return [
             'eventsID' => 'Events ID',
-            'eventsJudul' => 'Events Judul',
-            'eventsTanggalMulai' => 'Events Tanggal Mulai',
-            'eventsTanggalSelesai' => 'Events Tanggal Selesai',
-            'eventsLokasi' => 'Events Lokasi',
-            'eventsKeterangan' => 'Events Keterangan',
-            'eventsThumbnails' => 'Events Thumbnails',
-            'eventsStatus' => 'Events Status',
+            'eventsJudul' => 'Judul Event',
+            'eventsTanggalMulai' => 'Tanggal Mulai',
+            'eventsTanggalSelesai' => 'Tanggal Selesai',
+            'eventsLokasi' => 'Lokasi Event',
+            'eventsKeterangan' => 'Keterangan Lainnya',
+            'eventsThumbnails' => 'Thumbnails Event',
+            'eventsStatus' => 'Status Event',
         ];
     }
 }

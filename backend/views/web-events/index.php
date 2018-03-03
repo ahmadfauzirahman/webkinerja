@@ -7,17 +7,16 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\WebEventsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Evants';
+$this->title = 'Events';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="web-events-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('<i class="fa fa-plus"></i> Tambah Events', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="fa fa-plus"></i> Tambah Event', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -31,11 +30,26 @@ $this->params['breadcrumbs'][] = $this->title;
             'eventsTanggalMulai:date',
             'eventsTanggalSelesai:date',
             'eventsLokasi:ntext',
-            //'eventsKeterangan:ntext',
+//            'eventsKeterangan:ntext',
             //'eventsThumbnails:ntext',
-            //'eventsStatus',
+//            'eventsStatus',
+            [
+              'attribute' => 'eventsStatus',
+              'contentOptions' => ['style'=>'width:80px'],
+              'format' => 'raw',
+              'value' => function($model){
+                    if ($model->eventsStatus == "aktif"){
+                        return "<label class='label label-primary'>$model->eventsStatus</label>";
+                    }else{
+                        return "<label class='label label-danger'>$model->eventsStatus</label>";
+                    }
+              }
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                    'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}',
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

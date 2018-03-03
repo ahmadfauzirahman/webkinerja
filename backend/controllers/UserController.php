@@ -70,7 +70,7 @@ class UserController extends Controller
         $model->foto = UploadedFile::getInstance($model, 'foto');
         if ($model->foto != NULL) $data['User']['foto'] = $model->foto;
         $model->tanggal_pendaftaran = date('Y-m-d H:i:s');
-        if ($model->load($data) && $model->save()) {
+        if ($model->load($data) && $model->save() && $model->validate('email')) {
             $model->foto->saveAs(Yii::$app->basePath . "/web/foto/" . $model->foto->name);
             return $this->redirect([
                 'view', 'id' => $model->userID,

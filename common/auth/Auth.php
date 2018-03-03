@@ -78,6 +78,12 @@ class Auth extends AuthAbstract
             'web-presentasi.delete',
             'web-presentasi.view',
 
+            'web-dokumentasi.index',
+            'web-dokumentasi.create',
+            'web-dokumentasi.update',
+            'web-dokumentasi.delete',
+            'web-dokumentasi.view',
+
             'web-tiket-events.index',
 
             'web-setting.index',

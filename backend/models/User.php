@@ -47,6 +47,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['role','tanggal_pendaftaran'], 'string'],
             [['username', 'password'], 'string', 'max' => 255],
             [['nama', 'email'], 'string', 'max' => 35],
+            [['email'], 'unique', 'message' => 'Email Sudah Tersedia'],
             [['telepon'], 'string', 'max' => 20]
         ];
     }

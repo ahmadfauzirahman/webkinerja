@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\WebEvents;
+use common\models\WebJadwalEvents;
 
 /**
- * WebEventsSearch represents the model behind the search form of `common\models\WebEvents`.
+ * WebJadwalEventsSearch represents the model behind the search form of `common\models\WebJadwalEvents`.
  */
-class WebEventsSearch extends WebEvents
+class WebJadwalEventsSearch extends WebJadwalEvents
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class WebEventsSearch extends WebEvents
     public function rules()
     {
         return [
-            [['eventsID'], 'integer'],
-            [['eventsJudul', 'eventsTanggalMulai', 'eventsTanggalSelesai', 'eventsLokasi', 'eventsKeterangan', 'eventsThumbnails', 'eventsStatus'], 'safe'],
+            [['jadwalEventsID', 'jadwalEventsEventsID'], 'integer'],
+            [['jadwalEventsTglMulai', 'jadwalEventsTglSelesai', 'jadwalEventsNama', 'jadwalEventsStatus'], 'safe'],
         ];
     }
 
@@ -39,9 +39,9 @@ class WebEventsSearch extends WebEvents
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id)
     {
-        $query = WebEvents::find()->addOrderBy(['eventsTanggalMulai'=>SORT_DESC]);
+        $query = WebJadwalEvents::find()->where(['jadwalEventsEventsID'=>$id]);
 
         // add conditions that should always apply here
 
@@ -59,16 +59,14 @@ class WebEventsSearch extends WebEvents
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'eventsID' => $this->eventsID,
-            'eventsTanggalMulai' => $this->eventsTanggalMulai,
-            'eventsTanggalSelesai' => $this->eventsTanggalSelesai,
+            'jadwalEventsID' => $this->jadwalEventsID,
+            'jadwalEventsEventsID' => $this->jadwalEventsEventsID,
+            'jadwalEventsTglMulai' => $this->jadwalEventsTglMulai,
+            'jadwalEventsTglSelesai' => $this->jadwalEventsTglSelesai,
         ]);
 
-        $query->andFilterWhere(['like', 'eventsJudul', $this->eventsJudul])
-            ->andFilterWhere(['like', 'eventsLokasi', $this->eventsLokasi])
-            ->andFilterWhere(['like', 'eventsKeterangan', $this->eventsKeterangan])
-            ->andFilterWhere(['like', 'eventsThumbnails', $this->eventsThumbnails])
-            ->andFilterWhere(['like', 'eventsStatus', $this->eventsStatus]);
+        $query->andFilterWhere(['like', 'jadwalEventsNama', $this->jadwalEventsNama])
+            ->andFilterWhere(['like', 'jadwalEventsStatus', $this->jadwalEventsStatus]);
 
         return $dataProvider;
     }

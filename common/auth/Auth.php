@@ -68,6 +68,20 @@ class Auth extends AuthAbstract
             'web-events.delete',
             'web-events.view',
 
+            'web-jadwal-events.index',
+            'web-jadwal-events.create',
+            'web-jadwal-events.update',
+            'web-jadwal-events.delete',
+            'web-jadwal-events.view',
+
+            'web-presentasi.index',
+            'web-presentasi.create',
+            'web-presentasi.update',
+            'web-presentasi.delete',
+            'web-presentasi.view',
+
+            'web-tiket-events.index',
+
         ],
         // untuk alumni
         'alumni' => [

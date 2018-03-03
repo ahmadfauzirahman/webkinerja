@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\WebEvents;
+use common\models\WebTiketEvents;
 
 /**
- * WebEventsSearch represents the model behind the search form of `common\models\WebEvents`.
+ * WebTiketEventsSearch represents the model behind the search form of `common\models\WebTiketEvents`.
  */
-class WebEventsSearch extends WebEvents
+class WebTiketEventsSearch extends WebTiketEvents
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class WebEventsSearch extends WebEvents
     public function rules()
     {
         return [
-            [['eventsID'], 'integer'],
-            [['eventsJudul', 'eventsTanggalMulai', 'eventsTanggalSelesai', 'eventsLokasi', 'eventsKeterangan', 'eventsThumbnails', 'eventsStatus'], 'safe'],
+            [['tiketEventsID', 'tiketEventsEventsID', 'tiketEventsUserID'], 'integer'],
+            [['tiketEventsStatus'], 'safe'],
         ];
     }
 
@@ -39,9 +39,9 @@ class WebEventsSearch extends WebEvents
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id)
     {
-        $query = WebEvents::find()->addOrderBy(['eventsTanggalMulai'=>SORT_DESC]);
+        $query = WebTiketEvents::find()->Where(['tiketEventsEventsID'=>$id]);
 
         // add conditions that should always apply here
 
@@ -59,16 +59,12 @@ class WebEventsSearch extends WebEvents
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'eventsID' => $this->eventsID,
-            'eventsTanggalMulai' => $this->eventsTanggalMulai,
-            'eventsTanggalSelesai' => $this->eventsTanggalSelesai,
+            'tiketEventsID' => $this->tiketEventsID,
+            'tiketEventsEventsID' => $this->tiketEventsEventsID,
+            'tiketEventsUserID' => $this->tiketEventsUserID,
         ]);
 
-        $query->andFilterWhere(['like', 'eventsJudul', $this->eventsJudul])
-            ->andFilterWhere(['like', 'eventsLokasi', $this->eventsLokasi])
-            ->andFilterWhere(['like', 'eventsKeterangan', $this->eventsKeterangan])
-            ->andFilterWhere(['like', 'eventsThumbnails', $this->eventsThumbnails])
-            ->andFilterWhere(['like', 'eventsStatus', $this->eventsStatus]);
+        $query->andFilterWhere(['like', 'tiketEventsStatus', $this->tiketEventsStatus]);
 
         return $dataProvider;
     }

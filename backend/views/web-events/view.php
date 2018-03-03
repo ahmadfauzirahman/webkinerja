@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="col-md-3">
             <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['update', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-address-book-o"></i></span></a>
+                <a href="<?= \yii\helpers\Url::to(['update', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-inbox"></i></span></a>
                 <div class="info-box-content">
                     <span class="info-box-text">STAND BOOKING</span>
                     <span class="info-box-number"></span>
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-md-3">
             <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-presentasi/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-red"><i class="fa fa-anchor"></i></span></a>
+                <a href="<?= \yii\helpers\Url::to(['web-presentasi/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-red"><i class="fa fa-line-chart"></i></span></a>
                 <div class="info-box-content">
                     <span class="info-box-text">JADWAL</span>
                     <span class="info-box-text">PRESENTASI</span>
@@ -52,9 +52,32 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="col-md-3 col-md-offset-6">
+            <div class="info-box">
+                <a href="<?= \yii\helpers\Url::to(['web-jadwal-events/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-green"><i class="fa fa-calendar"></i></span></a>
+                <div class="info-box-content">
+                    <span class="info-box-text">Daftar Stand</span>
+                    <span class="info-box-number"><?= $jadwal_count?></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="info-box">
+                <a href="<?= \yii\helpers\Url::to(['web-dokumentasi/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-camera"></i></span></a>
+                <div class="info-box-content">
+                    <span class="info-box-text">DOKUMENTASI</span>
+                    <span class="info-box-number"></span>
+                </div>
+            </div>
+        </div>
 
 
-        <div class="col-md-2 col-md-offset-10">
+    </div>
+
+
+        <div class="col-md-12">
 
             <?= Html::a('Update', ['update', 'id' => $model->eventsID], ['class' => 'btn btn-primary btn-md']) ?>
             <?= Html::a('Delete', ['delete', 'id' => $model->eventsID], [
@@ -64,10 +87,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'method' => 'post',
                 ],
             ]) ?>
+            <p></p>
         </div>
 
 
-    <br>
+
 
 <div class="col-md-7" style="border-right: 1px solid whitesmoke">
     <h4>Detail Event</h4>

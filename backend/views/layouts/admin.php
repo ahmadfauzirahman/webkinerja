@@ -154,6 +154,16 @@ use common\widgets\Alert;
 
 
 
+                        [
+                            'label' => 'Data Artikel',
+                            'icon' => 'share',
+                            'url' => '#',
+                            'items' => [
+                                    ['label' => 'Data Artikel', 'icon' => 'file', 'url' => ['/web-artikel'],],
+                                ['label' => 'Data Kategori Artikel', 'icon' => 'file', 'url' => ['/web-kategori-artikel'],],
+                            ],
+                        ],
+
                     ],
                 ]
             ) ?>

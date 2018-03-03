@@ -210,4 +210,30 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionPost($kategori)
+    {
+        return $this->render('post',['idKategori' => $kategori]);
+    }
+
+    public function actionDeveloper()
+    {
+        return $this->render('developer');
+    }
+
+    public function actionPostDetail($id)
+    {
+        $data = \common\models\WebArtikel\WebArtikel::findOne($id);
+        return $this->render('post-detail',['data' => $data]);
+    }
+
+    public function actionLowongan()
+    {
+        return $this->render('lowongan');
+    }
+
+    public function actionEvent()
+    {
+        return $this->render('event');
+    }
 }

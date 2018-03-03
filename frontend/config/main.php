@@ -8,10 +8,19 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'Pusat Pengembangan Karir dan Alumni',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'view' => [
+            'class' => 'yii\web\View',
+            'theme' => [
+                'class' => 'yii\base\Theme',
+                'pathMap' => ['@app/views' => ''],
+                'baseUrl' => 'themes/'.$params['theme']
+            ]
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

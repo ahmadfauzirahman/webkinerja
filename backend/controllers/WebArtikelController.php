@@ -102,10 +102,14 @@ class WebArtikelController extends Controller
             $data['WebArtikel']['artikelThumbnails'] = $model->artikelThumbnails;
         }
 
-        if ($model->load($data) && $model->save()) {
+        if ($model->load($data)) {
             if ($data['WebArtikel']['artikelThumbnails'] != "") {
+                $model->save();
                 $model->artikelThumbnails->saveAs(Yii::$app->basePath . "/web/thumbnails/" .
                     $model->artikelThumbnails->name);
+            } else {
+                $model['artikelThumbnails'] = WebArtikel::findOne($id)['artikelThumbnails'];
+                $model->save();
             }
 
             return $this->redirect([

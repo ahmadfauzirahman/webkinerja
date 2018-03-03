@@ -40,7 +40,7 @@ use yii\widgets\ActiveForm;
         <?php
         $data = isset($model->artikelThumbnails) ? [
             'pluginOptions' => [
-                'initialPreview' => 'web/thumbnails/' . $model->artikelThumbnails,
+                'initialPreview' => 'thumbnails/' . $model->artikelThumbnails,
                 'initialPreviewAsData' => TRUE,
                 'initialCaption' => "$model->artikelJudul",
             ],

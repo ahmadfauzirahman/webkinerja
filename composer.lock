@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "53f7328872cfaaf644539ea994ad28c7",
+    "content-hash": "ae47e22076aef58940680d7b5c57f619",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -72,6 +72,23 @@
             ]
         },
         {
+            "name": "bower-asset/codemirror",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/codemirror.git",
+                "reference": "0942c22a2762358f6f2216e4cd67f72feab98c4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/codemirror/zipball/0942c22a2762358f6f2216e4cd67f72feab98c4c",
+                "reference": "0942c22a2762358f6f2216e4cd67f72feab98c4c",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "time": "2017-08-22T13:26:31+00:00"
+        },
+        {
             "name": "bower-asset/gentelella",
             "version": "dev-master",
             "source": {
@@ -88,7 +105,8 @@
             "type": "bower-asset",
             "license": [
                 "MIT"
-            ]
+            ],
+            "time": "2018-02-13T12:18:53+00:00"
         },
         {
             "name": "bower-asset/inputmask",
@@ -143,6 +161,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3",
+                "shasum": null
+            },
+            "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/summernote",
+            "version": "v0.8.10",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:summernote/summernote.git",
+                "reference": "810f1944d5678881cc5a06bd45075e98b50366a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/summernote/summernote/zipball/810f1944d5678881cc5a06bd45075e98b50366a0",
+                "reference": "810f1944d5678881cc5a06bd45075e98b50366a0",
                 "shasum": null
             },
             "type": "bower-asset"
@@ -1842,6 +1876,64 @@
                 "yii2"
             ],
             "time": "2015-12-05T10:37:16+00:00"
+        },
+        {
+            "name": "marqu3s/yii2-summernote",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marqu3s/yii2-summernote.git",
+                "reference": "484d6753f7ede4750689dd8ba706b701731d0abc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marqu3s/yii2-summernote/zipball/484d6753f7ede4750689dd8ba706b701731d0abc",
+                "reference": "484d6753f7ede4750689dd8ba706b701731d0abc",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/codemirror": "@stable",
+                "bower-asset/summernote": "0.*",
+                "yiisoft/yii2": "~2"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "marqu3s\\summernote\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Joao Marques",
+                    "email": "joao@jjmf.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 Summernote widget. Super simple WYSIWYG editor on Bootstrap",
+            "homepage": "https://github.com/marqu3s/yii2-summernote",
+            "keywords": [
+                "summernote",
+                "widget",
+                "wysiwyg",
+                "yii2"
+            ],
+            "time": "2018-02-08T16:47:15+00:00"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
@@ -4926,7 +5018,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "marqu3s/yii2-summernote": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

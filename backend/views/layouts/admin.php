@@ -148,9 +148,17 @@ use common\widgets\Alert;
                                 ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan'],],
                             ],
                         ],
-                        ['label' => 'Events', 'icon' => 'file', 'url' => ['/web-events'],
-                            'active'=> in_array(\Yii::$app->controller->id, ['web-events', 'web-jadwal-events', 'web-tiket-events', 'web-presentasi']) ],
-
+                        [
+                            'label' => 'Data Event',
+                            'icon' => 'share',
+                            'url' => '#',
+                            'items' => [
+                                ['label' => 'Events', 'icon' => 'file', 'url' => ['/web-events'],
+                                    'active'=> in_array(\Yii::$app->controller->id, ['web-events', 'web-jadwal-events', 'web-tiket-events', 'web-presentasi']) ],
+                                ['label' => 'Kategori Stand', 'icon' => 'file', 'url' => ['/web-kategori-stand'],],
+                                ['label' => 'Venue', 'icon' => 'file', 'url' => ['/web-venue'],],
+                            ],
+                        ],
 
 
 

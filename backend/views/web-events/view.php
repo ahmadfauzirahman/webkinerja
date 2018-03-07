@@ -24,10 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="col-md-3">
             <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['update', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-inbox"></i></span></a>
+                <a href="<?= \yii\helpers\Url::to(['web-booking/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-inbox"></i></span></a>
                 <div class="info-box-content">
                     <span class="info-box-text">STAND BOOKING</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number"><?=$booking_count?></span>
                 </div>
             </div>
         </div>
@@ -55,10 +55,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-12">
         <div class="col-md-3 col-md-offset-6">
             <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-jadwal-events/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-green"><i class="fa fa-calendar"></i></span></a>
+                <a href="<?= \yii\helpers\Url::to(['web-stands/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-green"><i class="fa fa-calendar"></i></span></a>
                 <div class="info-box-content">
                     <span class="info-box-text">Daftar Stand</span>
-                    <span class="info-box-number"><?= $jadwal_count?></span>
+                    <span class="info-box-number"><?= $stands_count?></span>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <a href="<?= \yii\helpers\Url::to(['web-dokumentasi/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-camera"></i></span></a>
                 <div class="info-box-content">
                     <span class="info-box-text">DOKUMENTASI</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number"><?= $foto_count?></span>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-<div class="col-md-7" style="border-right: 1px solid whitesmoke">
+<div class="col-md-12" >
     <h4>Detail Event</h4>
     <?= DetailView::widget([
         'model' => $model,
@@ -133,43 +133,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 </div>
-
-        <div class="col-md-5">
-
-            <h4>Jadwal Acara</h4>
-            <ul class="timeline">
-                <!-- timeline time label -->
-                <?php
-                if ($jadwal):
-                foreach ($jadwal AS $item):?>
-                <li class="time-label">
-                <span class="bg-light-blue">
-                    <?= date('d F Y', strtotime($item->jadwalEventsTglMulai))?> - <?= date('d F Y', strtotime($item->jadwalEventsTglSelesai))?>
-                </span>
-                </li>
-                <!-- /.timeline-label -->
-
-                <!-- timeline item -->
-                <li>
-                    <!-- timeline icon -->
-                    <i class="fa fa-envelope bg-blue"></i>
-                    <div class="timeline-item">
-                        <h3 class="timeline-header"><?= $item->jadwalEventsNama?></h3>
-                    </div>
-                </li>
-                <!-- END timeline item -->
-
-                <?php
-                endforeach;
-                endif;
-                ?>
-
-
-
-            </ul>
-        </div>
-
-
 
 </div>
 

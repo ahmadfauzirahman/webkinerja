@@ -84,6 +84,36 @@ class Auth extends AuthAbstract
             'web-dokumentasi.delete',
             'web-dokumentasi.view',
 
+            'web-jns-industri.index',
+            'web-jns-industri.create',
+            'web-jns-industri.update',
+            'web-jns-industri.delete',
+            'web-jns-industri.view',
+
+            'web-booking.index',
+            'web-booking.create',
+            'web-booking.update',
+            'web-booking.delete',
+            'web-booking.view',
+
+            'web-kategori-stand.index',
+            'web-kategori-stand.create',
+            'web-kategori-stand.update',
+            'web-kategori-stand.delete',
+            'web-kategori-stand.view',
+
+            'web-stands.index',
+            'web-stands.create',
+            'web-stands.update',
+            'web-stands.delete',
+            'web-stands.view',
+
+            'web-venue.index',
+            'web-venue.create',
+            'web-venue.update',
+            'web-venue.delete',
+            'web-venue.view',
+
             'web-tiket-events.index',
 
             'web-setting.index',

@@ -98,6 +98,9 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-debug" />
       <path value="$PROJECT_DIR$/vendor/yiisoft/yii2-gii" />
+      <path value="$PROJECT_DIR$/vendor/marqu3s/yii2-summernote" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/summernote" />
+      <path value="$PROJECT_DIR$/vendor/bower-asset/codemirror" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

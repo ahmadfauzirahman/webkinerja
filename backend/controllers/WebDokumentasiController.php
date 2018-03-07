@@ -74,12 +74,17 @@ class WebDokumentasiController extends Controller
             $data = Yii::$app->request->post();
             $model->DokumentasiFoto = UploadedFile::getInstances($model, 'DokumentasiFoto');
 
-            if ($model->DokumentasiFoto){
+            if ($model->DokumentasiFoto != NULL){
                 foreach ($model->DokumentasiFoto as $item) {
                     $data['WebDokumentasi']['DokumentasiFoto'] = $item;
                     if ($model->load($data)){
-                        $model->save(false);
+//                        $model->save(false);
+                        $model1 = new WebDokumentasi();
+//                        $model->save();
                         $item->saveAs(Yii::$app->basePath . "/web/foto_events/" . $item->name);
+                        $model1->dokumentasiEventsID = $id;
+                        $model1->DokumentasiFoto = $item->name;
+                        $model1->save(false);
                     }
 
                     }

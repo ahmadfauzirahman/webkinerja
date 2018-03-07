@@ -59,6 +59,9 @@ class WebEventsController extends Controller
         $jadwal_count = WebJadwalEvents::find()->where(['jadwalEventsEventsID'=>$id])->count();
         $tiket_count = \common\models\WebTiketEvents::find()->where(['tiketEventsEventsID'=>$id])->count();
         $jadwal_presentasi_count = \common\models\WebPresentasi::find()->where(['presentasiEventsID'=> $id])->count();
+        $stands_count = \common\models\WebStands::find()->where(['standsEventsID'=>$id])->count();
+        $booking_count = \common\models\WebBooking::find()->where(['bookingEventsID'=>$id])->count();
+        $foto_count = \common\models\WebDokumentasi::find()->where(['dokumentasiEventsID'=> $id])->count();
 
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -66,6 +69,9 @@ class WebEventsController extends Controller
             'jadwal_count' => $jadwal_count,
             'tiket_count' => $tiket_count,
             'jadwal_presentasi_count'=> $jadwal_presentasi_count,
+            'stands_count' => $stands_count,
+            'booking_count' => $booking_count,
+            'foto_count' => $foto_count
         ]);
     }
 
@@ -81,11 +87,13 @@ class WebEventsController extends Controller
 
         $data = Yii::$app->request->post();
         $model->eventsThumbnails = UploadedFile::getInstance($model, 'eventsThumbnails');
+
         if ($model->eventsThumbnails != NULL)
             $data['WebEvents']['eventsThumbnails']
             = $model->eventsThumbnails;
         if ($model->load($data) && $model->save()) {
             $model->eventsThumbnails->saveAs(Yii::$app->basePath . "/web/foto_events/" . $model->eventsThumbnails->name);
+
             return $this->redirect([
                 'view', 'id' => $model->eventsID,
             ]);
@@ -111,10 +119,14 @@ class WebEventsController extends Controller
             $data['WebEvents']['eventsThumbnails'] = $model->eventsThumbnails;
         }
 
-        if ($model->load($data) && $model->save()) {
+        if ($model->load($data)) {
             if ($data['WebEvents']['eventsThumbnails'] != "") {
+                $model->save();
                 $model->eventsThumbnails->saveAs(Yii::$app->basePath . "/web/foto_events/" .
                     $model->eventsThumbnails->name);
+            }else{
+                $model['eventsThumbnails'] = WebEvents::findOne($id)['eventsThumbnails'];
+                $model->save();
             }
 
             return $this->redirect([

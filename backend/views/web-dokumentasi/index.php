@@ -29,7 +29,34 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
 //            'dokumentasiID',
-
+            [
+                'attribute' => '',
+                'headerOptions' => ['style' => 'width:60px'],
+                'format' => 'raw',
+                'value' => function($model){
+                    return '<button type="button" class="btn btn-default"
+            data-toggle="modal"
+            data-target="#foto-' . $model->dokumentasiEventsID . '"><img src="foto_events/' . $model->DokumentasiFoto . '" width="30px" height="30px"/></button>
+                
+                <div class="modal fade " id="foto-' . $model->dokumentasiEventsID. '" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        
+                      </div>
+                      <div class="modal-body text-center">
+                            <img src="foto_events/' . $model->DokumentasiFoto . '" width="800px"/>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ';
+                }
+            ],
             [
               'attribute' => 'dokumentasiEventsID',
               'value' => function($model){

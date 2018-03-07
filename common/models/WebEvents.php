@@ -58,7 +58,7 @@ class WebEvents extends \yii\db\ActiveRecord
             'eventsTanggalSelesai' => 'Tanggal Selesai',
             'eventsLokasi' => 'Lokasi Event',
             'eventsKeterangan' => 'Keterangan Lainnya',
-            'eventsThumbnails' => 'Thumbnails Event',
+            'eventsThumbnails' => 'Thumbnails',
             'eventsStatus' => 'Status Event',
         ];
     }

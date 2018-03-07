@@ -72,6 +72,7 @@ use yii\helpers\Html;
                 </div>
             </div>
         </div>
-    </div>
+<div class="clear"></div>
+<br>
 </div>
 <!-- end contact support -->

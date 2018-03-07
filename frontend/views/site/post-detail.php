@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-use kartik\social\Disqus;
+//use kartik\social\Disqus;
 use yii\helpers\Html;
 
 //$this->title = 'My Yii Application';
@@ -56,11 +56,6 @@ use yii\helpers\Html;
                 <p class="m-t-30"><?= $data->artikelIsi; ?>
                 </p>
                 <br>
-                <p>
-                    <?php
-                    echo Disqus::widget(['settings'=>['shortname'=>'DISQUS_SHORTNAME']]);
-                    ?>
-                </p>
             </div>
         </div>
         <div class="large-4 small-12 column">
@@ -90,6 +85,28 @@ use yii\helpers\Html;
                     ?>
                     </p>
                     <br/>
+                    <p>
+                    <div id="disqus_thread"></div>
+                    <script>
+
+                        /**
+                         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                        */
+                         var disqus_config = function () {
+                         this.page.url = '<?= $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';  // Replace PAGE_URL with your page's canonical URL variable
+                         this.page.identifier = <?= $data->artikelID; ?>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                         };
+
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://arifkynpa.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    </p>
                     <?php
                 }
                 ?>

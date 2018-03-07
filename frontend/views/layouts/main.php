@@ -37,6 +37,7 @@ AppAsset::register($this);
             border-color: #A7D558 !important;
         }
     </style>
+    <link rel="shortcut icon" href="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png"/>
 </head>
 <body>
 <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
@@ -112,7 +113,7 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-        <div class="header-middle" id="mainmenu" style="background:rgba(255, 255, 255); box-shadow:0px 2px 5px #cccccc;">
+        <div class="header-middle" id="mainmenu" style="background:#ffffff; box-shadow:0px 2px 5px #cccccc;">
             <div class="row">
                 <div class="large-5 small-10 column">
                     <div class="media-object">
@@ -294,13 +295,6 @@ AppAsset::register($this);
 </div>
 <?php
 $js = <<< JS
-    
-    // $(window).scroll(function(){
-	// 	if($(window).scrollTop() > -20){
-	// 		$("#mainmenu").css("background-color", 'rgba(255, 255, 255,'+ (0.0 + $(window).scrollTop() / 200) + ')');
-	// 		$("#mainmenu").css("border-bottom", '1px solid #dddddd');
-	// 	}
-	// });
 
      $('.animate').scrolla({
       mobile: true, // disable animation on mobiles
@@ -433,6 +427,7 @@ $js = <<< JS
 JS;
 $this->registerJs($js);
 ?>
+<script id="dsq-count-scr" src="//arifkynpa.disqus.com/count.js" async></script>
 </body>
 
 </html>

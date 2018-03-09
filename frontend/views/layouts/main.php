@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -69,8 +70,26 @@ AppAsset::register($this);
 
         ?>
         <li>
-            <a href="<?= Yii::$app->urlManager->createUrl('site/developer') ?>">Team Developer</a>
+            <a href="<?= Yii::$app->urlManager->createUrl('site/developer') ?>">Developer</a>
         </li>
+        <?php
+            if (!Yii::$app->user->isGuest) {
+                ?>
+                <li>
+                    <a href="<?= Url::to(['site/logout']) ?>">Logout</a>
+                </li>
+                <?php
+            } else {
+                ?>
+                <li>
+                    <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>">Login</a>
+                </li>
+                <li>
+                    <a href="<?= Yii::$app->urlManager->createUrl('site/register') ?>">Register</a>
+                </li>
+                <?php
+            }
+        ?>
     </ul>
 </div>
 <div class="off-canvas-content  is-sticky-wrapper  header-05-center    " data-off-canvas-content>
@@ -163,8 +182,26 @@ AppAsset::register($this);
 
                         ?>
                         <li>
-                            <a href="<?= Yii::$app->urlManager->createUrl('site/developer') ?>">Team Developer</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl('site/developer') ?>">Developer</a>
                         </li>
+                        <?php
+                        if (!Yii::$app->user->isGuest) {
+                            ?>
+                            <li>
+                                <a href="<?= Url::to(['site/logout']) ?>">Logout</a>
+                            </li>
+                            <?php
+                        } else {
+                            ?>
+                            <li>
+                                <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>">Login</a>
+                            </li>
+                            <li>
+                                <a href="<?= Yii::$app->urlManager->createUrl('site/register') ?>">Register</a>
+                            </li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -296,7 +333,8 @@ AppAsset::register($this);
 <?php
 $js = <<< JS
 
-     $('.animate').scrolla({
+$(document).ready(function(){
+    $('.animate').scrolla({
       mobile: true, // disable animation on mobiles
       once: true // only once animation play on scroll
     });
@@ -423,11 +461,10 @@ $js = <<< JS
         }
       }
     });
-
+});
 JS;
 $this->registerJs($js);
 ?>
-<script id="dsq-count-scr" src="//arifkynpa.disqus.com/count.js" async></script>
 </body>
 
 </html>

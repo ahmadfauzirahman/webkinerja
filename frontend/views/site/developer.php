@@ -8,7 +8,7 @@ use yii\helpers\Html;
 <br>
 <br>
 <!-- contact support -->
-<div class="section  p-b-60 p-t-60" id="developer" style="background: url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png') no-repeat; box-shadow: 0px -10px 20px -5px inset #eeeeee;>
+<div class="section  p-b-60 p-t-60" id="developer" style="background: url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png') no-repeat; box-shadow: 0px -10px 20px -5px inset #eeeeee;">
     <div class="row">
         <div class="large-12 large-centered column">
             <div class="section-header text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
@@ -74,5 +74,6 @@ use yii\helpers\Html;
         </div>
 <div class="clear"></div>
 <br>
+</div>
 </div>
 <!-- end contact support -->

@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\User\User;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -12,6 +13,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\controllers\UserController;
 
 /**
  * Site controller
@@ -42,9 +44,6 @@ class SiteController extends Controller
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
             ],
         ];
     }
@@ -235,5 +234,29 @@ class SiteController extends Controller
     public function actionEvent()
     {
         return $this->render('event');
+    }
+
+    public function actionRegister()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $model = new User();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['register-success']);
+        }
+
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionRegisterSuccess()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        return $this->render('register_success');
     }
 }

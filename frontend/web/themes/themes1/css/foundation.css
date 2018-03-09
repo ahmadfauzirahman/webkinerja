@@ -5329,7 +5329,7 @@ li {
   font-size: inherit; }
 
 ul {
-  margin-left: 1.25rem;
+  margin-left: 0;
   list-style-type: disc; }
 
 ol {

@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
         'assets/libs/animate.min.css',
         'css/foundation.css',
         'css/styles_foundation.css',
+        'css/bootstrap.css',
     ];
     public $js = [
         'assets/libs/jquery.js',

@@ -21,7 +21,8 @@
         "dmstr/yii2-adminlte-asset": "^2.1",
         "yiister/yii2-gentelella": "~1.0",
         "kartik-v/yii2-widgets": "*",
-        "marqu3s/yii2-summernote": "dev-master"
+        "marqu3s/yii2-summernote": "dev-master",
+        "kartik-v/yii2-social": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

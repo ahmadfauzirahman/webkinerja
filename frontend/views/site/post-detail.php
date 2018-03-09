@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 //use kartik\social\Disqus;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
 
 //$this->title = 'My Yii Application';
 ?>
@@ -51,6 +52,18 @@ use yii\helpers\Html;
 <div class="section p-t-60 p-b-60" id="about">
     <div class="row">
         <div class="large-8 small-12 column">
+            <?php
+            $this->title = $data->artikelJudul;
+            $this->params['breadcrumbs'][] = ['label' => ucfirst(\common\models\WebKategoriArtikel\WebKategoriArtikel::findOne($data->artikelKategoriID)['kategoriArtikelNama']), 'url' => ['post', 'kategori' => $data->artikelKategoriID]];
+            if(strlen($this->title) > 70) {
+                $this->params['breadcrumbs'][] = substr($this->title, 0, 70) . '...';
+            } else {
+                $this->params['breadcrumbs'][] = $this->title;
+            }
+            ?>
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
             <div class="el-content text-left  animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
                 <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $data->artikelThumbnails ?>" style="width:100%; height:auto; max-height: 500px; margin-bottom:20px; border: 10px solid #efefef;" />
                 <p class="m-t-30"><?= $data->artikelIsi; ?>
@@ -76,8 +89,16 @@ use yii\helpers\Html;
                     <div class="side-link">
                         <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d1Data->artikelThumbnails ?>" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
                         <a href="?r=site/post-detail&id=<?= $d1Data->artikelID ?>">
-                            <?= $d1Data->artikelJudul ?>
+                            <?php
+                                if(strlen($d1Data->artikelJudul) > 70){
+                                    echo substr($d1Data->artikelJudul,0,70).'...';
+                                } else {
+                                    echo $d1Data->artikelJudul;
+                                }
+                            ?>
                         </a>
+                        <br/>
+                        <small style="font-size: 12px;"><i><?= date('d F Y',strtotime($d1Data->artikelTglPost)) ?></i></small>
                         <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
                     </div>
                         <?php
@@ -126,8 +147,16 @@ use yii\helpers\Html;
                     <div class="side-link">
                                 <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d1Data->artikelThumbnails ?>" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
                                 <a href="?r=site/post-detail&id=<?= $d1Data->artikelID ?>">
-                                <?= $d1Data->artikelJudul ?>
+                                    <?php
+                                    if(strlen($d1Data->artikelJudul) > 70){
+                                        echo substr($d1Data->artikelJudul,0,70).'...';
+                                    } else {
+                                        echo $d1Data->artikelJudul;
+                                    }
+                                    ?>
                                 </a>
+                                <br/>
+                                <small style="font-size: 12px;"><i><?= date('d F Y',strtotime($d1Data->artikelTglPost)) ?></i></small>
                                     <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
                     </div>
                                 <?php

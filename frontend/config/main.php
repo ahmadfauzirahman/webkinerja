@@ -18,7 +18,7 @@ return [
             'theme' => [
                 'class' => 'yii\base\Theme',
                 'pathMap' => ['@app/views' => ''],
-                'baseUrl' => 'themes/'.$params['theme']
+                'baseUrl' => 'themes/'.$params['theme'],
             ]
         ],
         'request' => [

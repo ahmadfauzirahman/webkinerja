@@ -233,7 +233,9 @@ class SiteController extends Controller
 
     public function actionEvent()
     {
-        return $this->render('event');
+        $event = \common\models\WebEvents::findOne(['eventsID' => '6']);
+        $stand_count = \common\models\WebStands::find()->where(['standsEventsID'=>$event->eventsID])->count();
+        return $this->render('event', ['event'=>$event, 'stand_count'=>$stand_count]);
     }
 
     public function actionRegister()

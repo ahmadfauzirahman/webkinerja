@@ -36,10 +36,13 @@ class User extends \yii\db\ActiveRecord
             //[['username', 'password', 'nama', 'email','telepon'], 'required'],
             [['username', 'password', 'nama', 'email','telepon'], 'required', 'message' => 'Field ini tidak boleh kosong.'],
             [['foto', 'role'], 'string'],
-            [['tanggal_pendaftaran'], 'safe'],
+            [['tanggal_pendaftaran'], 'default', 'value'=> date('Y-m-d h:i:s')],
             [['username', 'password'], 'string', 'max' => 255],
             [['nama', 'email'], 'string', 'max' => 35],
-            [['telepon'], 'string', 'max' => 20],
+            [['telepon'], 'string', 'max' => 12],
+            [['email'], 'unique', 'message' => 'Email ini telah digunakan akun lain' ],
+            [['username'], 'unique', 'message' => 'Username ini telah digunakan akun lain' ],
+            [['role'], 'default', 'value' => 'user']
         ];
     }
 

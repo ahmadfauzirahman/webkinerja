@@ -75,8 +75,13 @@ AppAsset::register($this);
         <?php
             if (!Yii::$app->user->isGuest) {
                 ?>
-                <li>
-                    <a href="<?= Url::to(['site/logout']) ?>">Logout</a>
+                <li class="has-submenu">
+                    <a href="#0">@<?= Yii::$app->user->identity->username ?></a>
+                    <ul class="submenu menu vertical" data-submenu>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard') ?>">Dashboard</a></li>
+                        <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard/profile') ?>">Profil</a></li>
+                        <li><a href="<?= Url::to(['site/logout']) ?>">Logout</a></li>
+                    </ul>
                 </li>
                 <?php
             } else {
@@ -187,8 +192,13 @@ AppAsset::register($this);
                         <?php
                         if (!Yii::$app->user->isGuest) {
                             ?>
-                            <li>
-                                <a href="<?= Url::to(['site/logout']) ?>">Logout</a>
+                            <li class="has-submenu">
+                                <a href="#0">@<?= Yii::$app->user->identity->username ?></a>
+                                <ul class="submenu menu vertical" data-submenu>
+                                    <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard') ?>">Dashboard</a></li>
+                                    <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard/profile') ?>">Profil</a></li>
+                                    <li><a href="<?= Url::to(['site/logout']) ?>">Logout</a></li>
+                                </ul>
                             </li>
                             <?php
                         } else {
@@ -333,7 +343,9 @@ AppAsset::register($this);
 <?php
 $js = <<< JS
 
-$(document).ready(function(){
+    
+jQuery.noConflict();
+
     $('.animate').scrolla({
       mobile: true, // disable animation on mobiles
       once: true // only once animation play on scroll
@@ -461,7 +473,7 @@ $(document).ready(function(){
         }
       }
     });
-});
+    
 JS;
 $this->registerJs($js);
 ?>

@@ -21,10 +21,10 @@ use yii\helpers\Html;
                 <div class="clear"></div>
                 <p class="m-t-30">Contact our Team if you have opinion, idea, or problems and information</p>
             </div>
-            <div class="section-content m-t-60">
+            <div class="section-content">
                 <div class="large-12 column text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                    <div class="el-icon font-size-30 m-b-15">
-                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
+                    <div class="el-icon font-size-30 m-b-15 p-t-60">
+                        <img class="avatar" style="border: 1px solid #f5f5f5;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
                     </div>
                     <div class="el-title">
                         <h5 class="el-title font-size-18">Mr. Alwis Nazir</h5>
@@ -34,8 +34,8 @@ use yii\helpers\Html;
                 <div class="clear"></div>
                 <br/>
                 <div class="large-3 column text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                    <div class="el-icon font-size-30 m-b-15">
-                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
+                    <div class="el-icon font-size-30 m-b-15 p-t-60">
+                        <img class="avatar" style="border: 1px solid #f5f5f5;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
                     </div>
                     <div class="el-title">
                         <h5 class="el-title font-size-18">Mr. Ahmad Fauzi Rahman</h5>
@@ -43,8 +43,8 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class="large-3 column text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                    <div class="el-icon font-size-30 m-b-15">
-                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
+                    <div class="el-icon font-size-30 m-b-15 p-t-60">
+                        <img class="avatar" style="border: 1px solid #f5f5f5;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
                     </div>
                     <div class="el-title">
                         <h5 class="el-title font-size-18">Mr. Arifky Nanda Prasetya</h5>
@@ -52,8 +52,8 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class="large-3 column text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                    <div class="el-icon font-size-30 m-b-15">
-                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
+                    <div class="el-icon font-size-30 m-b-15 p-t-60">
+                        <img class="avatar" style="border: 1px solid #f5f5f5;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
                     </div>
                     <div class="el-title">
                         <h5 class="el-title font-size-18">Mr. Alief AlHadi</h5>
@@ -61,8 +61,8 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class="large-3 column text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                    <div class="el-icon font-size-30 m-b-15">
-                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
+                    <div class="el-icon font-size-30 m-b-15 p-t-60">
+                        <img class="avatar" style="border: 1px solid #f5f5f5;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/avatar.png" width="80">
                         <!--                            /themes/themes1/images/icons/socmed-2/7analytic-icon3.svg-->
                     </div>
                     <div class="el-title">

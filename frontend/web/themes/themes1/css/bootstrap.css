@@ -4675,17 +4675,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   background-color: #fff;
   border: 1px solid #ddd;
 }
-.pagination > li:first-child > a,
-.pagination > li:first-child > span {
-  margin-left: 0;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.pagination > li:last-child > a,
-.pagination > li:last-child > span {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
+/*.pagination > li:first-child > a,*/
+/*.pagination > li:first-child > span {*/
+  /*margin-left: 0;*/
+  /*border-top-left-radius: 4px;*/
+  /*border-bottom-left-radius: 4px;*/
+/*}*/
+/*.pagination > li:last-child > a,*/
+/*.pagination > li:last-child > span {*/
+  /*border-top-right-radius: 4px;*/
+  /*border-bottom-right-radius: 4px;*/
+/*}*/
 .pagination > li > a:hover,
 .pagination > li > span:hover,
 .pagination > li > a:focus,
@@ -4724,32 +4724,32 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-size: 18px;
   line-height: 1.3333333;
 }
-.pagination-lg > li:first-child > a,
-.pagination-lg > li:first-child > span {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-.pagination-lg > li:last-child > a,
-.pagination-lg > li:last-child > span {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
+/*.pagination-lg > li:first-child > a,*/
+/*.pagination-lg > li:first-child > span {*/
+  /*border-top-left-radius: 6px;*/
+  /*border-bottom-left-radius: 6px;*/
+/*}*/
+/*.pagination-lg > li:last-child > a,*/
+/*.pagination-lg > li:last-child > span {*/
+  /*border-top-right-radius: 6px;*/
+  /*border-bottom-right-radius: 6px;*/
+/*}*/
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
 }
-.pagination-sm > li:first-child > a,
-.pagination-sm > li:first-child > span {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-.pagination-sm > li:last-child > a,
-.pagination-sm > li:last-child > span {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
+/*.pagination-sm > li:first-child > a,*/
+/*.pagination-sm > li:first-child > span {*/
+  /*border-top-left-radius: 3px;*/
+  /*border-bottom-left-radius: 3px;*/
+/*}*/
+/*.pagination-sm > li:last-child > a,*/
+/*.pagination-sm > li:last-child > span {*/
+  /*border-top-right-radius: 3px;*/
+  /*border-bottom-right-radius: 3px;*/
+/*}*/
 .pager {
   padding-left: 0;
   margin: 20px 0;

@@ -34,7 +34,7 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             //[['username', 'password', 'nama', 'email','telepon'], 'required'],
-            [['username', 'password', 'nama', 'email','telepon'], 'required', 'message' => 'Field ini tidak boleh kosong.'],
+            [['username', 'password', 'nama', 'email','telepon','role'], 'required', 'message' => 'Field ini tidak boleh kosong.'],
             [['foto', 'role'], 'string'],
             [['tanggal_pendaftaran'], 'default', 'value'=> date('Y-m-d h:i:s')],
             [['username', 'password'], 'string', 'max' => 255],
@@ -42,7 +42,8 @@ class User extends \yii\db\ActiveRecord
             [['telepon'], 'string', 'max' => 12],
             [['email'], 'unique', 'message' => 'Email ini telah digunakan akun lain' ],
             [['username'], 'unique', 'message' => 'Username ini telah digunakan akun lain' ],
-            [['role'], 'default', 'value' => 'user']
+            [['token_aktivasi'], 'string'],
+            [['status'], 'default', 'value' => 'Pending'],
         ];
     }
 
@@ -61,6 +62,8 @@ class User extends \yii\db\ActiveRecord
             'foto' => 'Foto',
             'tanggal_pendaftaran' => 'Tanggal Pendaftaran',
             'role' => 'Role',
+            'token_aktifasi' => 'Token Aktifasi',
+            'status' => 'Status',
         ];
     }
 }

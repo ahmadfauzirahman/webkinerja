@@ -72,6 +72,7 @@ class WebArtikelController extends Controller
         $model = new WebArtikel();
 
         $data = Yii::$app->request->post();
+        $model->artikelUserID = Yii::$app->user->identity->userID;
         $model->artikelThumbnails= UploadedFile::getInstance($model, 'artikelThumbnails');
         if ($model->artikelThumbnails != NULL) $data['WebArtikel']['artikelThumbnails'] = $model->artikelThumbnails;
 //        $model->tanggal_pendaftaran = date('Y-m-d H:i:s');

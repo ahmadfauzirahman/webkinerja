@@ -2,580 +2,117 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+use yii\widgets\Pjax;
 
 //$this->title = 'My Yii Application';
 ?>
 <br>
 <br>
-<div id="expertise" class="section p-t-60 bg--grey" style="
-    background-image:url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png');
-    padding-bottom:100px;
-    ">
+<div class="section p-t-30 p-b-30" id="about" style="background: url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png'); box-shadow: 0px -10px 20px -5px inset #eeeeee;">
     <div class="row">
-        <div class="large-8 medium-12 small-12 large-centered column">
-            <div class="el-content text-center   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                <p class="el-subtitle">Our Expertise</p>
-                <h2 class="el-title">Strengthen Brand</h2>
-                <div class="divider"></div>
+        <div class="large-12 small-12 column">
+            <div class="el-content text-left  animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
+                <p class="el-subtitle">LOWONGAN</p>
+                <h2 class="el-title" style="text-shadow: 5px 5px 5px #dddddd;">Temukan Lowongan Pekerjaan Yang Cocok Untuk Anda</h2>
                 <div class="clear"></div>
-                <p class="m-t-30">When you have a steady stream of qualified prospects engaged with your brand, your possibilities are limitless!
-                    Capitalize on the opportunities to:</p>
+                <p class="m-t-0 m-b-0">Kami menyediakan informasi mengenai berbagai macam lowongan pekerjaan dari berbagai perusahaan.</p>
             </div>
         </div>
     </div>
+</div>
+<div class="section p-t-30 p-b-60 bg--grey" id="blog" style="background:#ffffff url('images/ppc/ppc_section-bg-01.png') repeat;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
     <div class="row">
-        <div class="large-12 medium-12 small-12 column">
-            <div class="section-content block-tab-v p-t-60">
-                <div class="row collapse">
-                    <div class="medium-3 small-2 columns">
-                        <ul class="tabs vertical m-t-60" id="example-vert-tabs" data-tabs>
-                            <li class="tabs-title is-active">
-                                <a href="#panel1v" aria-selected="true">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">1</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Strategy & Insight</h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="tabs-title">
-                                <a href="#panel2v">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">2</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Creative Campaigns</h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="tabs-title">
-                                <a href="#panel3v">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">3</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Listening & Engagement</h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="tabs-title">
-                                <a href="#panel4v">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">4</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Content Development & Production </h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="tabs-title">
-                                <a href="#panel5v">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">5</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Media Amplification</h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="tabs-title">
-                                <a href="#panel6v">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">6</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Influencer Engagement </h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="tabs-title">
-                                <a href="#panel7v">
-                                    <div class="media-object no-margin">
-                                        <div class="media-object-section">
-                                            <span class="badge">7</span>
-                                        </div>
-                                        <div class="media-object-section">
-                                            <h5 class="no-margin">Analytics & Reporting</h5>
-                                            <p>Objective-driven Social Media </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="medium-9 small-10 columns">
-                        <div class="tabs-content bg-white vertical m-b-80 m-r-60 m-0-small" data-tabs-content="example-vert-tabs">
-                            <!-- tabs content 01 -->
-                            <div class="tabs-panel is-active" id="panel1v">
-                                <div class="block-tab-v_content">
-                                    <div class="label success uppercase">Good Data is data</div>
-                                    <h3 class="block-tab-v_content-title m-t-15 m-b-5">Strategy & Insight</h3>
-                                    <div class="block-tab-v_content-subtitle">Satisfied Customer is the Best Business Strategy</div>
-                                    <figure class="m-t-30 m-b-60">
-                                        <img src="images/icons/socmed/1strategyinsight-illust.svg" width="100%">
-                                    </figure>
-                                    <div class="row large-up-2 medium-up-2 small-up-1 el-list-h" data-equalizer data-equalize-by-row="true">
-                                        <div class="column m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section el-icon ">
-                                                    <img src="images/icons/socmed/1strategyinsight-icon1.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Setting Goals for ROI</h5>
-                                                    <p class="el-desc font-size-14">Specific, Measurable, Achievable, Realistic and Time sensitive approach to avoid the pitfalls.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/1strategyinsight-icon2.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Setting Social Performance</h5>
-                                                    <p class="el-desc font-size-14">Identify and measure what methods and practices work in a social media campaign.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+        <div class="large-3 column">
+            <p class="el-subtitle text-bluedark">Kategori Lowongan</p>
+            <div class="divider float-left"></div>
+            <div class="clear"></div>
+            <p class="m-t-30">
+                <?php
 
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/1strategyinsight-icon3.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Integrated Strategy</h5>
-                                                    <p class="el-desc font-size-14">Automate social campaign executions with easy-to-follow via an intuitive interface.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/1strategyinsight-icon4.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Competitive Intelligent</h5>
-                                                    <p class="el-desc font-size-14">Foundational and Audience Analysis, Product Positioning, Competition, Sales Projections, Brand
-                                                        Perception.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                $kL = ['1'=>'Lowongan Kerja','2' => 'Lowongan Magang'];
+                foreach($kL AS $klk => $klv){
+                    $s = '';
+                    if(isset($_GET['LowonganSearch'])){
+                        if($_GET['LowonganSearch']['lowonganKategoriLowonganID'] == $klk){
+                            $s = 'style="color:#666666;"';
+                        } else {
 
-                                    </div>
+                        }
+                    }
+                    echo '<a href="'.Yii::$app->urlManager->createUrl(['site/lowongan', 'DashboardLowonganSearch' => ['lowonganKategoriLowonganID' => $klk]]).'" '.$s.'>'.$klv.'</a><br><hr/>';
+                }
+                $ss = '';
+                if(!isset($_GET['LowonganSearch']['lowonganKategoriLowonganID'])) {
+                    $ss = 'style="color:#666666;"';
+                }
+                echo '<a href="' . Yii::$app->urlManager->createUrl(['site/lowongan']) . '" '.$ss.'>Semua Kategori</a><br><hr/>';
+                ?>
+            </p>
+        </div>
+        <div class="large-9 column">
+            <?php Pjax::begin(); ?>
+
+            <?php echo $this->render('lowongan_search', ['model' => $searchModel]); ?>
+
+            <?= \yii\widgets\ListView::widget([
+                'dataProvider' => $provider,
+                'options' => [
+                    'tag' => 'div',
+                    'class' => 'text-center',
+                ],
+                'itemView' => function($model,$key,$index,$widget){
+                    $dP = \common\models\WebPerusahaan\WebPerusahaan::find()->where(['perusahaanID' => $model->lowonganPerusahaanID])->one();
+                    $status = \frontend\models\Dashboard\DashboardUserPremium::find()->where(['userID' => $dP->perusahaanUserID])->one()['userPremiumStatus'];
+                    ?>
+                    <div class="col-lg-12">
+                        <div class="card-article-hover card card-lowongan" <?php if($status == 'Aktif'){ echo 'style="border:1px solid #A7D558"'; } ?>>
+                            <div class="card-section" style="padding: 10px; padding-top: 20px; margin: 0; width:100%;">
+                                <div class="col-lg-8">
+                                    <img src="<?= Yii::$app->request->baseUrl ?>./../../backend/web/logoperusahaan/<?= $dP->perusahaanFoto ?>" style="float:left; width:75px; height:75px; margin-right: 15px; border: 5px solid #efefef;" />
+                                    <p class="article-desc">
+                                        <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-detail', 'id' => $model->lowonganID])?>">
+                                            <?= $model->lowonganNama; ?>
+                                        </a>
+
+                                        <br><b><?= $dP['perusahaanNama'] ?></b><br>
+
+                                        <?php $dK = \common\models\WebKota::find()->where(['kotaID' => $dP['perusahaanKotaID']])->one() ?>
+                                        <small><?= $dK['kotaNama'] ?> - <?= $dP['perusahaanNegaraID'] ?></small>
+                                        <br/>
+                                    <div class="clear"></div>
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="tabs-panel" id="panel2v">
-                                <div class="block-tab-v_content">
-                                    <div class="label success uppercase">Cohesive Creative Team</div>
-                                    <h3 class="block-tab-v_content-title m-t-15 m-b-5">Creative Campaigns</h3>
-                                    <div class="block-tab-v_content-subtitle">Building social campaigns and rich brand experiences that drive consumer engagement.</div>
-                                    <div class="row">
-                                        <div class="medium-6 column">
-                                            <div class="v-list-tab m-t-30">
-                                                <div class="media-object m-b-30">
-                                                    <div class="media-object-section el-icon ">
-                                                        <img src="images/icons/socmed/2creativecampaign-icon1.svg" width="50">
-                                                    </div>
-                                                    <div class="media-object-section">
-                                                        <h5 class="el-title">Dynamic Storytelling</h5>
-                                                        <p class="el-desc font-size-14">The content speaks straight to the human heart makes advertising campaigns memorable.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object m-b-30">
-                                                    <div class="media-object-section el-icon ">
-                                                        <img src="images/icons/socmed/2creativecampaign-illust2.svg" width="50">
-                                                    </div>
-                                                    <div class="media-object-section">
-                                                        <h5 class="el-title">Creative Technologist</h5>
-                                                        <p class="el-desc font-size-14">Bring great ideas and technology together to build your business revenue and future.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object m-b-30">
-                                                    <div class="media-object-section el-icon ">
-                                                        <img src="images/icons/socmed/2creativecampaign-illust3.svg" width="50">
-                                                    </div>
-                                                    <div class="media-object-section">
-                                                        <h5 class="el-title">Creative Data Driven</h5>
-                                                        <p class="el-desc font-size-14">Ffficiency meets emotion. Good data help inform your business decisions and deliver the right
-                                                            messages.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="medium-6 column">
-                                            <figure class="m-t-30 m-b-60">
-                                                <img src="images/icons/socmed/2creativecampaign-illust.svg" height="400">
-                                            </figure>
-                                        </div>
+                                <div class="col-lg-4">
+                                    <?php if(date("Y-m-d") <= $model->lowonganValid){ ?>
+                                    <div class="pull-right"><b style="font-size: 15px"><?= date_diff(date_create(date($model->lowonganValid)),date_create())->d ?></b> <small><i>Hari Lagi</i></small></div>
+                                    <?php } else { ?>
+                                    <div class="pull-right"><small><i>Pendaftaran Ditutup</i></small></div>
+                                    <?php } ?>
+                                    <div class="clear"></div>
+                                    <?php
+                                    if($status == 'Aktif'){ echo '<span class="badge badge-success pull-right"><i class="fa fa-star" style="color: yellow;"></i> <b>Premium Company</b> </span>'; }
+                                    ?>
+                                    <div class="clear"></div><br>
+                                    <div class="pull-right">
+                                        <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-detail', 'id' => $model->lowonganID])?>"><b>SELENGKAPNYA</b> <i class="fa fa-chevron-right"></i></a>
                                     </div>
-                                    <!-- -->
-                                    <div class="row">
-                                        <div class="medium-9 column">
-                                            <div class="el-desc fs-14 p-t-25">
-                                                When you have steady stream of qualified prospects engaged with your brand
-                                            </div>
-                                        </div>
-                                        <div class="medium-3  column">
-                                            <a href="#features" class="button m-t-15 m-b-5 expanded -rounded warning">Start a Project</a>
-                                        </div>
-                                    </div>
-                                    <!-- -->
+                                    <div class="clear"></div>
                                 </div>
-                            </div>
-                            <div class="tabs-panel" id="panel3v">
-                                <div class="block-tab-v_content">
-                                    <div class="row">
-                                        <div class="medium-6 column">
-                                            <figure class="m-t-30 m-b-60">
-                                                <img src="images/icons/socmed/3listen-illust.svg" height="400">
-                                            </figure>
-                                            <div class="label success uppercase">Social Conversation</div>
-                                            <h3 class="block-tab-v_content-title m-t-15 m-b-5">Listening & Engagement</h3>
-                                            <div class="el-desc m-t-15  fs-14">
-                                                <p>Tracking conversations around specific phrases, words or brands, and then leveraging them to
-                                                    discover opportunities or create content for those audiences.</p>
-                                            </div>
-                                        </div>
-                                        <div class="medium-6 column">
-                                            <div class="v-list-tab m-t-30">
-                                                <div class="v-list-tab_item">
-                                                    <div class="el-icons">
-                                                        <img src="images/icons/socmed/3listen-icon1.svg" width="80">
-                                                    </div>
-                                                    <h5 class="el-title">Customer Service</h5>
-                                                    <div class="el-desc fs-14">
-                                                        <p>People now turn to social networks for venting, questions and feedback, giving businesses
-                                                            a huge opportunity to be more involved in the customer experience.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="v-list-tab_item">
-                                                    <div class="el-icons">
-                                                        <img src="images/icons/socmed/3listen-icon2.svg" width="80">
-                                                    </div>
-                                                    <h5 class="el-title">Identify Influencers</h5>
-                                                    <div class="el-desc  fs-14">
-                                                        <p>90% of consumers trust peer recommendations, while only 33% trust ads. Engagement is the
-                                                            key to strengthen those relationships. </p>
-                                                    </div>
-                                                </div>
-                                                <div class="v-list-tab_item">
-                                                    <div class="el-icons">
-                                                        <img src="images/icons/socmed/3listen-icon3.svg" width="80">
-                                                    </div>
-                                                    <h5 class="el-title">Track Hashtags & Phrases</h5>
-                                                    <div class="el-desc  fs-14">
-                                                        <p>We provides a set of social media monitoring tools that make it easy for you to monitor what’s
-                                                            being said.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- end v-list-tab -->
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="tabs-panel" id="panel4v">
-                                <div class="block-tab-v_content">
-                                    <figure class="m-b-30">
-                                        <img src="images/icons/socmed/4contentdev-illust.svg" width="100%">
-                                    </figure>
-                                    <div class="label success uppercase">Good Data is data</div>
-                                    <h3 class="block-tab-v_content-title m-t-15 m-b-5">Content Development & Production</h3>
-                                    <div class="block-tab-v_content-subtitle m-b-30">Highlight the deep integration between our strategy, process, and our world-class technology, put to
-                                        work in pursuit of ROI.</div>
-
-                                    <div class="row large-up-2 medium-up-2 small-up-1 el-list-h" data-equalizer data-equalize-by-row="true">
-                                        <div class="column m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon1.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Concept Development</h5>
-                                                    <p class="el-desc font-size-14">People now turn to social networks for venting, questions and feedback.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon2.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Content Editing</h5>
-                                                    <p class="el-desc font-size-14">90% of consumers trust peer recommendations, only 33% trust.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon3.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Production Planning</h5>
-                                                    <p class="el-desc font-size-14">We provides a set of social media monitoring tools that make it easy.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon4.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Distribution</h5>
-                                                    <p class="el-desc font-size-14">We provides a set of social media monitoring tools that make it easy.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabs-panel" id="panel5v">
-                                <div class="block-tab-v_content">
-                                    <figure class="m-b-30" style="margin-top:-50px;margin-left:-50px;margin-right:-50px;border-radius:3px 3px 0px 0px;overflow:hidden;">
-                                        <img src="http://via.placeholder.com/805x470" width="100%">
-                                    </figure>
-                                    <div class="row">
-                                        <div class="medium-8 column">
-                                            <h3 class="block-tab-v_content-title m-t-15 m-b-5">Media Amplification</h3>
-                                            <div class="block-tab-v_content-desc fs-14">We are using social amplification to get your brand heard. Our purposes are to ncrease word-of-mouth
-                                                exposure through employees, customers, industry partners, fans and influencers.</div>
-                                        </div>
-                                        <div class="medium-4 column">
-                                            <div class="el-content p-t-15">
-                                                <h5 class="el-title">What We Do:</h5>
-                                                <ul>
-                                                    <li>Amplify Very Best Content</li>
-                                                    <li>Leverage Influencer Marketing</li>
-                                                    <li>Remarketing</li>
-                                                    <li>Niche Communities</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabs-panel" id="panel6v">
-                                <div class="block-tab-v_content">
-                                    <div class="el-content block-tab-v_cover text-center m-b-30" style="
-
-                          background: url(http://via.placeholder.com/805x470);
-                          margin-left: -50px;
-                          margin-top: -50px;
-                          margin-right: -50px;
-                          padding-top: 190px;
-                          padding-bottom: 10px;
-                          color: #FFFFFF;
-                          border-radius: 3px 3px 0px 0px;
-
-                      ">
-                                        <div class="label success uppercase">Good Data is data</div>
-                                        <h3 class="block-tab-v_content-title m-t-15 m-b-5">Content Development & Production</h3>
-                                    </div>
-
-                                    <div class="el-desc text-center m-b-30 fs-14">
-                                        <p>Influencers are powerful in any industry because they are one of the primary resources for your buyers
-                                            as they’re making purchasing decisions, social channels are the fastest way to these industry leaders.</p>
-                                    </div>
-                                    <div class="row large-up-3 medium-up-2 small-up-1 el-list-h" data-equalizer data-equalize-by-row="true">
-                                        <div class="column m-b-30 p-r-0" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon1.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Listen</h5>
-                                                    <p class="el-desc font-size-14">Listen to conversations, search, read and build influencers list.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30 p-r-0" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon2.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Learn</h5>
-                                                    <p class="el-desc font-size-14">Understand what they are about and note their context.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="column  m-b-30 p-r-0" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon3.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Track</h5>
-                                                    <p class="el-desc font-size-14">Conversation only related to the influencers. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30 p-r-0" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon4.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Engage</h5>
-                                                    <p class="el-desc font-size-14">Build a relationship to figure out how you can help them.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="column  m-b-30 p-r-0" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon3.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Elevate</h5>
-                                                    <p class="el-desc font-size-14">Conversation with influencer and take both side benefits.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30 p-r-0" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/4contentdev-icon4.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Prosper</h5>
-                                                    <p class="el-desc font-size-14">Long-term relation which will lead to long term results.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tabs-panel" id="panel7v">
-                                <div class="block-tab-v_content">
-                                    <div class="el-content block-tab-v_cover m-b-30" style="
-
-                          background: url(images/analityc-reporting-img.jpg);
-                          margin-left: -50px;
-                          margin-top: -50px;
-                          margin-right: -50px;
-                          min-height:300px;
-                          color: #FFFFFF;
-                          padding:50px 50px 50px 30px;
-                          border-radius: 3px 3px 0px 0px;
-
-                      ">
-                                        <div class="label success uppercase">Essential Data Summaries</div>
-                                        <h3 class="block-tab-v_content-title m-t-15 m-b-5">Analytics & Reporting</h3>
-                                        <div class="block-tab-v_content-subtitle m-b-30">Measure your brand's social media impact and improve</div>
-                                    </div>
-
-
-
-                                    <div class="row large-up-2 medium-up-2 small-up-1 el-list-h" data-equalizer data-equalize-by-row="true">
-                                        <div class="column m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section el-icon ">
-                                                    <img src="images/icons/socmed/7analytic-icon1.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Data Indicators</h5>
-                                                    <p class="el-desc font-size-14">Create business goals that can be measured with data indicators</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/7analytic-icon2.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Scheduled Report</h5>
-                                                    <p class="el-desc font-size-14">One time briefing, continuous updates, clear focus.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/7analytic-icon3.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Audience Analysis</h5>
-                                                    <p class="el-desc font-size-14">Evaluate audience size, engagement, and demographics.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/7analytic-icon4.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Tracking Report</h5>
-                                                    <p class="el-desc font-size-14">Track social media campaign progress and Identify trends.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/7analytic-icon5.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Reach and Engagement</h5>
-                                                    <p class="el-desc font-size-14">Compare data from individual campaign, posts, or pages.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column  m-b-30" data-equalizer-watch>
-                                            <div class="media-object no-margin">
-                                                <div class="media-object-section  el-icon ">
-                                                    <img src="images/icons/socmed/7analytic-icon6.svg" width="50">
-                                                </div>
-                                                <div class="media-object-section p-l-15">
-                                                    <h5 class="el-title">Recommendation</h5>
-                                                    <p class="el-desc font-size-14">Source for ongoing optimization and decision support.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
+                                <div class="clear"></div>
                             </div>
                         </div>
-                        <!-- end panel 7v -->
                     </div>
-                </div>
-            </div>
+                    <div class="clear"></div>
+                    <?php
+                },
+                'pager' => [
+                        'firstPageLabel' => false,
+                        'lastPageLabel' => false,
+                        'prevPageLabel' => "<i class='fa fa-chevron-left'></i>",
+                        'nextPageLabel' => "<i class='fa fa-chevron-right'></i>",
+                ],
+            ]) ?>
+            <?php Pjax::end(); ?>
         </div>
     </div>
 </div>

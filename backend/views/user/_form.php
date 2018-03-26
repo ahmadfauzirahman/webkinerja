@@ -33,8 +33,9 @@ use yii\widgets\ActiveForm;
             'pluginOptions' => [
                 'initialPreview' => 'foto/' . $model->foto,
                 'initialPreviewAsData' => TRUE,
-                'initialCaption' => "$model->nama",
-//                'value' => "$model->nama"
+                'initialCaption' => [
+                    'value' => $model->nama,
+                ]
             ],
         ] : [];
         ?>

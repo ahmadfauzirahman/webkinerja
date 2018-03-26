@@ -41,7 +41,11 @@ class WebArtikelSearch extends WebArtikel
      */
     public function search($params)
     {
-        $query = WebArtikel::find();
+        if(Yii::$app->user->identity->role == 'admin'){
+            $query = WebArtikel::find();
+        } else {
+            $query = WebArtikel::find()->where(['artikelUserID' => Yii::$app->user->identity->userID]);
+        }
 
         // add conditions that should always apply here
 

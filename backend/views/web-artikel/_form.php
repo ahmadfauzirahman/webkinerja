@@ -17,8 +17,6 @@ use yii\widgets\ActiveForm;
         'options'=>['enctype'=>'multipart/form-data'] // important
     ]); ?>
 
-    <?= $form->field($model, 'artikelUserID')->hiddenInput(['value' => Yii::$app->user->identity->userID])->label(false) ?>
-
     <div class="col-md-12">
     <?= $form->field($model, 'artikelJudul')->textInput(['placeholder' => 'Artikel Judul']) ?>
     </div>

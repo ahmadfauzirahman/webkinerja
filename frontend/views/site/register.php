@@ -31,7 +31,7 @@ use yii\helpers\Html;
                         <br/>
                         <br/>
                         <br/>
-                        <a href="#" class="btn btn-lg btn-block btn-warning">Pelajari lebih lanjut</a>
+                        <a href="<?= \common\models\WebSetting::findOne(1)['settingPageGuide'] ?>" target="_blank" class="btn btn-lg btn-block btn-warning">Pelajari lebih lanjut</a>
                     </p>
                 </div>
             </div>
@@ -47,8 +47,9 @@ use yii\helpers\Html;
 
                 <div class="user-form">
 
-                    <?= $this->render('register_form', [
+                    <?= $this->render('register_form_two', [
                         'model' => $model,
+                        'model2' => $model2,
                     ]) ?>
 
                 </div>

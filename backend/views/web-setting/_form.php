@@ -22,6 +22,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'settingFoto')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'settingTelepon')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'settingPageGuide')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'settingPagePeraturanKebijakan')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

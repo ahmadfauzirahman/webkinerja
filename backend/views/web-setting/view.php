@@ -34,6 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'settingMetaKeyword:ntext',
             'settingCredits',
             'settingFoto',
+            'settingTelepon',
+            'settingPageGuide',
+            'settingPagePeraturanKebijakan',
         ],
     ]) ?>
 

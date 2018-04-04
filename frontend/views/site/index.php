@@ -143,60 +143,37 @@ use yii\helpers\Html;
             <div class="large-4 small-12 column">
                 <div class="el-content text-left  animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
 
-                        <p class="el-subtitle text-bluedark">Lowongan Terbaru
+                        <p class="el-subtitle text-bluedark">Lowongan Terbaru</p>
                         <div class="divider float-left"></div>
                         <br>
                         <div class="clear"></div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                            <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                                <a href="?r=site#">
-                                    Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                                </a>
-                                <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                            </div>
-                        </p>
+                        <?php
+                            $lowonganTerbaru = \frontend\models\Dashboard\DashboardLowongan::find()->where(['lowonganStatus' => 'Aktif'])->orderBy(['lowonganID' => SORT_DESC])->limit(5)->all();
+                            foreach($lowonganTerbaru AS $lT){
+                                $dP = \common\models\WebPerusahaan\WebPerusahaan::find()->where(['perusahaanID' => $lT->lowonganPerusahaanID])->one();
+                                ?>
+                                <div class="side-link">
+                                    <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-detail', 'id' => $lT->lowonganID])?>">
+                                    <img src="<?= Yii::$app->request->baseUrl ?>./../../backend/web/logoperusahaan/<?= $dP->perusahaanFoto ?>" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
+                                    <?php if(date("Y-m-d") <= $lT->lowonganValid){ ?>
+                                    <div class="pull-right"><b style="font-size: 15px"><?= date_diff(date_create(date($lT->lowonganValid)),date_create())->d ?></b><br><small><i>Hari<br>Lagi</i></small></div>
+                                    <?php } else { ?>
+                                    <div class="pull-right"><small><i>Pendaftaran<br>Ditutup</i></small></div>
+                                    <?php } ?>
+                                    <p style="padding-top:10px;">
+                                          <?= $lT->lowonganNama; ?>
+
+
+                                        <br><b style="color:#537238;"><?= $dP['perusahaanNama'] ?></b><br>
+                                        <?php $dK = \common\models\WebKota::find()->where(['kotaID' => $dP['perusahaanKotaID']])->one() ?>
+                                        <small><?= $dK['kotaNama'] ?> - <?= $dP['perusahaanNegaraID'] ?></small><br/>
+                                    </p>
+                                    </a>
+                                    <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
+                                </div>
+                                <?php
+                            }
+                        ?>
                         <br/>
                 </div>
             </div>

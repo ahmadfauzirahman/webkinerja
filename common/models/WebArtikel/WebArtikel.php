@@ -42,7 +42,7 @@ class WebArtikel extends \yii\db\ActiveRecord
                 'skipOnEmpty' => TRUE ,
                 'extensions'  => 'png, jpg, jpeg' ,
             ],
-            [['artikelJudul'], 'required'],
+            [['artikelJudul','artikelKategoriID'], 'required', 'message' => 'Field ini tidak boleh kosong'],
             [['artikelTglPost'], 'safe'],
             [['artikeReader'], 'string', 'max' => 100],
         ];
@@ -54,15 +54,15 @@ class WebArtikel extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'artikelID' => 'Artikel ID',
-            'artikelKategoriID' => 'Artikel Kategori ID',
-            'artikelUserID' => 'Artikel User ID',
-            'artikelJudul' => 'Artikel Judul',
-            'artikelIsi' => 'Artikel Isi',
+            'artikelID' => 'ID Artikel',
+            'artikelKategoriID' => 'Kategori',
+            'artikelUserID' => 'User ID',
+            'artikelJudul' => 'Judul Artikel',
+            'artikelIsi' => 'Konten Artikel',
             'artikelThumbnails' => 'Artikel Thumbnails',
-            'artikelTglPost' => 'Artikel Tgl Post',
+            'artikelTglPost' => 'Tanggal Post',
             'artikeReader' => 'Artike Reader',
-            'artikelStatus' => 'Artikel Status',
+            'artikelStatus' => 'Status Artikel',
         ];
     }
 }

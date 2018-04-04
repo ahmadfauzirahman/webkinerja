@@ -30,7 +30,8 @@ class WebSetting extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['settingSiteDescription', 'settingMetaKeyword'], 'string'],
+            [['settingSiteDescription', 'settingMetaKeyword', 'settingPageGuide', 'settingPagePeraturanKebijakan'], 'string'],
+            [['settingTelepon'], 'string', 'max' => 20],
             [['settingSiteTitle', 'settingCredits', 'settingFoto'], 'string', 'max' => 100],
         ];
     }
@@ -47,6 +48,9 @@ class WebSetting extends \yii\db\ActiveRecord
             'settingMetaKeyword' => 'Setting Meta Keyword',
             'settingCredits' => 'Setting Credits',
             'settingFoto' => 'Setting Foto',
+            'settingTelepon' => 'Setting Telepon',
+            'settingPageGuide' => 'Url Page Guide',
+            'settingPagePeraturanKebijakan' => 'Url Page Peraturan Kebijakan',
         ];
     }
 }

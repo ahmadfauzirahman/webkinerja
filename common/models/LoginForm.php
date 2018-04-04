@@ -11,6 +11,7 @@ class LoginForm extends Model
 {
     public $email;
     public $password;
+    public $status;
     public $rememberMe = true;
 
     private $_user;
@@ -43,7 +44,15 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect email or password.');
+                $this->addError($attribute, 'email atau password tidak benar.');
+            }
+            if ($user && $user->validatePassword($this->password)) {
+                if ($user->status == "Pending") {
+                    $this->addError($attribute, 'akun ini belum diaktifkan. silahkan cek email anda untuk melakukan aktifasi akun!');
+                }
+                if ($user->status == "Non Aktif") {
+                    $this->addError($attribute, 'akun ini di non-aktifkan. silahkan hubungi administator kami untuk bantuan.');
+                }
             }
         }
     }

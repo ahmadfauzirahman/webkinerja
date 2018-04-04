@@ -2,13 +2,15 @@
 
 namespace frontend\controllers;
 use Yii;
+use Da\QrCode\QrCode;
+use Da\QrCode\Format\MeCardFormat;
 
 class EventPelamarController extends \yii\web\Controller
 {
 
     public function actionIndex($id)
     {
-        $this->layout = 'perusahaan';
+        $this->layout = 'pelamar';
         $event = \common\models\WebEvents::findOne($id);
         $jadwal = \common\models\WebJadwalEvents::find()->where(['jadwalEventsEventsID'=>$event->eventsID])->all();
         Yii::$app->view->params['active_home'] = 'active';
@@ -18,7 +20,7 @@ class EventPelamarController extends \yii\web\Controller
 
     public function actionRegistrasi($id)
     {
-        $this->layout = 'perusahaan';
+        $this->layout = 'pelamar';
         $event = \common\models\WebEvents::findOne($id);
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_regist'] = 'active';
@@ -27,11 +29,33 @@ class EventPelamarController extends \yii\web\Controller
 
     public function actionDenah($id)
     {
-        $this->layout = 'perusahaan';
+        $this->layout = 'denah';
         $event = \common\models\WebEvents::findOne($id);
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_denah'] = 'active';
         return $this->render('denah',['event'=>$event]);
+    }
+
+    public function actionJadwal($id){
+        $this->layout = 'pelamar';
+        $event = \common\models\WebEvents::findOne($id);
+        Yii::$app->view->params['id'] = $event->eventsID;
+        Yii::$app->view->params['active_jadwal'] = 'active';
+
+
+        return $this->render('jadwal',['event'=>$event]);
+
+    }
+
+    public function actionPencarian($id){
+        $this->layout = 'pelamar';
+        $event = \common\models\WebEvents::findOne($id);
+        Yii::$app->view->params['id'] = $event->eventsID;
+        Yii::$app->view->params['active_jadwal'] = 'active';
+
+
+        return $this->render('pencarian',['event'=>$event]);
+
     }
 
 }

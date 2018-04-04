@@ -2,16 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: alief_alhadi
- * Date: 3/13/2018
- * Time: 2:09 PM
+ * Date: 3/17/2018
+ * Time: 4:04 PM
  */
-
 $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
 ?>
 <br><br>
-<div class="banner" style="width: 100%;">
-    <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto_events/<?= $event->eventsThumbnails;?>" alt="">
-</div>
 
 <div class="section" style="
     background-image:url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png');
@@ -29,12 +25,20 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
 
         <div class="kotak kiri A3">
             <div class="my-popover-title" style="display:none;">
-                <p>paltinum A3</p>
+                <p>Gold 3</p>
             </div>
+            <?php
+                $standGold3 = \common\models\WebStands::find()->where(['standsNama'=>"Gold 3"])->one();
+                if ($standGold3->standsPerusahaanID == "") :
+            ?>
             <div class="my-popover-content" style="display:none;">
                 <a href="" class="btn btn-primary">Lihat fasilitas</a>
-                <a href="" class="btn btn-primary">Book</a>
+                <a href="<?= \yii\helpers\Url::to(['event-perusahaan/booking', 'id'=>$event->eventsID, 'id2'=>$standGold3->standsID])?>" class="btn btn-primary">Book</a>
             </div>
+
+            <?php else: ?>
+
+            <?php endif;?>
         </div>
 
         <div class="kotak kiri A2">
@@ -43,7 +47,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
             </div>
             <div class="my-popover-content" style="display:none;">
                 <a href="" class="btn btn-primary">Lihat fasilitas</a>
-                <a href="" class="btn btn-primary">Book</a>
+                <a href="<?= \yii\helpers\Url::to(['event-perusahaan/booking', 'id'=>$event->eventsID])?>" class="btn btn-primary">Book</a>
             </div>
         </div>
 
@@ -53,7 +57,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
             </div>
             <div class="my-popover-content" style="display:none;">
                 <a href="" class="btn btn-primary">Lihat fasilitas</a>
-                <a href="" class="btn btn-primary">Book</a>
+                <a href="<?= \yii\helpers\Url::to(['event-perusahaan/booking', 'id'=>$event->eventsID])?>" class="btn btn-primary">Book</a>
             </div>
         </div>
 
@@ -63,7 +67,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
             </div>
             <div class="my-popover-content" style="display:none;">
                 <a href="" class="btn btn-primary">Lihat fasilitas</a>
-                <a href="" class="btn btn-primary">Book</a>
+                <a href="<?= \yii\helpers\Url::to(['event-perusahaan/booking', 'id'=>$event->eventsID])?>" class="btn btn-primary">Book</a>
             </div>
         </div>
     </div>
@@ -80,7 +84,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
 
 <?php
 
-    $script = <<< JS
+$script = <<< JS
     jQuery.noConflict();
     $(document).ready(function () {
                    
@@ -115,4 +119,5 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
 JS;
 $this->registerJs($script);
 ?>
+
 

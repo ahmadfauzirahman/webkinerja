@@ -273,4 +273,22 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
     ),
   ),
+  'kartik-v/yii2-social' => 
+  array (
+    'name' => 'kartik-v/yii2-social',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/social' => $vendorDir . '/kartik-v/yii2-social',
+    ),
+  ),
+  '2amigos/qrcode-library' => 
+  array (
+    'name' => '2amigos/qrcode-library',
+    'version' => '1.1.2.0',
+    'alias' => 
+    array (
+      '@Da/QrCode' => $vendorDir . '/2amigos/qrcode-library/src',
+    ),
+  ),
 );

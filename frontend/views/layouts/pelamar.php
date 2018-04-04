@@ -2,15 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: alief_alhadi
- * Date: 3/17/2018
- * Time: 2:36 PM
- */
-?>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: alief_alhadi
  * Date: 3/12/2018
  * Time: 6:15 AM
  */
@@ -463,28 +454,31 @@ AppAsset::register($this);
                     </ul>
                     <ul class="menu dropdown float-right menu-main hide-for-small-only" data-dropdown-menu>
                         <li class="<?php if(isset($this->params['active_home'])){ echo $this->params['active_home'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/index','id'=>$this->params['id']]) ?>">Home</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/index','id'=>$this->params['id']]) ?>">Home</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_regist'])){ echo $this->params['active_regist'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_denah'])){ echo $this->params['active_denah'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_jadwal'])){ echo $this->params['active_jadwal'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
                         </li>
-
+                        <li><a href=""></a></li>
+                        <li>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/pencarian', 'id'=>$this->params['id']]) ?>" class="btn btn-success btn-search"><span class="fa fa-search"></span> Cari Lowongan</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- end header -->
-    <?php $this->beginBody() ?>
-    <?= $content ?>
-    <?php $this->endBody() ?>
+<!-- end header -->
+<?php $this->beginBody() ?>
+<?= $content ?>
+<?php $this->endBody() ?>
 
     <footer class="section footer p-t-30 p-b-30 bg--dark" id="contact">
         <div class="row">
@@ -602,10 +596,10 @@ AppAsset::register($this);
         </div>
     </footer>
 
-    <!-- end footer-->
-    <?php
+<!-- end footer-->
+<?php
 
-    $js = <<< JS
+$js = <<< JS
 
 $(document).ready(function(){
     $('.animate').scrolla({
@@ -737,12 +731,11 @@ $(document).ready(function(){
     });
 });
 JS;
-    $this->registerJs($js);
-    ?>
+$this->registerJs($js);
+?>
 </body>
 
 </html>
 <?php $this->endPage() ?>
-
 
 

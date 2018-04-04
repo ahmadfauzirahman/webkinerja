@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: alief_alhadi
- * Date: 3/17/2018
- * Time: 2:36 PM
+ * Date: 3/16/2018
+ * Time: 11:14 AM
  */
 ?>
 
@@ -463,18 +463,21 @@ AppAsset::register($this);
                     </ul>
                     <ul class="menu dropdown float-right menu-main hide-for-small-only" data-dropdown-menu>
                         <li class="<?php if(isset($this->params['active_home'])){ echo $this->params['active_home'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/index','id'=>$this->params['id']]) ?>">Home</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/index','id'=>$this->params['id']]) ?>">Home</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_regist'])){ echo $this->params['active_regist'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_denah'])){ echo $this->params['active_denah'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_jadwal'])){ echo $this->params['active_jadwal'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
                         </li>
-
+                        <li><a href=""></a></li>
+                        <li>
+                            <a href="" class="btn btn-success btn-search"><span class="fa fa-search"></span> Cari Lowongan</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -604,141 +607,9 @@ AppAsset::register($this);
 
     <!-- end footer-->
     <?php
-
-    $js = <<< JS
-
-$(document).ready(function(){
-    $('.animate').scrolla({
-      mobile: true, // disable animation on mobiles
-      once: true // only once animation play on scroll
-    });
-  
-    /* vertical center */
-    $('.vcenter').flexVerticalCenter({
-      cssAttribute: 'padding-top'
-    });
-
-    /* foundation main */
-    $(document).foundation();
-    $('.off-canvas a').on('click', function () {
-      $('.off-canvas').foundation('close');
-    });
-
-    // career page collapse
-    $('.career-item_header-button').click(function () {
-      $(this).parent().parent().find('.career-item_content').slideToggle('active');
-    });
-
-    // owl carousel
-    $(document).ready(function () {
-      $('.main-slide').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: false,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 1
-          },
-          1000: {
-            items: 1
-          }
-        }
-      });
-
-      $('.team-slide').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 1
-          },
-          1000: {
-            items: 1
-          }
-        },
-        autoplay: true,
-        autoplayTimeout: 8000,
-        autoplayHoverPause: true,
-        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>',
-          '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ]
-      });
-    });
-
-    $('.owl-slider-01').owlCarousel({
-      nav: true,
-      autoplaySpeed: 300,
-      items: 1,
-      navSpeed: 400,
-      navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>']
-    });
-
-    $('.owl-slider-02').owlCarousel({
-      nav: true,
-      autoplaySpeed: 300,
-      items: 1,
-      navSpeed: 400,
-      navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>']
-    });
-
-    $('.owl-slider-03').owlCarousel({
-      nav: true,
-      autoplaySpeed: 300,
-      items: 1,
-      navSpeed: 400,
-      navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>']
-    });
-
-    $('.owl-slider-04').owlCarousel({
-      nav: true,
-      autoplaySpeed: 300,
-      items: 1,
-      navSpeed: 400,
-      navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>']
-    });
-
-    $('.owl-slider-05').owlCarousel({
-      nav: true,
-      autoplaySpeed: 300,
-      items: 1,
-      navSpeed: 400,
-      navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>']
-    });
-
-    $('.owl-slider-logo').owlCarousel({
-      nav: true,
-      autoplaySpeed: 300,
-      items: 5,
-      navSpeed: 400,
-      navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>'],
-      responsiveClass: true,
-      responsive: {
-        0: {
-          items: 2,
-          nav: true
-        },
-        600: {
-          items: 2,
-          nav: false
-        },
-        1000: {
-          items: 5,
-          nav: true,
-          loop: false
-        }
-      }
-    });
-});
-JS;
-    $this->registerJs($js);
-    ?>
+    $this->registerJsFile(Yii::$app->request->baseUrl."/assets/1b123941/jquery.js");
+    $this->registerJsFile(Yii::$app->request->baseUrl."/assets/6deac4a1/js/bootstrap.js");
+?>
 </body>
 
 </html>

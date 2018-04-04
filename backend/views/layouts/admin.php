@@ -186,6 +186,14 @@ use common\widgets\Alert;
     <div class="content-wrapper">
         <!-- Content Header (Page header) --
         <!-- Main content -->
+        <?php if(isset($this->blocks['nav-event'])): ?>
+                    <div class="menu" style="padding: 0 15px; background: transparent; margin-top: 15px">
+                        <?= $this->blocks['nav-event'] ?>
+                    </div>
+
+
+        <?php endif; ?>
+
         <section class="content container-fluid">
             <div class="panel panel-default">
                 <div class="panel-body">

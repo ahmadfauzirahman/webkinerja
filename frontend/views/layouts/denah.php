@@ -474,10 +474,30 @@ AppAsset::register($this);
                         <li class="<?php if(isset($this->params['active_jadwal'])){ echo $this->params['active_jadwal'];}?>">
                             <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
                         </li>
-                        <li><a href=""></a></li>
+
                         <li>
-                            <a href="" class="btn btn-success btn-search"><span class="fa fa-search"></span> Cari Lowongan</a>
+                            <a href="" >Lowongan</a>
                         </li>
+                        <?php
+                        if (!Yii::$app->user->isGuest) {
+                            ?>
+                            <li class="has-submenu">
+                                <a href="#0" <?php if(isset($this->params['user'])){ echo 'class="active"'; } ?>>@<?= Yii::$app->user->identity->username ?></a>
+                                <ul class="submenu menu vertical" data-submenu>
+                                    <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard') ?>" <?php if(isset($this->params['dashboard'])){ echo 'class="active"'; } ?>>Dashboard</a></li>
+                                    <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard/profile') ?>" <?php if(isset($this->params['profile'])){ echo 'class="active"'; } ?>>Profil</a></li>
+                                    <li><a href="<?= Url::to(['site/logout']) ?>">Logout</a></li>
+                                </ul>
+                            </li>
+                            <?php
+                        } else {
+                            ?>
+                            <li>
+                                <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>" <?php if(isset($this->params['login'])){ echo 'class="active"'; } ?>>Login</a>
+                            </li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

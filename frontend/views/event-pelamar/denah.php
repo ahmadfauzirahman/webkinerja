@@ -18,16 +18,16 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
     padding-top:20px;padding-bottom: 10px;
     ">
     <div class="row">
-        <h2 class="el-title">Prosedur Masuk <?= $event->eventsJudul?></h2>
+        <h2 class="el-title">Denah <?= $event->eventsJudul?></h2>
         <div class="divider float-left"></div>
     </div>
 </div>
 
-<div class="section">
+<div class="section" style="padding: 20px">
     <div class="row text-center">
         <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto_events/ic.png" alt="" style="width: 880px;">
 
-        <div class="kotak kiri A3">
+        <div class="kotak kiri A3 tersedia">
             <div class="my-popover-title" style="display:none;">
                 <p>paltinum A3</p>
             </div>
@@ -37,7 +37,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
             </div>
         </div>
 
-        <div class="kotak kiri A2">
+        <div class="kotak kiri A2 tesedia">
             <div class="my-popover-title" style="display:none;">
                 <p>paltinum A2</p>
             </div>
@@ -47,7 +47,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
             </div>
         </div>
 
-        <div class="kotak kiri A1">
+        <div class="kotak kiri A1 tersedia">
             <div class="my-popover-title" style="display:none;">
                 <p>paltinum A1</p>
             </div>
@@ -57,7 +57,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl."/css/denah.css");
             </div>
         </div>
 
-        <div class="kotak kanan A4">
+        <div class="kotak kanan A4 tersedia">
             <div class="my-popover-title" style="display:none;">
                 <p>paltinum A4</p>
             </div>

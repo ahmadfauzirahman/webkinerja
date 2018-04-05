@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\LowonganSearch;
 use Yii;
 use Da\QrCode\QrCode;
 use Da\QrCode\Format\MeCardFormat;
@@ -51,10 +52,20 @@ class EventPelamarController extends \yii\web\Controller
         $this->layout = 'pelamar';
         $event = \common\models\WebEvents::findOne($id);
         Yii::$app->view->params['id'] = $event->eventsID;
-        Yii::$app->view->params['active_jadwal'] = 'active';
-
-
-        return $this->render('pencarian',['event'=>$event]);
+        $searchModel = new LowonganSearch();
+        $provider = $searchModel->search(Yii::$app->request->queryParams);
+//        $provider = new ActiveDataProvider([
+//            'query' => $query,
+//            'pagination' => [
+//                'pageSize' => 5
+//            ]
+//        ]);
+        return $this->render('pencarian',[
+            'searchModel' => $searchModel,
+            //'models' => $provider->getModels(),
+            'provider' => $provider,
+            'event' => $event
+        ]);
 
     }
 

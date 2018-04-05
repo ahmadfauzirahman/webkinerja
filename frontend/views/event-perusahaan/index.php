@@ -102,5 +102,39 @@
 <div class="row">
     <h2 class="el-title">Artikel <?= ucwords($event->eventsJudul)?></h2>
     <div class="divider float-left"></div>
+
+    <div class="row" style="padding: 20px 0">
+        <?php
+        $data = \common\models\WebArtikel\WebArtikel::find()->orderBy(['artikelID' => SORT_DESC])->limit(3)->all();
+        foreach($data AS $d){
+            ?>
+            <div class="large-4 column">
+                <div class="card-article-hover card   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.4s" data-offset="50">
+                    <a href="">
+                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d->artikelThumbnails; ?>">
+                    </a>
+                    <div class="card-section">
+                        <p class="meta-data article-subtext">
+                            <?php $kategori = \common\models\WebKategoriArtikel\WebKategoriArtikel::findOne($d->artikelKategoriID)['kategoriArtikelNama']; if($kategori != ''){ echo $kategori; } else { echo "Tidak Ada Kategori"; } ?>
+                            <br/><span class="fs-9"><?= date('d F Y',strtotime($d->artikelTglPost)); ?></span>
+                        </p>
+                        <a href="?r=site/post-detail&id=<?= $d->artikelID ?>">
+                            <h3 class="article-title  fs-18"><?= $d->artikelJudul; ?></h3>
+                        </a>
+                        <p class="article-desc"><?= strip_tags(substr($d->artikelIsi,0,70)); ?>...</p>
+                    </div>
+                    <div class="card-divider flex-container align-middle">
+                        <img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($d->artikelUserID)['foto']; ?>" alt="avatar" style="width: 50px; height: 50px;">
+                        <a href="" class="author"><?= \common\models\User::findOne($d->artikelUserID)['nama']; ?></a>
+                    </div>
+                    <div class="hover-border">
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
 </div>
+
 

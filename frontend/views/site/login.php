@@ -33,7 +33,7 @@ use yii\bootstrap\ActiveForm;
                         <div class="col-lg-12">
                             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                            <?= $form->field($model, 'email')->textInput(['autofocus' => true,'type' => 'email','placeholder' => 'email']) ?>
+                            <?= $form->field($model, 'email')->textInput(['type' => 'email','placeholder' => 'email']) ?>
 
                             <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'password']) ?>
 

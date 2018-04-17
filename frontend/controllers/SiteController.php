@@ -285,7 +285,7 @@ class SiteController extends Controller
         }
     }
 
-    public function actionLowonganLamar($id = false){
+    public function actionLowonganLamar($id){
         $this->view->params['lowongan'] = true;
         if ($id == false) {
             return $this->goBack();
@@ -294,13 +294,16 @@ class SiteController extends Controller
             $model = \frontend\models\Dashboard\DashboardLowongan::find()->where(['lowonganStatus' => 'Aktif'])->andWhere(['lowonganID' => $id])->one();
             $model2 = new UserLamaran();
             if ($model != null) {
-                $cekLamaran = \frontend\models\UserLamaran::find()->where(['lamaranLowonganID' => $id])->andWhere(['lamaranUserID' => Yii::$app->user->identity->userID])->andWhere(['lamaranStatus' => 'Pending Review']);
+                $cekLamaran = \frontend\models\UserLamaran::find()->where(['lamaranLowonganID' => $id])->andWhere(['lamaranUserID' => Yii::$app->user->identity->userID])->andWhere(['lamaranStatus' => 'Pending Review'])->all();
                 if ($cekLamaran != null) {
                     return $this->redirect(['site/lowongan-detail', 'id' => $id]);
                 }
-                if (date("Y-m-d") <= $model->lowonganValid) {
+                if (date("Y-m-d") <= $model->lowonganValid && $model->lowonganDaftarOnline == 'Ya') {
                     if ($model2->load(Yii::$app->request->post())) {
                         $model2->lamaranLowonganID = $id;
+                        if(Yii::$app->user->identity->role == 'alumni' || Yii::$app->user->identity->role == 'mahasiswa'){
+                            $model2-> lamaranRekomendasi = 'Ya';
+                        }
                         $model2->save();
                         return $this->redirect(['site/lowongan-detail', 'id' => $id]);
                     }

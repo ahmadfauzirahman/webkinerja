@@ -32,7 +32,7 @@ class UserLamaran extends \yii\db\ActiveRecord
     {
         return [
             [['lamaranUserID', 'lamaranLowonganID'], 'integer'],
-            [['lamaranPermohonan', 'lamaranKeteranganLamaran', 'lamaranStatus'], 'string'],
+            [['lamaranPermohonan', 'lamaranKeteranganLamaran', 'lamaranStatus', 'lamaranRekomendasi'], 'string'],
             [['lamaranTglMelamar'], 'safe'],
             [['lamaranUserID'], 'default', 'value' => Yii::$app->user->identity->userID],
             [['lamaranTglMelamar'], 'default', 'value' => date('Y-m-d h:i:s')],
@@ -54,6 +54,7 @@ class UserLamaran extends \yii\db\ActiveRecord
             'lamaranTglMelamar' => 'Lamaran Tgl Melamar',
             'lamaranKeteranganLamaran' => 'Lamaran Keterangan Lamaran',
             'lamaranStatus' => 'Lamaran Status',
+            'lamaranRekomendasi' => 'Lamaran Rekomendasi'
         ];
     }
 }

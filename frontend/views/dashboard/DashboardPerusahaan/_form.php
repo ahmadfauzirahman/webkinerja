@@ -60,7 +60,7 @@ use yii\widgets\ActiveForm;
                             <label class="col-lg-4">Jenis Industri</label>
                             <div class="col-lg-8">
                         <?= $form->field($model, 'perusahaanJnsIndustriID')->widget(\kartik\select2\Select2::className(), [
-                            'data' => \yii\helpers\ArrayHelper::map(\common\models\WebJnsIndustri::find()->all(),
+                            'data' => \yii\helpers\ArrayHelper::map(\common\models\WebJnsIndustri::find()->where(['jnsIndustriStatus' => 'Aktif'])->all(),
                                 'jnsIndustriID', 'jnsIndustriNama'),
                             'language' => 'en',
                             'options' => ['placeholder' => 'Pilih Jenis Industri...',],

@@ -46,7 +46,7 @@ AppAsset::register($this);
                             $status = \frontend\models\Dashboard\DashboardUserPremium::find()->where(['userID' => Yii::$app->user->identity->userID])->one()['userPremiumStatus'];
                             if($status == 'Aktif'){ echo '<span class="badge badge-success"><i class="fa fa-star" style="color: yellow;"></i> <b>Premium Account</b> </span> '; }
                         ?>
-                        <i class="fa fa-circle-o"></i> <?= ucwords(str_replace('-',' ',Yii::$app->user->identity->role)); ?> | <i class="fa fa-envelope-o"></i> <?= Yii::$app->user->identity->email; ?> | <i class="fa fa-at"></i> <?= Yii::$app->user->identity->username; ?></p>
+                        <i class="fa fa-circle-o"></i> <?= ucwords(str_replace('-',' ',Yii::$app->user->identity->role)); ?> | <i class="fa fa-envelope-o"></i> <?= Yii::$app->user->identity->email; ?> | <i class="fa fa-at"></i> <?= Yii::$app->user->identity->username; ?> | <i class="fa fa-slack"></i> <?= Yii::$app->user->identity->userID; ?></p>
                 </div>
             </div>
         </div>
@@ -64,11 +64,15 @@ AppAsset::register($this);
 
                             <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-perusahaan') ?>" <?php if(isset($this->params['perusahaan'])){ echo 'class="active"'; } ?>><i class="fa fa-building"></i> Data Perusahaan</a></li>
 
-                            <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-user-premium-transaksi') ?>" <?php if(isset($this->params['transaksi'])){ echo 'class="active"'; } ?>><i class="fa fa-money"></i> Transaksi</a></li>
+                            <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-user-premium-transaksi') ?>" <?php if(isset($this->params['transaksi'])){ echo 'class="active"'; } ?>><i class="fa fa-money"></i> Transaksi Akun Premium</a></li>
 
                             <li><hr/></li>
 
-                            <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-lowongan') ?>" <?php if(isset($this->params['dashboard-lowongan'])){ echo 'class="active"'; } ?>><i class="fa fa-files-o"></i> Lowongan</a></li>
+                            <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-lowongan') ?>" <?php if(isset($this->params['dashboard-lowongan'])){ echo 'class="active"'; } ?>><i class="fa fa-bullhorn"></i> Lowongan</a></li>
+
+                            <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-perusahaan-pelamar') ?>" <?php if(isset($this->params['dashboard-pelamar'])){ echo 'class="active"'; } ?>><i class="fa fa-users"></i> Pelamar Lowongan</a></li>
+
+                            <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard-perusahaan-hasil-seleksi') ?>" <?php if(isset($this->params['dashboard-hasil-seleksi'])){ echo 'class="active"'; } ?>><i class="fa fa-bar-chart-o"></i> Hasil Seleksi</a></li>
 
                             <li><hr/></li>
 
@@ -77,16 +81,22 @@ AppAsset::register($this);
                         <?php } elseif(Yii::$app->user->identity->role == 'alumni' || Yii::$app->user->identity->role == 'umum' || Yii::$app->user->identity->role == 'mahasiswa'){ ?>
 
                             <li>
-                                <a href="#0" <?php if(isset($this->params['dashboard-data-cv']) || isset($this->params['dashboard-data-berkas'])){ echo 'class="active"'; } ?>><i class="fa fa-file"></i> Data Lamaran</a>
-                                <ul class="menu vertical nested  <?php if(isset($this->params['dashboard-data-cv']) || isset($this->params['dashboard-data-berkas'])){ echo "is-active"; } ?>">
+                                <a href="#0" <?php if(isset($this->params['dashboard-data-cv']) || isset($this->params['dashboard-berkas-pelamar'])){ echo 'class="active"'; } ?>><i class="fa fa-file"></i> Data Lamaran</a>
+                                <ul class="menu vertical nested  <?php if(isset($this->params['dashboard-data-cv']) || isset($this->params['dashboard-berkas-pelamar'])){ echo "is-active"; } ?>">
                                     <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard/data-cv']) ?>" <?php if(isset($this->params['dashboard-data-cv'])){ echo 'class="active"'; } ?>><i class="fa fa-files-o"></i> Data CV</a></li>
-                                    <li><a href="#0"><i class="fa fa-files-o"></i> Berkas Lamaran</a></li>
+                                    <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard-berkas-pelamar']) ?>" <?php if(isset($this->params['dashboard-berkas-pelamar'])){ echo 'class="active"'; } ?>><i class="fa fa-files-o"></i> Data Berkas Pelamar</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#0"><i class="fa fa-file"></i> Pengajuan Lamaran</a></li>
-                            <li><a href="#0"><i class="fa fa-file"></i> Lamaran Diterima</a></li>
-                            <li><a href="#0"><i class="fa fa-bullhorn"></i> Panggilan Tes</a></li>
 
+                            <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard-pengajuan-lamaran']) ?>" <?php if(isset($this->params['dashboard-pengajuan-lamaran'])){ echo 'class="active"'; } ?>><i class="fa fa-file"></i> Pengajuan Lamaran Kerja</a></li>
+
+                            <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard-lamaran-diterima']) ?>" <?php if(isset($this->params['dashboard-lamaran-diterima'])){ echo 'class="active"'; } ?>><i class="fa fa-file"></i> Lamaran Diterima</a></li>
+
+                            <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard-panggilan-tes']) ?>" <?php if(isset($this->params['dashboard-panggilan-tes'])){ echo 'class="active"'; } ?>><i class="fa fa-bullhorn"></i> Panggilan Tes</a></li>
+
+                            <?php if(\common\models\WebSetting::findOne(1)['settingTicketEvent'] == 1){ ?>
+                            <li><a href="<?= Yii::$app->urlManager->createUrl(['#']) ?>" <?php if(isset($this->params['dashboard-event'])){ echo 'class="active"'; } ?>><i class="fa fa-ticket"></i> Tiket Event</a></li>
+                            <?php } ?>
                         <?php } elseif(Yii::$app->user->identity->role == 'admin'){ ?>
 
                             <li><a href="<?= Yii::$app->request->baseUrl ?>/../../admin"><i class="fa fa-desktop"></i> Back to Backend</a></li>

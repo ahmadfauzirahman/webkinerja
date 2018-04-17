@@ -174,6 +174,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                 </div>
                             </div>
+                            <hr/>
                             <?php
 
                             $js = <<< JS
@@ -206,7 +207,7 @@ JS;
                             <div class="form-group">
                                 <label class="col-lg-4">Pendidikan Non Formal</label>
                                 <div class="col-lg-8">
-                                    <div class="input_fields_wraps">
+                                    <div class="input_fields_wrapss">
                                         <div class="form-group">
                                             <button type="button" class="add_field_buttons btn btn-warning btn-small" style="margin-left:10px;" data-delay="50"><i class="fa fa-plus"></i> Tambah Data</button>
                                         </div>
@@ -224,17 +225,18 @@ JS;
                                     </div>
                                 </div>
                             </div>
+                            <hr/>
                             <?php
 
-                            $js = <<< JS
+                            $jss = <<< JS
 
 
                 $(document).ready(function() {
-                    var wrappers         = $(".input_fields_wraps"); //Fields wrapper
+                    var wrappers         = $(".input_fields_wrapss"); //Fields wrapper
                     var add_buttons      = $(".add_field_buttons"); //Add button ID
         
                     $(add_buttons).click(function(e){ //on add input button click
-                        e.preventDefault();
+                        //e.preventDefault();
                         //if(x < max_fields){ //max input box allowed
                         //   x++; //text box increment
                             $(wrappers).append('<div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarpendidikannonformal" name="DashboardPelamar[pelamarPendidikanNonFormal][]" type="text" class="form-control" placeholder="pendidikan non formal"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>'); //add input box
@@ -247,11 +249,158 @@ JS;
                 });
 
 JS;
-                            $this->registerJs($js);
+                            $this->registerJs($jss);
                             ?>
 
 
 
+
+
+                            <div class="form-group">
+                                <label class="col-lg-4">Pengalaman Akademik</label>
+                                <div class="col-lg-8">
+                                    <div class="input_fields_wrapsss">
+                                        <div class="form-group">
+                                            <button type="button" class="add_field_buttonss btn btn-warning btn-small" style="margin-left:10px;" data-delay="50"><i class="fa fa-plus"></i> Tambah Data</button>
+                                        </div>
+                                        <?php $nos = 0; if($model->pelamarPengalamanAkademik != null){
+                                            foreach($model->pelamarPengalamanAkademik AS $pfs){ ?>
+                                                <?php if($nos == 0){ ?>
+                                                    <div><div class="input-field input_fields_wraps<?= $nos++ ?> col-lg-11"><input id="dashboardpelamar-pelamarpengalamanakademik" name="DashboardPelamar[pelamarPengalamanAkademik][]" type="text" class="form-control" placeholder="pengalaman akademik" value="<?= $pfs ?>"></div></div>
+                                                <?php } else { ?>
+                                                    <div><div class="input-field input_fields_wraps<?= $nos++ ?> col-lg-11"><input id="dashboardpelamar-pelamarpengalamanakademik" name="DashboardPelamar[pelamarPengalamanAkademik][]" type="text" class="form-control" placeholder="pengalaman akademik" value="<?= $pfs ?>"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>
+                                                <?php } ?>
+                                            <?php }
+                                        } else { ?>
+                                            <div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarpengalamanakademik" name="DashboardPelamar[pelamarPengalamanAkademik][]" type="text" class="form-control" placeholder="pengalaman akademik"></div></div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <?php
+
+                            $jsss = <<< JS
+
+
+                $(document).ready(function() {
+                    var wrapperss         = $(".input_fields_wrapsss"); //Fields wrapper
+                    var add_buttonss      = $(".add_field_buttonss"); //Add button ID
+        
+                    $(add_buttonss).click(function(e){ //on add input button click
+                        //e.preventDefault();
+                        //if(x < max_fields){ //max input box allowed
+                        //   x++; //text box increment
+                            $(wrapperss).append('<div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarpengalamanakademik" name="DashboardPelamar[pelamarPengalamanAkademik][]" type="text" class="form-control" placeholder="pengalaman akademik"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>'); //add input box
+                        //}
+                    });
+                    $(wrapperss).on("click",".remove_field", function(e){ //user click on remove text
+                        e.preventDefault();
+                        $(this).parent('div').remove();
+                    })
+                });
+
+JS;
+                            $this->registerJs($jsss);
+                            ?>
+
+
+
+                            <div class="form-group">
+                                <label class="col-lg-4">Pengalaman Kerja</label>
+                                <div class="col-lg-8">
+                                    <div class="input_fields_wrapssss">
+                                        <div class="form-group">
+                                            <button type="button" class="add_field_buttonsss btn btn-warning btn-small" style="margin-left:10px;" data-delay="50"><i class="fa fa-plus"></i> Tambah Data</button>
+                                        </div>
+                                        <?php $nos = 0; if($model->pelamarPengalamanKerja != null){
+                                            foreach($model->pelamarPengalamanKerja AS $pfs){ ?>
+                                                <?php if($nos == 0){ ?>
+                                                    <div><div class="input-field input_fields_wraps<?= $nos++ ?> col-lg-11"><input id="dashboardpelamar-pelamarpengalamankerja" name="DashboardPelamar[pelamarPengalamanKerja][]" type="text" class="form-control" placeholder="pengalaman kerja" value="<?= $pfs ?>"></div></div>
+                                                <?php } else { ?>
+                                                    <div><div class="input-field input_fields_wraps<?= $nos++ ?> col-lg-11"><input id="dashboardpelamar-pelamarpengalamankerja" name="DashboardPelamar[pelamarPengalamanKerja][]" type="text" class="form-control" placeholder="pengalaman kerja" value="<?= $pfs ?>"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>
+                                                <?php } ?>
+                                            <?php }
+                                        } else { ?>
+                                            <div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarpengalamankerja" name="DashboardPelamar[pelamarPengalamanKerja][]" type="text" class="form-control" placeholder="pengalaman kerja"></div></div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <?php
+
+                            $jssss = <<< JS
+
+
+                $(document).ready(function() {
+                    var wrappersss         = $(".input_fields_wrapssss"); //Fields wrapper
+                    var add_buttonsss      = $(".add_field_buttonsss"); //Add button ID
+        
+                    $(add_buttonsss).click(function(e){ //on add input button click
+                        //e.preventDefault();
+                        //if(x < max_fields){ //max input box allowed
+                        //   x++; //text box increment
+                            $(wrappersss).append('<div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarpengalamankerja" name="DashboardPelamar[pelamarPengalamanKerja][]" type="text" class="form-control" placeholder="pengalaman kerja"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>'); //add input box
+                        //}
+                    });
+                    $(wrappersss).on("click",".remove_field", function(e){ //user click on remove text
+                        e.preventDefault();
+                        $(this).parent('div').remove();
+                    })
+                });
+
+JS;
+                            $this->registerJs($jssss);
+                            ?>
+
+
+                            <div class="form-group">
+                                <label class="col-lg-4">Keahlian Lainnya</label>
+                                <div class="col-lg-8">
+                                    <div class="input_fields_wrapsssss">
+                                        <div class="form-group">
+                                            <button type="button" class="add_field_buttonssss btn btn-warning btn-small" style="margin-left:10px;" data-delay="50"><i class="fa fa-plus"></i> Tambah Data</button>
+                                        </div>
+                                        <?php $nos = 0; if($model->pelamarKemampuan != null){
+                                            foreach($model->pelamarKemampuan AS $pfs){ ?>
+                                                <?php if($nos == 0){ ?>
+                                                    <div><div class="input-field input_fields_wraps<?= $nos++ ?> col-lg-11"><input id="dashboardpelamar-pelamarkemampuan" name="DashboardPelamar[pelamarKemampuan][]" type="text" class="form-control" placeholder="keahlian lainnya" value="<?= $pfs ?>"></div></div>
+                                                <?php } else { ?>
+                                                    <div><div class="input-field input_fields_wraps<?= $nos++ ?> col-lg-11"><input id="dashboardpelamar-pelamarkemampuan" name="DashboardPelamar[pelamarKemampuan][]" type="text" class="form-control" placeholder="keahlian lainnya" value="<?= $pfs ?>"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>
+                                                <?php } ?>
+                                            <?php }
+                                        } else { ?>
+                                            <div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarkemampuan" name="DashboardPelamar[pelamarKemampuan][]" type="text" class="form-control" placeholder="keahlian lainnya"></div></div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+
+                            $jssss = <<< JS
+
+
+                $(document).ready(function() {
+                    var wrapperssss         = $(".input_fields_wrapsssss"); //Fields wrapper
+                    var add_buttonssss      = $(".add_field_buttonssss"); //Add button ID
+        
+                    $(add_buttonssss).click(function(e){ //on add input button click
+                        //e.preventDefault();
+                        //if(x < max_fields){ //max input box allowed
+                        //   x++; //text box increment
+                            $(wrapperssss).append('<div><div class="input-field input_fields_wraps col-lg-11"><input id="dashboardpelamar-pelamarkemampuan" name="DashboardPelamar[pelamarKemampuan][]" type="text" class="form-control" placeholder="keahlian lainnya"></div><button type="button" href="javascript:;" class="remove_field col-lg-1"><i class="fa fa-close"></i></button></div>'); //add input box
+                        //}
+                    });
+                    $(wrapperssss).on("click",".remove_field", function(e){ //user click on remove text
+                        e.preventDefault();
+                        $(this).parent('div').remove();
+                    })
+                });
+
+JS;
+                            $this->registerJs($jssss);
+                            ?>
 
 
                         </div>
@@ -299,18 +448,6 @@ JS;
         </div>
 
     </div>
-
-<!--        --><?php //= $form->field($model, 'pelamarNama') ?>
-
-
-        <?= $form->field($model, 'pelamarPendidikanNonFormal')->label(false) ?>
-        <?= $form->field($model, 'pelamarPengalamanAkademik')->label(false) ?>
-        <?= $form->field($model, 'pelamarPengalamanKerja')->label(false) ?>
-        <?= $form->field($model, 'pelamarKemampuan')->label(false) ?>
-
-<!--        --><?php //= $form->field($model, 'pelamarFoto') ?>
-
-<!--        --><?php //= $form->field($model, 'pelamarEmail') ?>
 
     <?php ActiveForm::end(); ?>
 

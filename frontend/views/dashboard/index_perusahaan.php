@@ -13,12 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
     $user = \frontend\models\User\User::findOne(Yii::$app->user->identity->userID);
     if($user['role'] == 'perusahaan-premium') {
         $perusahaan = DashboardUserPremium::find()->where(['userID' => Yii::$app->user->identity->userID])->one();
-        $end = date('Y-m-d h:i:s',strtotime('+7 days',strtotime($perusahaan['userPremiumAwal'])));
-        if ($perusahaan['userPremiumStatus'] == 'Pending' && $end >= date('Y-m-d h:i:s')) {
+        $end = date('Y-m-d h:i:s',strtotime('+7 days',strtotime($perusahaan['userPremiumAkhir'])));
+        if ($perusahaan['userPremiumStatus'] == 'Pending' && $end <= date('Y-m-d h:i:s')) {
             ?>
             <div class="alert alert-warning">
                 <a href="<?= Yii::$app->urlManager->createUrl('dashboard-user-premium-transaksi/create') ?>" class="btn btn-success pull-right">Konfirmasi Sekarang</a>
-                Tinggal <b><?= date_diff(date_create(date('Y-m-d h:i:s',strtotime('+7 days',strtotime($perusahaan['userPremiumAwal'])))),date_create())->d ?> HARI</b> lagi untuk melakukan aktifasi <b>Akun Premium</b> anda. Silahkan lakukan konfirmasi pembayaran untuk mengaktifkan fitur <b>Premium</b>
+                Tinggal <b><?= date_diff(date_create(date('Y-m-d h:i:s',strtotime('+7 days',strtotime($perusahaan['userPremiumAkhir'])))),date_create())->d ?> HARI</b> lagi untuk melakukan aktifasi <b>Akun Premium</b> anda. Silahkan lakukan konfirmasi pembayaran untuk mengaktifkan fitur <b>Premium</b>
             </div>
         <?php } elseif ($perusahaan['userPremiumStatus'] == 'Konfirmasi Admin'){
             ?>
@@ -57,7 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <i class="fa fa-briefcase fa-4x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <span style="font-weight: bolder; font-size: 22px;">26</span>
+                    <span style="font-weight: bolder; font-size: 22px;">
+                        <?= count(\frontend\models\Dashboard\DashboardLowonganSearch::find()->where(['lowonganPerusahaanID' => $company->perusahaanID])->all()) ?>
+                    </span>
                     <div>Lowongan Anda</div>
                 </div>
             </div>
@@ -72,7 +74,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <i class="fa fa-send fa-4x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <span style="font-weight: bolder; font-size: 22px;">5</span>
+                    <span style="font-weight: bolder; font-size: 22px;">
+                        <?= count(\common\models\WebArtikel\WebArtikel::find()->where(['artikelUserID' => Yii::$app->user->identity->userID])->all()) ?>
+                    </span>
                     <div>Artikel Anda</div>
                 </div>
             </div>

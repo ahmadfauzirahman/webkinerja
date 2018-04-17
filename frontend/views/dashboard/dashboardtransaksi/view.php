@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 
 $this->title = $model->userPremiumTransaksiID;
 $this->params['breadcrumbs'][] = ['label' => 'Dashboard', 'url' => ['/dashboard']];
-$this->params['breadcrumbs'][] = ['label' => 'Transaksi', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Transaksi Akun Premium', 'url' => ['index']];
 $this->params['breadcrumbs'][] = '#'.$this->title;
 
 ?>
@@ -37,7 +37,13 @@ $this->params['breadcrumbs'][] = '#'.$this->title;
             'userPremiumTransaksiNoRek:ntext',
             'userPremiumTransaksiTglTransaksi',
             'userPremiumTransaksiTglKonfirmasi:datetime',
-            'userPremiumTransaksiNominal:ntext',
+            //'userPremiumTransaksiNominal:ntext',
+            [
+                'attribute' => 'userPremiumTransaksiNominal',
+                'value' => function($model){
+                    return "Rp. ".number_format($model->userPremiumTransaksiNominal,'0',',','.').",-";
+                }
+            ],
             //'userPremiumTransaksiBukti:ntext',
             [
                 'label' => 'Bukti Transfer',

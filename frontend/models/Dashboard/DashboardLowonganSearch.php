@@ -42,7 +42,7 @@ class DashboardLowonganSearch extends DashboardLowongan
     public function search($params)
     {
         $idPerusahaan = DashboardPerusahaan::find()->where(['perusahaanUserID' => Yii::$app->user->identity->userID])->one();
-        $query = DashboardLowongan::find()->where(['lowonganPerusahaanID' => $idPerusahaan]);
+        $query = DashboardLowongan::find()->where(['lowonganPerusahaanID' => $idPerusahaan['perusahaanID']])->orderBy(['lowonganID' => SORT_DESC]);
 
         // add conditions that should always apply here
 

@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
@@ -207,48 +208,173 @@ $status = \frontend\models\Dashboard\DashboardUserPremium::find()->where(['userI
                 </div>
                  <div class="clear"></div>
             <div class="col-lg-12">
-                 <hr/>
-                 <br>
-                 <h4 class="el-subtitle">Syarat Umum</h4>
-                 <br>
-                 <div style="margin-left: 50px">
-                     <?= $model->lowonganSyaratUmum ?>
-                 </div>
-                 <hr/>
-                 <br>
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#homes" data-toggle="tab">Persyaratan & Informasi Lainnya</a>
+                        </li>
+                        <li><a href="#tes" data-toggle="tab">Panggilan Tes (Seleksi)</a>
+                        </li>
+                        <li><a href="#lowongan" data-toggle="tab">Lowongan Lainnya</a>
+                        </li>
+                    </ul>
 
-                 <h4 class="el-subtitle">Syarat Khusus</h4>
-                 <br>
-                 <div style="margin-left: 50px">
-                     <?= $model->lowonganSyaratKhusus ?>
-                 </div>
-                 <hr/>
-                 <br>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="homes">
+                            <br>
+                            <h4 class="el-subtitle">Syarat Umum</h4>
+                            <br>
+                            <div style="margin-left: 50px">
+                                <?= $model->lowonganSyaratUmum ?>
+                            </div>
+                            <hr/>
+                            <br>
 
-                 <h4 class="el-subtitle">Informasi Umum</h4>
-                 <br>
-                 <h5 class="el-title">Job Desk</h5>
-                 <div style="margin-left: 50px">
-                     <?= $model->lowonganJobDesk ?>
-                 </div>
-                 <br>
-                 <h5 class="el-title">Keterangan Lainnya</h5>
-                 <div style="margin-left: 50px">
-                     <?= $model->lowonganKeterangan ?>
-                 </div>
-                <hr/>
+                            <h4 class="el-subtitle">Syarat Khusus</h4>
+                            <br>
+                            <div style="margin-left: 50px">
+                                <?= $model->lowonganSyaratKhusus ?>
+                            </div>
+                            <hr/>
+                            <br>
+
+                            <h4 class="el-subtitle">Informasi Umum</h4>
+                            <br>
+                            <h5 class="el-title">Job Desk</h5>
+                            <div style="margin-left: 50px">
+                                <?= $model->lowonganJobDesk ?>
+                            </div>
+                            <br>
+                            <h5 class="el-title">Keterangan Lainnya</h5>
+                            <div style="margin-left: 50px">
+                                <?= $model->lowonganKeterangan ?>
+                            </div>
+                            <hr/>
+                        </div>
+                        <div class="tab-pane fade" id="tes">
+                                <div class="card-article-hover">
+                                    <div class="card-section" style="padding: 10px; padding-top: 20px; margin: 0; width:100%;">
+                                            <p class="article-desc">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Seleksi</th>
+                                                        <th>Waktu Mulai/Selesai</th>
+                                                        <th>Lokasi</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php
+                                                    $data = \frontend\models\Dashboard\DashboardSeleksi::find()->where(['seleksiLowonganID' => $model->lowonganID, 'seleksiStatus' => 'Aktif'])->orderBy(['seleksiTglAwal' => SORT_ASC])->all();
+                                                    foreach($data AS $d){
+                                                        ?>
+                                                        <tr>
+                                                            <td>
+                                                                <b><?= $d->seleksiNama ?></b>
+                                                            </td>
+                                                            <td>
+                                                                <?= date('d F Y h:i:s',strtotime($d->seleksiTglAwal)) ?><hr/>
+                                                                <?=  date('d F Y h:i:s',strtotime($d->seleksiTglAkhir)) ?>
+                                                            </td>
+                                                            <td>
+                                                                <b><?= $d->seleksiTempat ?></b>
+                                                                <br>
+                                                                <?= $d->seleksiRuangan ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Keterangan</td>
+                                                            <td colspan="2">: <?= $d->seleksiKeterangan ?><br><br></td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            </p>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="tab-pane fade" id="lowongan">
+
+                            <?php
+                            $db = new ActiveDataProvider([
+                                'query' => \frontend\models\Dashboard\DashboardLowongan::find()->where(['lowonganPerusahaanID' => $dP['perusahaanID'], 'lowonganStatus' => 'Aktif'])->orderBy(['lowonganID' => SORT_DESC]),
+                            ]);
+                            ?>
+                            <br>
+                            <?= \yii\widgets\ListView::widget([
+                                'dataProvider' => $db,
+                                'options' => [
+                                    'tag' => 'div',
+                                    'class' => 'text-center',
+                                ],
+                                'itemView' => function($model,$key,$index,$widget){
+                                    $dP = \common\models\WebPerusahaan\WebPerusahaan::find()->where(['perusahaanID' => $model->lowonganPerusahaanID])->one();
+                                    $status = \frontend\models\Dashboard\DashboardUserPremium::find()->where(['userID' => $dP->perusahaanUserID])->one()['userPremiumStatus'];
+                                    ?>
+                                    <div class="col-lg-12">
+                                        <div class="card-article-hover card card-lowongan" <?php if($status == 'Aktif'){ echo 'style="border:1px solid #A7D558"'; } ?>>
+                                            <div class="card-section" style="padding: 10px; padding-top: 20px; margin: 0; width:100%;">
+                                                <div class="col-lg-8">
+                                                    <img src="<?= Yii::$app->request->baseUrl ?>./../../backend/web/logoperusahaan/<?= $dP->perusahaanFoto ?>" style="float:left; width:75px; height:75px; margin-right: 15px; border: 5px solid #efefef;" />
+                                                    <p class="article-desc">
+                                                        <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-detail', 'id' => $model->lowonganID])?>">
+                                                            <?= $model->lowonganNama; ?>
+                                                        </a>
+
+                                                        <br><b><?= $dP['perusahaanNama'] ?></b><br>
+
+                                                        <?php $dK = \common\models\WebKota::find()->where(['kotaID' => $dP['perusahaanKotaID']])->one() ?>
+                                                        <small><?= $dK['kotaNama'] ?> - <?= $dP['perusahaanNegaraID'] ?></small>
+                                                        <br/>
+                                                    <div class="clear"></div>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <?php if(date("Y-m-d") <= $model->lowonganValid){ ?>
+                                                        <div class="pull-right"><b style="font-size: 15px"><?= date_diff(date_create(date($model->lowonganValid)),date_create())->d ?></b> <small><i>Hari Lagi</i></small></div>
+                                                    <?php } else { ?>
+                                                        <div class="pull-right"><small><i>Pendaftaran Ditutup</i></small></div>
+                                                    <?php } ?>
+                                                    <div class="clear"></div>
+                                                    <?php
+                                                    if($status == 'Aktif'){ echo '<span class="badge badge-success pull-right"><i class="fa fa-star" style="color: yellow;"></i> <b>Premium Company</b> </span>'; }
+                                                    ?>
+                                                    <div class="clear"></div><br>
+                                                    <div class="pull-right">
+                                                        <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-detail', 'id' => $model->lowonganID])?>"><b>SELENGKAPNYA</b> <i class="fa fa-chevron-right"></i></a>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <?php
+                                },
+                            ]) ?>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-12 text-center">
                 <?php
                     if (date("Y-m-d") <= $model->lowonganValid) {
+                        if($model->lowonganDaftarOnline == "Ya"){
                 ?>
                 <i><sup style="color:#F00">*</sup> Pastikan anda telah memenuhi persyaratan diatas dan melengkapi data CV anda pada dashboard user sebelum melakukan pengajuan lamaran.</i>
                 <br>
                 <br>
                     <?php
-                        if (!Yii::$app->user->isGuest) {
-                            $cekLamaran = \frontend\models\UserLamaran::find()->where(['lamaranLowonganID' => $model->lowonganID])->andWhere(['lamaranUserID' => Yii::$app->user->identity->userID])->one();
-                            if($cekLamaran == null){
+                    if (!Yii::$app->user->isGuest) {
+                            $cekLamaran = \frontend\models\UserLamaran::find()->where(['lamaranLowonganID' => $model->lowonganID,'lamaranUserID' => Yii::$app->user->identity->userID])->one();
+                            if(count($cekLamaran) == null){
                     ?>
                         <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-lamar', 'id' => $model->lowonganID]) ?>" class="btn btn-lg btn-success"><i class="fa fa-briefcase"></i> Ajukan Lamaran Anda</a>
                     <?php   } else {
@@ -267,7 +393,14 @@ $status = \frontend\models\Dashboard\DashboardUserPremium::find()->where(['userI
                         } else { ?>
                         <a href="<?= Yii::$app->urlManager->createUrl(['site/login']) ?>" target="_blank" class="btn btn-lg btn-success"><i class="fa fa-briefcase"></i> Silahkan Login Untuk Ajukan Lamaran Anda</a>
                     <?php } ?>
-                <?php } else { ?>
+                <?php
+                        } else {
+                            ?>
+                            <h3 class="el-title">Daftar Online Tidak Tersedia</h3>
+                            <?php
+                        }
+
+                    } else { ?>
                         <h3 class="el-title">Maaf, Pendaftaran Telah Ditutup</h3>
                 <?php } ?>
                 <br>

@@ -7,7 +7,7 @@ use yii\widgets\Breadcrumbs;
 
 //$this->title = 'My Yii Application';
 ?>
-<div class="section p-t-60 p-b-60 bg--grey" id="about" style="background: url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png'); box-shadow: 0px -10px 20px -5px inset #eeeeee;">
+<div class="section p-t-60 p-b-10 bg--grey" id="about" style="background: url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png'); box-shadow: 0px -10px 20px -5px inset #eeeeee;">
     <div class="row">
         <div class="large-12 small-12 column">
             <div class="el-content">
@@ -41,15 +41,15 @@ use yii\widgets\Breadcrumbs;
                         </a>
                     </li>
                 </ul>
-                <b><i><img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($data->artikelUserID)['foto']; ?>" alt="avatar" style="width: 50px; height: 50px;">
-                        <?= ucwords(\common\models\User::findOne($data->artikelUserID)['nama']); ?></i></b>
+                <b><img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($data->artikelUserID)['foto']; ?>" alt="avatar" style="width: 50px; height: 50px;">
+                        @<?= (\common\models\User::findOne($data->artikelUserID)['username']); ?></b>
                         - <?= date('d F Y',strtotime($data->artikelTglPost)) ?>
                 </p>
             </div>
         </div>
     </div>
 </div>
-<div class="section p-t-60 p-b-60" id="about">
+<div class="section p-t-10 p-b-60" id="about">
     <div class="row">
         <div class="large-8 small-12 column">
             <?php
@@ -86,8 +86,8 @@ use yii\widgets\Breadcrumbs;
                     $d1 = \common\models\WebArtikel\WebArtikel::find()->where(['artikelKategoriID' => $d0Data->kategoriArtikelID])->orderBy(['artikelID' => SORT_DESC])->limit(3)->all();
                     foreach($d1 AS $d1Data){
                         ?>
-                    <div class="side-link">
-                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d1Data->artikelThumbnails ?>" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
+                    <div class="side-link" style="padding-top: 10px;">
+                        <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d1Data->artikelThumbnails ?>" style="float:left; width:70px; height:70px; margin:10px; margin-top:5px; border: 5px solid #efefef;" />
                         <a href="?r=site/post-detail&id=<?= $d1Data->artikelID ?>">
                             <?php
                                 if(strlen($d1Data->artikelJudul) > 70){
@@ -144,8 +144,8 @@ use yii\widgets\Breadcrumbs;
                             $d1 = \common\models\WebArtikel\WebArtikel::find()->where(['artikelKategoriID' => $d0Data->kategoriArtikelID])->orderBy(['artikelID' => SORT_DESC])->limit(3)->all();
                             foreach($d1 AS $d1Data){
                                 ?>
-                    <div class="side-link">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d1Data->artikelThumbnails ?>" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
+                    <div class="side-link" style="padding-top: 10px;">
+                                <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d1Data->artikelThumbnails ?>" style="float:left; width:70px; height:70px; margin:10px; margin-top:5px; border: 5px solid #efefef;" />
                                 <a href="?r=site/post-detail&id=<?= $d1Data->artikelID ?>">
                                     <?php
                                     if(strlen($d1Data->artikelJudul) > 70){

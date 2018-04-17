@@ -57,7 +57,7 @@ use yii\helpers\Url;
                 </div>
                 <div class="media-object-section hide-for-small-only">
                     <div class="nav-top-place">
-                        <a href="#"><?= strtoupper(\common\models\WebSetting::find()->orderBy(['settingID' => SORT_ASC])->limit(1)->all()[0]['settingSiteDescription']); ?></a>
+                        <a href="<?= Yii::$app->request->baseUrl ?>"><?= strtoupper(\common\models\WebSetting::find()->orderBy(['settingID' => SORT_ASC])->limit(1)->all()[0]['settingSiteDescription']); ?></a>
                     </div>
                 </div>
             </div>
@@ -93,9 +93,9 @@ use yii\helpers\Url;
                 }
 
                 ?>
-                <li>
-                    <a href="<?= Yii::$app->urlManager->createUrl('site/developer') ?>" <?php if(isset($this->params['developer'])){ echo 'class="active"'; } ?>>Developer</a>
-                </li>
+                <!--li>
+                    <a href="<?php //= Yii::$app->urlManager->createUrl('site/developer') ?>" <?php //if(isset($this->params['developer'])){ echo 'class="active"'; } ?>>Developer</a>
+                </li-->
                 <?php
                 if (!Yii::$app->user->isGuest) {
                     ?>
@@ -104,9 +104,9 @@ use yii\helpers\Url;
                         <ul class="submenu menu vertical" data-submenu>
                             <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard') ?>" <?php if(isset($this->params['dashboard'])){ echo 'class="active"'; } ?>>Dashboard</a></li>
                             <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard/profile') ?>" <?php if(isset($this->params['profile'])){ echo 'class="active"'; } ?>>Profil</a></li>
-                            <li><a href="<?= Url::to(['site/logout']) ?>">Logout</a></li>
                         </ul>
                     </li>
+                    <li><a href="<?= Url::to(['site/logout']) ?>"><span class="fa fa-power-off"></span></a></li>
                     <?php
                 } else {
                     ?>

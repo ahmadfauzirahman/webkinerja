@@ -1,5 +1,6 @@
 <?php
 
+use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\DetailView;
@@ -118,5 +119,28 @@ $this->params['breadcrumbs'][] = ['label' => '#'.$model->lowonganID];
             'lowonganKeterangan:html',
         ],
     ]) ?>
+
+    <hr/>
+    <h3>Seleksi <?= Html::a('<i class="fa fa-pencil"></i> Ubah Data Seleksi', ['/dashboard-seleksi/index','lowongan' => $model->lowonganID], ['class' => 'btn btn-success', 'title' => 'Ubah Data Seleksi']) ?></h3>
+    <?php
+    $model = \frontend\models\Dashboard\DashboardSeleksi::find()->where(['seleksiLowonganID' => $model->lowonganID])->orderBy(['seleksiTglAwal' => SORT_ASC])->all();
+    if(count($model) == 0){ echo "Data seleksi tidak ditemukan"; }
+    ?>
+    <table class="table table-striped table-bordered detail-view">
+        <?php
+        $no = 1;
+        foreach($model AS $data){
+            ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $data['seleksiNama'] ?></td>
+                <td class="text-center"><?= $data['seleksiTglAwal'] ?><br> s/d <br><?= $data['seleksiTglAkhir'] ?></td>
+                <td><?= $data['seleksiTempat'] ?></td>
+                <td><?= $data['seleksiStatus'] ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
 
 </div>

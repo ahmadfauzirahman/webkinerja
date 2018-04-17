@@ -5,92 +5,28 @@ use yii\helpers\Html;
 
 //$this->title = 'My Yii Application';
 ?>
-    <div class="section-content block block-client p-t-30" style="padding-top:40px !important;">
-        <div class="owl-slider-logo owl-carousel owl-theme">
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
+<!--    <div class="section-content block block-client p-t-30" style="padding-top:40px !important;">-->
+<!--        <div class="owl-slider-logo owl-carousel owl-theme">-->
+<!--            --><?php
+//            $data = Yii::$app->db->createCommand("SELECT a.*,b.* FROM web_perusahaan a, web_user_premium b WHERE a.perusahaanUserID=b.userID AND b.userPremiumStatus='Aktif' AND a.perusahaanStatus='Aktif' AND (now() <= b.userPremiumAkhir)")->queryAll();
+//            foreach($data AS $c){
+//            ?>
+<!--            <div class="item">-->
+<!--                <div class="block-client_item text-center">-->
+<!--                    <figure class="block-client_item-image">-->
+<!--                        --><?php //if($c['perusahaanFoto'] == ''){ ?>
+<!--                            <img style="height: 100px; width: 260px;" src="--><?//= Yii::$app->request->baseUrl ?><!--/../../backend/web/logoperusahaan/thumbs.png" alt="thumbnails">-->
+<!--                        --><?php //} else { ?>
+<!--                            <img style="height: 100px; width: 260px;" src="--><?//= Yii::$app->request->baseUrl ?><!--/../../backend/web/logoperusahaan/--><?//= $c['perusahaanFoto']; ?><!--" alt="thumbnails">-->
+<!--                        --><?php //} ?>
+<!--                    </figure>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--            --><?php //} ?>
+<!---->
+<!--        </div>-->
+<!--    </div>-->
     <section id="slider-01">
         <div class="owl-slider-04 owl-carousel owl-theme">
             <div class="item owl-bg cover-bg" style="background:linear-gradient(rgba(20,20,20,0.20), rgba(20,20,20,0.50)), url('http://via.placeholder.com/1920x599')">
@@ -138,7 +74,7 @@ use yii\helpers\Html;
         </div>
     </section>
     <!-- end main slide sosmed -->
-    <div class="section p-t-60 p-b-60" id="about">
+    <div class="section p-t-30 p-b-30" id="about">
         <div class="row">
             <div class="large-4 small-12 column">
                 <div class="el-content text-left  animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
@@ -174,67 +110,56 @@ use yii\helpers\Html;
                                 <?php
                             }
                         ?>
-                        <br/>
                 </div>
             </div>
             <div class="large-4 small-12 column">
                 <div class="el-content text-left  animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
 
-                    <p class="el-subtitle text-bluedark">Lowongan Populer
+                    <p class="el-subtitle text-bluedark">Lowongan Rekomendasi</p>
                         <div class="divider float-left"></div>
                         <br>
                         <div class="clear"></div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                        <div class="side-link">
-                            <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;" />
-                            <a href="?r=site#">
-                                Yii 1.1: Creating and updating model and its related models in one form, inc. image
-                            </a>
-                            <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
-                        </div>
-                    </p>
-                    <br/>
+                    <?php
+                    $lowonganTerbaru2 = \frontend\models\Dashboard\DashboardLowongan::find()->where(['lowonganStatus' => 'Aktif'])->orderBy(['lowonganID' => SORT_DESC])->all();
+                    $n = 1;
+                    foreach($lowonganTerbaru2 AS $lT){
+                        if($n <= 5) {
+                            $dP = \common\models\WebPerusahaan\WebPerusahaan::find()->where(['perusahaanID' => $lT->lowonganPerusahaanID])->one();
+                            $status = \frontend\models\Dashboard\DashboardUserPremium::find()->where(['userID' => $dP->perusahaanUserID])->one()['userPremiumStatus'];
+                            if ($status == 'Aktif') {
+                                $n++;
+                                ?>
+                                <div class="side-link">
+                                    <a href="<?= Yii::$app->urlManager->createUrl(['site/lowongan-detail', 'id' => $lT->lowonganID]) ?>">
+                                        <img src="<?= Yii::$app->request->baseUrl ?>./../../backend/web/logoperusahaan/<?= $dP->perusahaanFoto ?>"
+                                             style="float:left; width:70px; height:70px; margin:10px; border: 5px solid #efefef;"/>
+                                        <?php if (date("Y-m-d") <= $lT->lowonganValid) { ?>
+                                            <div class="pull-right"><b
+                                                        style="font-size: 15px"><?= date_diff(date_create(date($lT->lowonganValid)), date_create())->d ?></b><br>
+                                                <small><i>Hari<br>Lagi</i></small>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="pull-right">
+                                                <small><i>Pendaftaran<br>Ditutup</i></small>
+                                            </div>
+                                        <?php } ?>
+                                        <p style="padding-top:10px;">
+                                            <?= $lT->lowonganNama; ?>
+
+
+                                            <br><b style="color:#537238;"><?= $dP['perusahaanNama'] ?></b><br>
+                                            <?php $dK = \common\models\WebKota::find()->where(['kotaID' => $dP['perusahaanKotaID']])->one() ?>
+                                            <small><?= $dK['kotaNama'] ?> - <?= $dP['perusahaanNegaraID'] ?></small>
+                                            <br/>
+                                        </p>
+                                    </a>
+                                    <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
+                                </div>
+                                <?php
+                            }
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <div class="large-4 small-12 column">
@@ -294,14 +219,13 @@ use yii\helpers\Html;
                                 <hr style="border:0; border-top:1px dotted #dddddd; margin-bottom: 0;"/>
                             </div>
                         </p>
-                        <br/>
                 </div>
             </div>
 
         </div>
     </div>
     <!-- end standard-03 -->
-    <div id="expertise" class="section p-t-60 bg--grey" style="
+    <div id="expertise" class="section p-t-60 p-b-60 bg--grey" style="
     background-image:url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/bg-section-socmed.png');
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -317,94 +241,63 @@ use yii\helpers\Html;
                     <p class="m-t-30">Sistem kami dapat membantu perusahaan anda dalam menyediakan tenaga kerja yang kompetent sesuai spesifikasi yang perusahaan anda butuhkan:</p>
                 </div>
             </div>
+            <br>
+            <br>
+            <div style="padding-top:0 !important;" class="text-center">
+                <div class="owl-slider-logo owl-carousel owl-theme text-center">
+
+                    <?php
+                    $data = Yii::$app->db->createCommand("SELECT a.* FROM web_perusahaan a WHERE a.perusahaanStatus='Aktif'")->queryAll();
+                    foreach($data AS $c){
+                        ?>
+                        <div class="item">
+                            <div class="block-client_item text-center">
+                                <figure class="block-client_item-image text-center">
+                                    <?php if($c['perusahaanFoto'] == ''){ ?>
+                                        <img style="height: 100px; width: 110px;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/logoperusahaan/thumbs.png" alt="thumbnails">
+                                    <?php } else { ?>
+                                        <img style="height: 100px; width: 110px;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/logoperusahaan/<?= $c['perusahaanFoto']; ?>" alt="thumbnails">
+                                    <?php } ?>
+                                </figure>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <?php
+                    $data = Yii::$app->db->createCommand("SELECT a.* FROM web_perusahaan a WHERE a.perusahaanStatus='Aktif'")->queryAll();
+                    foreach($data AS $c){
+                        ?>
+                        <div class="item">
+                            <div class="block-client_item text-center">
+                                <figure class="block-client_item-image text-center">
+                                    <?php if($c['perusahaanFoto'] == ''){ ?>
+                                        <img style="height: 100px; width: 110px;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/logoperusahaan/thumbs.png" alt="thumbnails">
+                                    <?php } else { ?>
+                                        <img style="height: 100px; width: 110px;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/logoperusahaan/<?= $c['perusahaanFoto']; ?>" alt="thumbnails">
+                                    <?php } ?>
+                                </figure>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <?php
+                    $data = Yii::$app->db->createCommand("SELECT a.* FROM web_perusahaan a WHERE a.perusahaanStatus='Aktif'")->queryAll();
+                    foreach($data AS $c){
+                        ?>
+                        <div class="item">
+                            <div class="block-client_item text-center">
+                                <figure class="block-client_item-image text-center">
+                                    <?php if($c['perusahaanFoto'] == ''){ ?>
+                                        <img style="height: 100px; width: 110px;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/logoperusahaan/thumbs.png" alt="thumbnails">
+                                    <?php } else { ?>
+                                        <img style="height: 100px; width: 110px;" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/logoperusahaan/<?= $c['perusahaanFoto']; ?>" alt="thumbnails">
+                                    <?php } ?>
+                                </figure>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
         <div class="clear"></div>
-    </div>
-    <div class="section-content block block-client p-t-30" style="padding-top:0 !important;">
-        <div class="owl-slider-logo owl-carousel owl-theme">
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="block-client_item text-center">
-                    <figure class="block-client_item-image">
-                        <img src="http://via.placeholder.com/260x100">
-                    </figure>
-
-                </div>
-            </div>
-
-        </div>
     </div>
     <!-- end tabs vertical -->
         <div class="section p-t-60 p-b-60" id="service" style="background: url('<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/ppc/ppc_section-bg-01.png'); box-shadow: 0px -10px 20px -5px inset #eeeeee;">
@@ -495,7 +388,7 @@ use yii\helpers\Html;
     <!-- end table pricing -->
     <section class="section p-t-60 p-b-60 bg--grey blog-grid" id="blog" style="background:#ffffff url('images/ppc/ppc_section-bg-01.png') repeat;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;">
         <div class="row">
-            <div class="large-3 column">
+            <div class="large-2 column">
                 <div class="section-header   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
                     <p class="el-subtitle">Terbaru.</p>
                     <h2 class="el-title">Blog.</h2>
@@ -511,7 +404,7 @@ use yii\helpers\Html;
                     </div>
                 </div>
             </div>
-            <div class="large-9 column">
+            <div class="large-10 column">
                 <div class="row">
                     <?php
                     $data = \common\models\WebArtikel\WebArtikel::find()->orderBy(['artikelID' => SORT_DESC])->limit(3)->all();
@@ -519,8 +412,8 @@ use yii\helpers\Html;
                         ?>
                         <div class="large-4 column">
                             <div class="card-article-hover card   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.4s" data-offset="50">
-                                <a href="">
-                                    <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d->artikelThumbnails; ?>">
+                                <a href="?r=site/post-detail&id=<?= $d->artikelID ?>">
+                                    <img src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/thumbnails/<?= $d->artikelThumbnails; ?>" style="height:150px; width:100%">
                                 </a>
                                 <div class="card-section">
                                     <p class="meta-data article-subtext">
@@ -533,8 +426,8 @@ use yii\helpers\Html;
                                     <p class="article-desc"><?= strip_tags(substr($d->artikelIsi,0,70)); ?>...</p>
                                 </div>
                                 <div class="card-divider flex-container align-middle">
-                                    <img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($d->artikelUserID)['foto']; ?>" alt="avatar" style="width: 50px; height: 50px;">
-                                    <a href="" class="author"><?= \common\models\User::findOne($d->artikelUserID)['nama']; ?></a>
+                                    <img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($d->artikelUserID)['foto']; ?>" alt="avatar" style="width: 20px; height: 20px;">
+                                    <a href="#"><small>@<?= \common\models\User::findOne($d->artikelUserID)['username']; ?></small></a>
                                 </div>
                                 <div class="hover-border">
                                 </div>

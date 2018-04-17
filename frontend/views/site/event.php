@@ -28,8 +28,8 @@ use yii\helpers\Html;
     <div class="row">
         <div class="large-11 large-centered text-center column" style="padding-bottom: 150px">
             <div class="section-header   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-                <a href="<?= \yii\helpers\Url::to(['event/index', 'id'=>$event->eventsID])?>"><img class="content-centered" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto_events/<?= $event->eventsThumbnails; ?>" alt="avatar" style="width: 1000px; height: 400px"></a>
-                <h1 class="el-title"><?= date('d', strtotime($event->eventsTanggalMulai))." - ". date('d F Y', strtotime($event->eventsTanggalSelesai))." , ". $event->eventsLokasi." | +-".$stand_count." Perusahaan | 100% GRATIS" ?></h1>
+<!--                <a href="--><?//= \yii\helpers\Url::to(['event/index', 'id'=>$event->eventsID])?><!--"><img class="content-centered" src="--><?//= Yii::$app->request->baseUrl ?><!--/../../backend/web/foto_events/--><?//= $event->eventsThumbnails; ?><!--" alt="avatar" style="width: 1000px; height: 400px"></a>-->
+<!--                <h1 class="el-title">--><?//= date('d', strtotime($event->eventsTanggalMulai))." - ". date('d F Y', strtotime($event->eventsTanggalSelesai))." , ". $event->eventsLokasi." | +-".$stand_count." Perusahaan | 100% GRATIS" ?><!--</h1>-->
                 <div class="divider"></div>
             </div>
         </div>

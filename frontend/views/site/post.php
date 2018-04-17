@@ -88,8 +88,8 @@ use yii\helpers\Html;
                     <p class="article-desc"><?= strip_tags(substr($d0Data->artikelIsi,0,70)); ?>...</p>
                 </div>
                 <div class="card-divider flex-container align-middle">
-                    <img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($d0Data->artikelUserID)['foto']; ?>" alt="avatar" style="width: 50px; height: 50px;">
-                    <a href="" class="author"><?= \common\models\User::findOne($d0Data->artikelUserID)['nama']; ?></a>
+                    <img class="avatar" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto/<?= \common\models\User::findOne($d0Data->artikelUserID)['foto']; ?>" alt="avatar" style="width: 20px; height: 20px;">
+                    <a href=""><small>@<?= \common\models\User::findOne($d0Data->artikelUserID)['username']; ?></small></a>
                 </div>
                 <div class="hover-border">
                 </div>

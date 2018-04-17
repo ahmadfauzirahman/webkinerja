@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel frontend\models\Dashboard\DashboardUserPremiumTransaksiSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = "Transaksi";
+$this->title = "Transaksi Akun Premium";
 $this->params['breadcrumbs'][] = ['label' => 'Dashboard', 'url' => ['/dashboard']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -42,9 +42,13 @@ if($user['role'] == 'perusahaan-premium') {
 
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="table-responsive">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table table-hover'
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -76,4 +80,5 @@ if($user['role'] == 'perusahaan-premium') {
             ],
         ],
     ]); ?>
+    </div>
 </div>

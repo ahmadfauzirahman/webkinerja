@@ -186,15 +186,24 @@ class DashboardController extends Controller
             $model = DashboardPelamar::find()->where(['pelamarUserID' => Yii::$app->user->identity->userID])->one();
             $model->pelamarPendididkanFormal = json_decode($model->pelamarPendididkanFormal);
             $model->pelamarPendidikanNonFormal = json_decode($model->pelamarPendidikanNonFormal);
+            $model->pelamarPengalamanAkademik = json_decode($model->pelamarPengalamanAkademik);
+            $model->pelamarPengalamanKerja = json_decode($model->pelamarPengalamanKerja);
+            $model->pelamarKemampuan = json_decode($model->pelamarKemampuan);
             if ($model->load(Yii::$app->request->post())) {
 
                 $model->pelamarPendididkanFormal = json_encode($model->pelamarPendididkanFormal);
                 $model->pelamarPendidikanNonFormal = json_encode($model->pelamarPendidikanNonFormal);
+                $model->pelamarPengalamanAkademik = json_encode($model->pelamarPengalamanAkademik);
+                $model->pelamarPengalamanKerja = json_encode($model->pelamarPengalamanKerja);
+                $model->pelamarKemampuan = json_encode($model->pelamarKemampuan);
 
                 if ($model->validate()) {
 
                     $model->save();
                     return $this->redirect(['dashboard/data-cv']);
+//                    echo "<pre>";
+//                    print_r($model);
+//                    exit();
 
                 }
 

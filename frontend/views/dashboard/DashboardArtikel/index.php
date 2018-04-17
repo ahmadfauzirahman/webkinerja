@@ -28,9 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
         Anda bisa menulis artikel untuk diterbitkan ke publik
     </p>
     <hr/>
+    <div class="table-responsive">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table table-hover'
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -70,5 +74,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]],
         ],
     ]); ?>
+    </div>
     <?php Pjax::end(); ?>
 </div>

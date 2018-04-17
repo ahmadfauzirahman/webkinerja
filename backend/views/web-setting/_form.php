@@ -24,6 +24,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'settingTelepon')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'settingTicketEvent')->dropDownList([1 => 'Tampilkan', 0 => 'Sembunyikan']) ?>
+
     <?= $form->field($model, 'settingPageGuide')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'settingPagePeraturanKebijakan')->textInput(['maxlength' => true]) ?>

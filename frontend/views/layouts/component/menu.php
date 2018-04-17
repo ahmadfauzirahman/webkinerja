@@ -41,9 +41,9 @@ if (!Yii::$app->user->isGuest) {
         <ul class="submenu menu vertical <?php if(isset($this->params['user'])){ echo 'is-active'; } ?>" data-submenu>
             <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard') ?>" <?php if(isset($this->params['dashboard'])){ echo 'class="active"'; } ?>>Dashboard</a></li>
             <li><a href="<?= Yii::$app->urlManager->createUrl('dashboard/profile') ?>" <?php if(isset($this->params['profile'])){ echo 'class="active"'; } ?>>Profil</a></li>
-            <li><a href="<?= Url::to(['site/logout']) ?>">Logout</a></li>
         </ul>
     </li>
+    <li><a href="<?= Url::to(['site/logout']) ?>"><i class="fa fa-power-off"></i> Logout</a></li>
     <?php
 } else {
     ?>

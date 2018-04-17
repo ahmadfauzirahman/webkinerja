@@ -6,7 +6,7 @@ use yii\widgets\Breadcrumbs;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Dashboard\DashboardUserPremiumTransaksi */
 
-$this->params['breadcrumbs'][] = ['label' => 'Dashboard User Premium Transaksis', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Transaksi Akun Premium', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => '#'.$model->userPremiumTransaksiID, 'url' => ['view', 'id' => $model->userPremiumTransaksiID]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

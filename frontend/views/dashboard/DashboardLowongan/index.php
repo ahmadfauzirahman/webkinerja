@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Breadcrumbs;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\Dashboard\DashboardLowonganSearch */
@@ -26,12 +27,15 @@ $this->params['breadcrumbs'][] = $this->title;
     Anda bisa membuat lowongan pekerjaan yang diterbitkan ke publik
     </p>
     <hr/>
-
+    <?php //Pjax::begin(); ?>
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <div class="table-responsive">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table table-hover'
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -71,9 +75,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     return date('d/m/Y',strtotime($model->lowonganValid));
                 },
             ],
+            array(
+                'label' => 'List Seleksi',
+                'format' => 'html',
+                'value' => function($model){
+                    return Html::a('Lihat Daftar',['/dashboard-seleksi','lowongan' => $model->lowonganID]);
+                }
+            ),
             'lowonganStatus:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    </div>
+    <?php //Pjax::end(); ?>
 </div>

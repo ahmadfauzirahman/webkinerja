@@ -33,6 +33,7 @@ class WebSetting extends \yii\db\ActiveRecord
             [['settingSiteDescription', 'settingMetaKeyword', 'settingPageGuide', 'settingPagePeraturanKebijakan'], 'string'],
             [['settingTelepon'], 'string', 'max' => 20],
             [['settingSiteTitle', 'settingCredits', 'settingFoto'], 'string', 'max' => 100],
+            [['settingTicketEvent'], 'integer'],
         ];
     }
 
@@ -51,6 +52,7 @@ class WebSetting extends \yii\db\ActiveRecord
             'settingTelepon' => 'Setting Telepon',
             'settingPageGuide' => 'Url Page Guide',
             'settingPagePeraturanKebijakan' => 'Url Page Peraturan Kebijakan',
+            'settingTicketEvent' => 'Setting Ticket Event Menu',
         ];
     }
 }

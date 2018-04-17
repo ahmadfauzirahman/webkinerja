@@ -35,6 +35,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'settingCredits',
             'settingFoto',
             'settingTelepon',
+            //'settingTicketEvent',
+            [
+                'attribute' => 'settingTicketEvent',
+                'value' => function($model){
+                    if($model->settingTicketEvent == 1){
+                        return "Tampilkan";
+                    } elseif($model->settingTicketEvent == 0){
+                        return "Sembunyikan";
+                    } else {
+                        return "Undefined";
+                    }
+                }
+            ],
             'settingPageGuide',
             'settingPagePeraturanKebijakan',
         ],

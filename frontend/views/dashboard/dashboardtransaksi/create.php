@@ -7,7 +7,7 @@ use yii\widgets\Breadcrumbs;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Dashboard\DashboardUserPremiumTransaksi */
 
-$this->title = "Transaksi";
+$this->title = "Transaksi Akun Premium";
 $this->params['breadcrumbs'][] = ['label' => 'Dashboard', 'url' => ['/dashboard']];
 $this->params['breadcrumbs'][] = $this->title;
 

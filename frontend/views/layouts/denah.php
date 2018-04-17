@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: alief_alhadi
- * Date: 3/17/2018
- * Time: 2:36 PM
+ * Date: 3/16/2018
+ * Time: 11:14 AM
  */
 ?>
 
@@ -463,16 +463,20 @@ AppAsset::register($this);
                     </ul>
                     <ul class="menu dropdown float-right menu-main hide-for-small-only" data-dropdown-menu>
                         <li class="<?php if(isset($this->params['active_home'])){ echo $this->params['active_home'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/index','id'=>$this->params['id']]) ?>">Home</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/index','id'=>$this->params['id']]) ?>">Home</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_regist'])){ echo $this->params['active_regist'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_denah'])){ echo $this->params['active_denah'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
                         </li>
                         <li class="<?php if(isset($this->params['active_jadwal'])){ echo $this->params['active_jadwal'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-perusahaan/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
+                        </li>
+
+                        <li>
+                            <a href="" >Lowongan</a>
                         </li>
                         <?php
                         if (!Yii::$app->user->isGuest) {
@@ -491,7 +495,6 @@ AppAsset::register($this);
                             <li>
                                 <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>" <?php if(isset($this->params['login'])){ echo 'class="active"'; } ?>>Login</a>
                             </li>
-
                             <?php
                         }
                         ?>
@@ -504,14 +507,129 @@ AppAsset::register($this);
     <!-- end header -->
     <?php $this->beginBody() ?>
     <?= $content ?>
-    <script type="text/javascript" src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/assets/libs/jquery.js"></script>
     <?php $this->endBody() ?>
 
-    <?php include 'component/footer.php'; ?>
+    <footer class="section footer p-t-30 p-b-30 bg--dark" id="contact">
+        <div class="row">
+            <div class="large-5 small-12 column">
+                <div class="block-widget">
+                    <div class="block-widget_header">
+                    </div>
+                    <div class="block-widget_content">
+                        <p>
+                            <figure class="logo-footer">
+                                <img src="<?= Yii::$app->request->baseUrl ?>/themes/themes1/images/uin.png" style="height:60px; margin: 6px;">
+                            </figure>
+                        </p>
+                        <p>We have worked with a wide range of companies, from Fortune 500s with major international presences to startup
+                            businesses with highly focused local clientele. We strive to collaborate with like-minded businesses to make
+                            a difference environmentally and socially. Let’s collaborate.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="large-6 small-12 column large-right">
+                <div class="block-partner hide-for-small-only">
+                    <ul class="block-partner_list vertical large-horizontal medium-horizontal menu">
+
+                        <li class="block-partner_list-item">
+                            <h4>Facebook</h4>
+                            <span>Partner</span>
+                        </li>
+
+                        <li class="block-partner_list-item">
+                            <h4>Google</h4>
+                            <span>Partner</span>
+                        </li>
+
+                        <li class="block-partner_list-item">
+                            <h4>Paypal</h4>
+                            <span>Partner</span>
+                        </li>
+
+                        <li class="block-partner_list-item">
+                            <h4>Top Agency</h4>
+                            <span>2016-2020</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="block-newsletter">
+                    <h4>Subscribe to our Newsletter</h4>
+                    <form>
+                        <div class="input-group">
+                            <input class="input-group-field field-text" type="email" placeholder="Your email address">
+                            <div class="input-group-button">
+                                <input type="submit" class="button -rounded" value="Subscribe">
+                            </div>
+                        </div>
+                    </form>
+                    <p class="text-small">Learn About our company at
+                        <a href="#"><?= strtoupper(\common\models\WebSetting::find()->orderBy(['settingID' => SORT_ASC])->limit(1)->all()[0]['settingSiteTitle']); ?></a> | Join with our company:
+                        <a href="#">Career</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 column">
+                <div class="footer-bottom">
+                    <div class="footer-copyright float-left">
+                        &copy; copyright <?= date('Y') ?> - <?= strtoupper(\common\models\WebSetting::find()->orderBy(['settingID' => SORT_ASC])->limit(1)->all()[0]['settingSiteTitle']); ?>
+                    </div>
+                    <div class="footer-nav_icon float-right">
+                        <ul class="menu horizontal">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav float-right hide-for-small-only">
+                        <ul class="menu horizontal">
+                            <li>
+                                <a href="">Home</a>
+                            </li>
+                            <li>
+                                <a href="">About us</a>
+                            </li>
+                            <li>
+                                <a href="">Service</a>
+                            </li>
+                            <li>
+                                <a href="">Cases</a>
+                            </li>
+                            <li>
+                                <a href="">News Page</a>
+                            </li>
+                            <li>
+                                <a href="">Shop</a>
+                            </li>
+                            <li>
+                                <a href="">Contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- end footer-->
-
-    <?php include 'component/js.php'; ?>
+    <?php
+    $this->registerJsFile(Yii::$app->request->baseUrl."/assets/1b123941/jquery.js");
+    $this->registerJsFile(Yii::$app->request->baseUrl."/assets/6deac4a1/js/bootstrap.js");
+?>
 </body>
 
 </html>

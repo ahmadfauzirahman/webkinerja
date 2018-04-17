@@ -10,72 +10,69 @@ $this->title = $model->eventsJudul;
 $this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php $this->beginBlock('nav-event');?>
+<nav class="navbar navbar-static-top" style="background: white; margin-bottom: 0px">
+    <div class="container-fluid">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-events/views', 'id' => $model->eventsID])?>"">
+                    <i class="fa fa-calendar"></i> Detail event
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-jadwal-events/index', 'id' => $model->eventsID])?>"">
+                    <i class="fa fa-calendar"></i> Jadwal event
+                    <span class="label label-success"><?= $jadwal_count?></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-booking/index', 'id' => $model->eventsID])?>">
+                        <i class="fa fa-inbox"></i> Stand Booking
+                        <span class="label label-success"><?= $booking_count?></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-tiket-events/index', 'id' => $model->eventsID])?>">
+                        <i class="fa fa-user"></i> Peserta
+                        <span class="label label-success"><?= $tiket_count?></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-presentasi/index', 'id' => $model->eventsID])?>">
+                        <i class="fa fa-line-chart"></i> Jadwal Presentasi
+                        <span class="label label-success"><?= $jadwal_presentasi_count?></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-stands/index', 'id' => $model->eventsID])?>">
+                        <i class="fa fa-inbox"></i> Daftar Stand
+                        <span class="label label-success"><?= $stands_count?></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?= \yii\helpers\Url::to(['web-dokumentasi/index', 'id' => $model->eventsID])?>">
+                        <i class="fa fa-camera"></i> Dokumentasi
+                        <span class="label label-success"><?= $foto_count?></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<?php $this->endBlock()?>
+
 <div class="web-events-view" >
-    <div class="col-md-12">
-        <div class="col-md-3">
-            <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-jadwal-events/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-green"><i class="fa fa-calendar"></i></span></a>
-                <div class="info-box-content">
-                    <span class="info-box-text">JADWAL EVENT</span>
-                    <span class="info-box-number"><?= $jadwal_count?></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-booking/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-inbox"></i></span></a>
-                <div class="info-box-content">
-                    <span class="info-box-text">STAND BOOKING</span>
-                    <span class="info-box-number"><?=$booking_count?></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-tiket-events/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-red"><i class="fa fa-user"></i></span></a>
-                <div class="info-box-content">
-                    <span class="info-box-text">Peserta</span>
-                    <span class="info-box-number"><?= $tiket_count?></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-presentasi/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-red"><i class="fa fa-line-chart"></i></span></a>
-                <div class="info-box-content">
-                    <span class="info-box-text">JADWAL</span>
-                    <span class="info-box-text">PRESENTASI</span>
-                    <span class="info-box-number"><?= $jadwal_presentasi_count?></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-3 col-md-offset-6">
-            <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-stands/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-green"><i class="fa fa-calendar"></i></span></a>
-                <div class="info-box-content">
-                    <span class="info-box-text">Daftar Stand</span>
-                    <span class="info-box-number"><?= $stands_count?></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="info-box">
-                <a href="<?= \yii\helpers\Url::to(['web-dokumentasi/index', 'id' => $model->eventsID])?>"> <span class="info-box-icon bg-blue"><i class="fa fa-camera"></i></span></a>
-                <div class="info-box-content">
-                    <span class="info-box-text">DOKUMENTASI</span>
-                    <span class="info-box-number"><?= $foto_count?></span>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
 
         <div class="col-md-12">
 

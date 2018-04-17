@@ -325,7 +325,9 @@ class SiteController extends Controller
     public function actionEvent()
     {
         $this->view->params['events'] = true;
-        return $this->render('event');
+        $event = \common\models\WebEvents::find()->where(['eventsStatus'=>'Aktif'])->one();
+
+        return $this->render('event', ['event'=>$event]);
     }
 
     public function actionRegister()

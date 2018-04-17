@@ -101,6 +101,11 @@
       <path value="$PROJECT_DIR$/vendor/marqu3s/yii2-summernote" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/summernote" />
       <path value="$PROJECT_DIR$/vendor/bower-asset/codemirror" />
+      <path value="$PROJECT_DIR$/vendor/khanamiryan/qrcode-detector-decoder" />
+      <path value="$PROJECT_DIR$/vendor/2amigos/qrcode-library" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/vendor/facebook/graph-sdk" />
+      <path value="$PROJECT_DIR$/vendor/kartik-v/yii2-social" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

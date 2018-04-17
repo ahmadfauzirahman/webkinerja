@@ -38,10 +38,23 @@ class WebTiketEventsController extends Controller
         $event = \common\models\WebEvents::findOne($id);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $id);
 
+        $jadwal_count = \common\models\WebJadwalEvents::find()->where(['jadwalEventsEventsID'=>$id])->count();
+        $tiket_count = \common\models\WebTiketEvents::find()->where(['tiketEventsEventsID'=>$id])->count();
+        $jadwal_presentasi_count = \common\models\WebPresentasi::find()->where(['presentasiEventsID'=> $id])->count();
+        $stands_count = \common\models\WebStands::find()->where(['standsEventsID'=>$id])->count();
+        $booking_count = \common\models\WebBooking::find()->where(['bookingEventsID'=>$id])->count();
+        $foto_count = \common\models\WebDokumentasi::find()->where(['dokumentasiEventsID'=> $id])->count();
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'event' => $event
+            'event' => $event,
+            'jadwal_count' => $jadwal_count,
+            'tiket_count' => $tiket_count,
+            'jadwal_presentasi_count'=> $jadwal_presentasi_count,
+            'stands_count' => $stands_count,
+            'booking_count' => $booking_count,
+            'foto_count' => $foto_count
         ]);
     }
 

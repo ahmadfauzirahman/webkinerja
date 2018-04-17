@@ -310,7 +310,6 @@ use yii\helpers\Html;
                         <div class="clear"></div>
                         <p class="el-desc m-t-30">We assess our clients' image and provide tactical planning that inspire the audience to get involved and take
                             action.</p>
-
                     </div>
                     <div class="section-content m-t-30 text-center">
                         <div class="row large-up-6 medium-up-4 small-up-2 content-service m-b-30" data-equalizer data-equalize-by-row="true">

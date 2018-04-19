@@ -7,6 +7,7 @@ class EventController extends \yii\web\Controller
     public function actionIndex($id)
     {
         $this->layout = 'event_';
+        $this->view->params['events'] = true;
         $event = \common\models\WebEvents::findOne($id);
         return $this->render('index', ['event'=>$event]);
     }

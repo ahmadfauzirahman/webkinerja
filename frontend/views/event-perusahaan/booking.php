@@ -7,6 +7,7 @@
  */
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+
 ?>
 <br><br>
 <div class="section" style="
@@ -14,27 +15,67 @@ use yii\helpers\Html;
     padding-top:50px;padding-bottom: 20px;
     ">
     <div class="row animate" data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
-        <h2 class="el-title">Platinum</h2>
+        <h2 class="el-title"><?php echo $stand->standsNama?></h2>
         <p class="el-subtitle">No booth 20</p>
         <div class="divider float-left"></div>
     </div>
 </div>
 <div class="section" style="padding: 50px">
     <div class="row text-center">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="<?php if(isset($this->params['active_form'])){ echo $this->params['active_form'];}?>">
-                <a href="#">Form Booking</a></li>
-            <li class="<?php if(isset($this->params['active_fasilitas'])){ echo $this->params['active_fasilitas'];}?>">
-                <a href="#">Fasilitas</a></li>
-        </ul>
-        <h2 class="el-title">Form Booking Stand</h2>
-        <div class="divider"></div>
-        <br>
-        <?= $this->render('_form-booking', [
-            'model' => $model,
-            'id' => $event->eventsID,
-            'id_stand' => $stand->standsID
-        ]) ?>
+        <div class="panel panel-default panel-fade">
+
+            <div class="panel-heading">
+
+							<span class="panel-title">
+
+								<div class="pull-left">
+
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#form" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> Form Booking</a></li>
+									<li><a href="#fasilitas" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> Fasilitas Stand</a></li>
+								</ul>
+
+								</div>
+
+
+
+								<div class="clearfix"></div>
+
+							</span>
+
+            </div>
+
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="form">
+                        <h2 class="el-title">Form Booking Stand</h2>
+                        <div class="divider"></div>
+                        <br>
+                        <?= $this->render('_form-booking', [
+                            'model' => $model,
+                            'id' => $event->eventsID,
+                            'id_stand' => $stand->standsID,
+                            'perusahaan' => $perusahaan
+                        ]) ?>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="fasilitas">
+                        <h3 class="el-title">Fasilitas Stand</h3>
+                        <div class="divider"></div>
+                        <br>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
     </div>
 </div>
 

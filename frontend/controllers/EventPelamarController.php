@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use common\models\LoginForm;
 use frontend\models\LowonganSearch;
 use Yii;
 use Da\QrCode\QrCode;
@@ -38,7 +39,7 @@ class EventPelamarController extends \yii\web\Controller
     }
 
     public function actionJadwal($id){
-        $this->layout = 'pelamar';
+        $this->layout = 'denah';
         $event = \common\models\WebEvents::findOne($id);
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_jadwal'] = 'active';
@@ -67,6 +68,34 @@ class EventPelamarController extends \yii\web\Controller
             'event' => $event
         ]);
 
+    }
+
+    public function actionLogin($id)
+    {
+        $this->layout = 'pelamar';
+        $event = \common\models\WebEvents::findOne($id);
+        Yii::$app->view->params['id'] = $event->eventsID;
+        $this->view->params['login'] = true;
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $_SESSION['menu'] = 0;
+            return $this->redirect(['event-pelamar/index', 'id'=>$id]);
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionLogout($id)
+    {
+        Yii::$app->user->logout();
+
+        return $this->redirect(['event-pelamar/index', 'id'=>$id]);
     }
 
 }

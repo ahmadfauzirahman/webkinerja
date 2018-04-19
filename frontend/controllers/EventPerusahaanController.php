@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use common\models\LoginForm;
 use common\models\WebBooking;
 use Yii;
 
@@ -27,7 +28,7 @@ class EventPerusahaanController extends \yii\web\Controller
 
     public function actionDenah($id)
     {
-        $this->layout = 'denah';
+        $this->layout = 'denah_per';
         $event = \common\models\WebEvents::findOne($id);
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_denah'] = 'active';
@@ -35,7 +36,7 @@ class EventPerusahaanController extends \yii\web\Controller
     }
 
     public function actionJadwal($id){
-        $this->layout = 'perusahaan';
+        $this->layout = 'denah_per';
         $event = \common\models\WebEvents::findOne($id);
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_jadwal'] = 'active';
@@ -46,19 +47,26 @@ class EventPerusahaanController extends \yii\web\Controller
     }
 
     public function actionBooking($id, $id2){
-        $this->layout = 'denah';
-        $event = \common\models\WebEvents::findOne($id);
-        $stand = \common\models\WebStands::findOne($id2);
-        Yii::$app->view->params['id'] = $event->eventsID;
-        Yii::$app->view->params['active_regist'] = 'active';
-        Yii::$app->view->params['active_form'] = 'active';
+        if (!Yii::$app->user->isGuest) {
+            if (Yii::$app->user->identity->role == 'perusahaan-premium' OR Yii::$app->user->identity->role == 'perusahaan-non-premium'){
+                $this->layout = 'denah_per';
+                $event = \common\models\WebEvents::findOne($id);
+                $stand = \common\models\WebStands::findOne($id2);
+                $perusahaan = \common\models\WebPerusahaan::find()->where(['perusahaanUserID' => Yii::$app->user->identity->userID])->one();
+                Yii::$app->view->params['id'] = $event->eventsID;
+                Yii::$app->view->params['active_regist'] = 'active';
+                Yii::$app->view->params['active_form'] = 'active';
 
-        $model = new WebBooking();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->bookingID]);
+                $model = new WebBooking();
+                if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                    return $this->render('konfirm', ['event' => $event->eventsID]);
+                }
+                return $this->render('booking',['event'=>$event, 'model'=>$model, 'stand'=>$stand, 'perusahaan'=>$perusahaan]);
+            }
+            return $this->redirect(['event-perusahaan/login-booking', 'id'=>$id, 'id2'=>$id2]);
+        }else{
+            return $this->redirect(['event-perusahaan/login-booking', 'id'=>$id, 'id2'=>$id2]);
         }
-
-        return $this->render('booking',['event'=>$event, 'model'=>$model, 'stand'=>$stand]);
 
     }
 
@@ -74,6 +82,46 @@ class EventPerusahaanController extends \yii\web\Controller
 
     }
 
+    public function actionLogin($id)
+    {
+        $this->layout = 'perusahaan';
+        $event = \common\models\WebEvents::findOne($id);
+        Yii::$app->view->params['id'] = $event->eventsID;
+        $this->view->params['login'] = true;
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
 
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $_SESSION['menu'] = 0;
+            return $this->redirect(['event-pelamar/index', 'id'=>$id]);
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionLoginBooking($id,$id2)
+    {
+        $this->layout = 'perusahaan';
+        $event = \common\models\WebEvents::findOne($id);
+        Yii::$app->view->params['id'] = $event->eventsID;
+        $this->view->params['login'] = true;
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $_SESSION['menu'] = 0;
+            return $this->redirect(['event-perusahaan/booking', 'id'=>$id, 'id2'=>$id2]);
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
 
 }

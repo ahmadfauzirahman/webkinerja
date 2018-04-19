@@ -16,32 +16,40 @@ use yii\widgets\ActiveForm;
         <div class="form-group" >
             <label for="" class="col-md-4">Email Anda <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left" >
-                <?= $form->field($model, 'bookingPerusahaanEmail')->label(false)->hint('Masukkan Email akun suska karir anda jika ada') ?>
+                <?= $form->field($model, 'bookingPerusahaanEmail')->textInput(['value'=>$perusahaan->perusahaanEmail])->label(false) ?>
             </div>
         </div>
     <hr>
         <div class="form-group">
             <label for="" class="col-md-4">Nama Perusahaan Anda <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
-                <?= $form->field($model, 'bookingPerusahaanNama')->label(false) ?>
+                <?= $form->field($model, 'bookingPerusahaanNama')->textInput(['value'=>$perusahaan->perusahaanNama])->label(false) ?>
             </div>
         </div>
         <div class="form-group" >
             <label for="" class="col-md-4">Jenis Perusahaan <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
-                <?= $form->field($model, 'bookingJnsIndustriID')->label(false) ?>
+                <?= $form->field($model, 'bookingJnsIndustriID')->widget(\kartik\select2\Select2::className(), [
+                    'data' => \yii\helpers\ArrayHelper::map(\common\models\WebJnsIndustri::find()->all(),
+                        'jnsIndustriID', 'jnsIndustriNama'),
+                    'language' => 'en',
+                    'options' => ['placeholder' => 'Pilih Jenis Perusahaan .... ','value'=>$perusahaan->perusahaanJnsIndustriID],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ])->label(false)?>
             </div>
         </div>
         <div class="form-group">
             <label for="" class="col-md-4">No telp Perusahaan <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
-                <?= $form->field($model, 'bookingPerusahaanTelfon')->label(false) ?>
+                <?= $form->field($model, 'bookingPerusahaanTelfon')->textInput(['value'=>$perusahaan->perusahaanTelfon])->label(false) ?>
             </div>
         </div>
         <div class="form-group">
             <label for="" class="col-md-4">Nama Officer <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
-                <?= $form->field($model, 'bookingPerusahaanNamaOfficer')->label(false) ?>
+                <?= $form->field($model, 'bookingPerusahaanNamaOfficer')->textInput(['value'=>$perusahaan->perusahaanNamaOfficer])->label(false) ?>
             </div>
         </div>
         <div class="form-group">
@@ -53,7 +61,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <label for="" class="col-md-4">No Telp Officer <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
-                <?= $form->field($model, 'bookingPerusahaanTelfonOfficer')->label(false) ?>
+                <?= $form->field($model, 'bookingPerusahaanTelfonOfficer')->textInput(['value'=>$perusahaan->perusahanHpOfficer])->label(false) ?>
             </div>
         </div>
         <div class="form-group">
@@ -63,7 +71,7 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
 
-        <?= $form->field($model, 'bookingStatus')->hiddenInput()->label(false) ?>
+        <?= $form->field($model, 'bookingStatus')->hiddenInput(['value'=>'Booking'])->label(false) ?>
     
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4" style="text-align: left">

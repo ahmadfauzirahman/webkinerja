@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+$this->registerCssFile(Yii::$app->request->baseUrl."/css/timeline.css");
 ?>
 <br><br>
 <div class="banner" style="width: 100%;">
@@ -72,23 +73,30 @@
                 if ($count%2 == 0): ?>
                     <!-- Item 1 -->
                     <li>
-                        <div class="direction-r">
-                            <div class="flag-wrapper">
-                                <span class="hexa"></span>
-                                <span class="time-wrapper"><span class="time"><?= date('d F', strtotime($item->jadwalEventsTglMulai))." - ". date('d F', strtotime($item->jadwalEventsTglSelesai))?></span></span>
+                        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">
+                                    <?= date('d F', strtotime($item->jadwalEventsTglMulai))." - ". date('d F', strtotime($item->jadwalEventsTglSelesai))?></h4>
                             </div>
-                            <div class="desc"><?= $item->jadwalEventsNama?></div>
+                            <div class="timeline-body">
+                                <p><?= $item->jadwalEventsNama?></p>
+                            </div>
                         </div>
                     </li>
+
                 <?php else :?>
                     <!-- Item 1 -->
-                    <li>
-                        <div class="direction-l">
-                            <div class="flag-wrapper">
-                                <span class="hexa"></span>
-                                <span class="time-wrapper"><span class="time"><?= date('d F', strtotime($item->jadwalEventsTglMulai))." - ". date('d F', strtotime($item->jadwalEventsTglSelesai))?></span></span>
+                    <li class="timeline-inverted">
+                        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">
+                                    <?= date('d F', strtotime($item->jadwalEventsTglMulai))." - ". date('d F', strtotime($item->jadwalEventsTglSelesai))?></h4>
                             </div>
-                            <div class="desc"><?= $item->jadwalEventsNama?></div>
+                            <div class="timeline-body">
+                                <p><?= $item->jadwalEventsNama?></p>
+                            </div>
                         </div>
                     </li>
                 <?php endif;

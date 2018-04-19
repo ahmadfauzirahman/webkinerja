@@ -2,6 +2,8 @@
 namespace frontend\controllers;
 
 use common\models\WebPelamar\WebPelamar;
+use Da\QrCode\Format\MeCardFormat;
+use Da\QrCode\QrCode;
 use frontend\models\Dashboard\DashboardUser;
 use frontend\models\Dashboard\DashboardUserPremium;
 use frontend\models\Dashboard\DashboardUserPremiumTransaksi;
@@ -82,11 +84,15 @@ class DashboardController extends Controller
     public function actionIndex()
     {
         $this->view->params['dashboard'] = true;
+        $event = \common\models\WebEvents::find()->where(['eventsStatus'=>'Aktif'])->one();
+
         if(!Yii::$app->user->isGuest) {
 
             if (Yii::$app->user->identity->role == 'perusahaan-premium' || Yii::$app->user->identity->role == 'perusahaan-non-premium') {
 
-                return $this->render('index_perusahaan');
+                return $this->render('index_perusahaan', [
+                    'event' => $event
+                ]);
 
             } else {
 
@@ -220,6 +226,29 @@ class DashboardController extends Controller
 
         }
 
+    }
+
+    public function actionTiket($id){
+        $this->layout = 'event_';
+        $event = \common\models\WebEvents::findOne($id);
+        $data = \common\models\WebTiketEvents::find()->where(['tiketEventsEventsID'=>$event->eventsID,'tiketEventsUserID' => Yii::$app->user->identity->userID]);
+        if (!isset($data)){
+            $tiket = new \common\models\WebTiketEvents;
+            $tiket->tiketEventsEventsID = $event->eventsID;
+            $tiket->tiketEventsUserID = Yii::$app->user->identity->userID;
+            $tiket->tiketEventsStatus = "Aktif";
+            $tiket->save();
+            $format = new MeCardFormat();
+            $format->firstName = $event->eventsJudul;
+
+
+            $qrCode = new QrCode($format);
+
+
+            $qrCode->writeFile(Yii::$app->basePath . "/web/qrcode/" . Yii::$app->user->identity->username.'.png');
+        }
+
+        return $this->render('tiket', ['event'=>$event]);
     }
 
 }

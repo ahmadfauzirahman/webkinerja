@@ -462,17 +462,17 @@ AppAsset::register($this);
                         </li>
                     </ul>
                     <ul class="menu dropdown float-right menu-main hide-for-small-only" data-dropdown-menu>
-                        <li class="<?php if(isset($this->params['active_home'])){ echo $this->params['active_home'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/index','id'=>$this->params['id']]) ?>">Home</a>
+                        <li>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/index','id'=>$this->params['id']]) ?>" class="<?php if(isset($this->params['active_home'])){ echo $this->params['active_home'];}?>">Home</a>
                         </li>
-                        <li class="<?php if(isset($this->params['active_regist'])){ echo $this->params['active_regist'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/registrasi', 'id'=>$this->params['id']]) ?>">Registrasi</a>
+                        <li>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/registrasi', 'id'=>$this->params['id']]) ?>" class="<?php if(isset($this->params['active_regist'])){ echo $this->params['active_regist'];}?>">Registrasi</a>
                         </li>
-                        <li class="<?php if(isset($this->params['active_denah'])){ echo $this->params['active_denah'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/denah', 'id'=>$this->params['id']]) ?>">Denah</a>
+                        <li>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/denah', 'id'=>$this->params['id']]) ?>" class="<?php if(isset($this->params['active_denah'])){ echo $this->params['active_denah'];}?>">Denah</a>
                         </li>
-                        <li class="<?php if(isset($this->params['active_jadwal'])){ echo $this->params['active_jadwal'];}?>">
-                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/jadwal', 'id'=>$this->params['id']]) ?>">Jadwal</a>
+                        <li>
+                            <a href="<?= Yii::$app->urlManager->createUrl(['event-pelamar/jadwal', 'id'=>$this->params['id']]) ?>" class="<?php if(isset($this->params['active_jadwal'])){ echo $this->params['active_jadwal'];}?>">Jadwal</a>
                         </li>
 
                         <li>

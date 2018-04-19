@@ -38,6 +38,7 @@ class WebBooking extends \yii\db\ActiveRecord
     {
         return [
             [['bookingEventsID', 'bookingStandsID', 'bookingJnsIndustriID'], 'integer'],
+            [['bookingStandsID'], 'unique', 'message' => 'Maaf Stand Sudah diBooking'],
             [['bookingEventsID','bookingPerusahaanJbtnOfficer', 'bookingPerusahaanEmail','bookingStandsID', 'bookingJnsIndustriID','bookingPerusahaanTelfon','bookingPerusahaanNamaOfficer', 'bookingPerusahaanTelfonOfficer','bookingPerusahaanTelfonOfficer','bookingPerusahaanNama'], 'required', 'message' => 'Tidak boleh Kosong'],
             [['bookingCatatan', 'bookingBuktiPembayaran', 'bookingStatus'], 'string'],
             [['bookingPerusahaanEmail', 'bookingPerusahaanNama', 'bookingPerusahaanNamaOfficer'], 'string', 'max' => 200],

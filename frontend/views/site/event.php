@@ -17,7 +17,7 @@ use yii\helpers\Html;
                 <p class="el-subtitle">EVENT</p>
                 <h1 class="el-title">Suska Karir.</h1>
                 <div class="divider float-left"></div>
-                <p class="m-t-30">Suska Karir adalah event regular yang dilaksanakan oleh ECC UGM yang bersifat gratis untuk seluruh pengunjung. ECC UGM bekerjasama dengan banyak perusahaan dan pencari kerja dalam satu waktu dan tempat yang sama. Career Days UGM juga memberi sinergi kuat antara pihak Akademik, Bisnis dan Pemerintah dalam bidang pencarian tenaga kerja, penelitian, pendidikan dan pengembangan diri.
+                <p class="m-t-30">Suska Karir adalah event regular yang dilaksanakan oleh Pusat Pengembangan Karir dan Alumni UIN Suska yang bersifat gratis untuk seluruh pengunjung. </p>
                 <div class="clear"></div>
             </div>
         </div>
@@ -32,7 +32,7 @@ use yii\helpers\Html;
             ?>
             <div class="section-header   animate " data-animate="fadeInUp" data-duration="1s" data-delay="0.1s" data-offset="50">
                 <a href="<?= \yii\helpers\Url::to(['event/index', 'id'=>$event->eventsID])?>"><img class="content-centered" src="<?= Yii::$app->request->baseUrl ?>/../../backend/web/foto_events/<?= $event->eventsThumbnails; ?>" alt="avatar" style="width: 1000px; height: 400px"></a>
-                <h1 class="el-title"><?= date('d', strtotime($event->eventsTanggalMulai))." - ". date('d F Y', strtotime($event->eventsTanggalSelesai))." , ". $event->eventsLokasi." | +-".$stand_count." Perusahaan | 100% GRATIS" ?></h1>
+                <h1 class="el-title"><?= date('d', strtotime($event->eventsTanggalMulai))." - ". date('d F Y', strtotime($event->eventsTanggalSelesai))." , ". $event->eventsLokasi." | +-"." 15 Perusahaan | 100% GRATIS" ?></h1>
                 <div class="divider"></div>
             </div>
             <?php else: ?>

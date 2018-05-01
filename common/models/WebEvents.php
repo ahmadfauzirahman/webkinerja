@@ -38,11 +38,12 @@ class WebEvents extends \yii\db\ActiveRecord
                 ['eventsThumbnails'] ,
                 'file' ,
                 'skipOnEmpty' => TRUE ,
-                'extensions'  => 'png, jpg' ,
+                'extensions'  => 'png, jpg, jpeg' ,
             ],
             [['eventsTanggalMulai', 'eventsTanggalSelesai'], 'date', 'format' => 'yyyy-mm-dd'],
             ['eventsTanggalMulai', 'compare', 'compareAttribute' => 'eventsTanggalSelesai', 'operator' => '<=','enableClientValidation' => false],
             [['eventsStatus'], 'string', 'max' => 50],
+            [['eventsThumbnails'], 'required']
         ];
     }
 

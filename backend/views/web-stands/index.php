@@ -89,7 +89,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-//            'standsID',
+            'standsID',
 //            'standsVenueID',
             [
                 'attribute' => 'standsVenueID',
@@ -106,7 +106,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     return \common\models\WebKategoriStand::findOne($model->standsKategoriStandID)['kategoriStandNama'];
                 }
             ],
-            'standsPerusahaanID',
+            [
+            'attribute' => 'standsPerusahaanID',
+                'value' => function($model){
+                    return \common\models\WebPerusahaan::findOne($model->standsPerusahaanID)['perusahaanNama'];
+                }
+            ],
 //            'standsStatus:ntext',
             [
                 'attribute' => 'standsStatus',

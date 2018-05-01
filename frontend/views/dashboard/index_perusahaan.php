@@ -5,9 +5,7 @@ use yii\widgets\Breadcrumbs;
 $this->title = "Dashboard";
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php if(isset($event)): ?>
-    <a href="<?= Yii::$app->urlManager->createUrl(['dashboard/tiket', 'id'=>$event->eventsID]) ?>" class="btn btn-success" target="_blank">Cetak Tiket Suska Karir 2018</a>
-<?php endif;?>
+
 
 <?= Breadcrumbs::widget([
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

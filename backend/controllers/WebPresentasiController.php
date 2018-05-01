@@ -84,7 +84,7 @@ class WebPresentasiController extends Controller
         $model = new WebPresentasi();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->presentasiID]);
+            return $this->redirect(['index', 'id' => $model->presentasiEventsID]);
         }
 
         return $this->render('create', [
@@ -125,9 +125,10 @@ class WebPresentasiController extends Controller
     public function actionDelete($id)
     {
         $this->layout = Auth::getRole();
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+//        $this->findModel($id)->delete();
+        $model = \common\models\WebPresentasi::findOne($id);
+        $model->delete();
+        return $this->redirect(['index', 'id'=>$model->presentasiEventsID]);
     }
 
     /**

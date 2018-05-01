@@ -13,19 +13,19 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'bookingEventsID')->hiddenInput(['value'=>$id])->label(false) ?>
         <?= $form->field($model, 'bookingStandsID')->hiddenInput(['value'=>$id_stand])->label(false) ?>
-        <div class="form-group" >
-            <label for="" class="col-md-4">Email Anda <span class="text-danger">*</span></label>
-            <div class="col-md-8" style="text-align: left" >
-                <?= $form->field($model, 'bookingPerusahaanEmail')->textInput(['value'=>$perusahaan->perusahaanEmail])->label(false) ?>
-            </div>
-        </div>
-    <hr>
         <div class="form-group">
             <label for="" class="col-md-4">Nama Perusahaan Anda <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
                 <?= $form->field($model, 'bookingPerusahaanNama')->textInput(['value'=>$perusahaan->perusahaanNama])->label(false) ?>
             </div>
         </div>
+        <div class="form-group" >
+            <label for="" class="col-md-4">Email Anda <span class="text-danger">*</span></label>
+            <div class="col-md-8" style="text-align: left" >
+                <?= $form->field($model, 'bookingPerusahaanEmail')->textInput(['value'=>$perusahaan->perusahaanEmail])->label(false) ?>
+            </div>
+        </div>
+
         <div class="form-group" >
             <label for="" class="col-md-4">Jenis Perusahaan <span class="text-danger">*</span></label>
             <div class="col-md-8" style="text-align: left">
@@ -76,7 +76,7 @@ use yii\widgets\ActiveForm;
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4" style="text-align: left">
                 <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-                <?= Html::submitButton('Batal', ['class' => 'btn btn-primary']) ?>
+                <a href="<?php echo \yii\helpers\Url::to(['event-perusahaan/denah', 'id'=>$id])?>" class="btn btn-danger">Baatal</a>
             </div>
 
         </div>

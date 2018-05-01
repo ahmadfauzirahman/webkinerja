@@ -32,9 +32,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'bookingCatatan')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'bookingBuktiPembayaran')->textarea(['rows' => 6]) ?>
+    <?php $data = isset($model->eventsThumbnails) ? [
+        'pluginOptions' => [
+            'initialPreview' => 'foto_events/' . $model->eventsThumbnails,
+            'initialPreviewAsData' => TRUE,
+        ],
+    ] : []; ?>
+    <?= $form->field($model, 'bookingBuktiPembayaran')->widget(\kartik\file\FileInput::className(),$data) ?>
 
-    <?= $form->field($model, 'bookingStatus')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'bookingStatus')->dropDownList(['Booking'=>'Booking', 'Konfirmasi'=>'Sudah Konfirmasi']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

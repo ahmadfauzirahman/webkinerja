@@ -9,6 +9,7 @@ use common\models\WebBookingSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * WebBookingController implements the CRUD actions for WebBooking model.
@@ -103,10 +104,67 @@ class WebBookingController extends Controller
     {
         $this->layout = Auth::getRole();
         $model = $this->findModel($id);
+        $data = Yii::$app->request->post();
+        $model->bookingBuktiPembayaran = UploadedFile::getInstance($model, 'bookingBuktiPembayaran');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->bookingID]);
+        if ($model->bookingBuktiPembayaran != null) {
+            $data['WebBooking']['bookingBuktiPembayaran'] = $model->bookingBuktiPembayaran;
         }
+//        echo "<pre>";
+//        print_r($model->load($data));
+//        exit();
+        if ($model->load($data)) {
+
+            if ($data['WebBooking']['bookingBuktiPembayaran'] != "") {
+//                echo "<pre>";
+//                print_r($model);
+//                exit();
+
+
+//                var_dump($model);
+//                exit();
+                $model->save();
+                $model->bookingBuktiPembayaran->saveAs(Yii::$app->basePath . "/web/booking/" .
+                    $model->bookingBuktiPembayaran->name);
+
+
+
+
+                if ($model->bookingStatus == "Konfirmasi") {
+                    $stand = \common\models\WebStands::find()->where(['standsEventsID' => $model->bookingEventsID, 'standsID' => $model->bookingStandsID])->one();
+                    $perusahaan = \common\models\WebPerusahaan::find()->where(['perusahaanEmail' => $model->bookingPerusahaanEmail])->one();
+                    $stand->standsPerusahaanID = $perusahaan->perusahaanID;
+                    $stand->standsStatus = "Terisi";
+                    if ($stand->save()) {
+//                        $event = \common\models\WebEvents::findOne($model->bookingEventsID);
+                        return $this->redirect(['index', 'id' => $model->bookingEventsID]);
+                    }
+                }
+            } else {
+                $model['bookingBuktiPembayaran'] = WebBooking::findOne($id)['bookingBuktiPembayaran'];
+                $model->save();
+            }
+
+
+            return $this->redirect([
+                'view',
+                'id' => $model->eventsID,
+            ]);
+        }
+
+
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            if($model->bookingStatus == "Konfirmasi"){
+//                $stand = \common\models\WebStands::find()->where(['standsEventsID'=>$model->bookingEventsID,'standsID'=>$model->bookingStandsID])->one();
+//                $perusahaan = \common\models\WebPerusahaan::find()->where(['perusahaanEmail'=>$model->bookingPerusahaanEmail])->one();
+//                $stand->standsPerusahaanID = $perusahaan->perusahaanID;
+//                $stand->standsStatus = "Terisi";
+//                if ($stand->save()){
+//                    return $this->redirect(['index', 'id' => $model->bookingID]);
+//                }
+//            }
+//            return $this->redirect(['index', 'id' => $model->bookingID]);
+//        }
 
         return $this->render('update', [
             'model' => $model,
@@ -123,9 +181,10 @@ class WebBookingController extends Controller
     public function actionDelete($id)
     {
         $this->layout = Auth::getRole();
-        $this->findModel($id)->delete();
+        $model = WebBooking::findOne($id);
+        $model->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'id'=>$model->bookingEventsID]);
     }
 
     /**

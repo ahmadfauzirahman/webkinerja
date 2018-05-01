@@ -12,7 +12,7 @@ use Yii;
  * @property string $presentasiTglMulai
  * @property string $presentasiTglSelesai
  * @property int $presentasiPerusahaanID
- * @property string $webPresentasiStatus
+
  */
 class WebPresentasi extends \yii\db\ActiveRecord
 {
@@ -33,7 +33,7 @@ class WebPresentasi extends \yii\db\ActiveRecord
             [['presentasiEventsID', 'presentasiPerusahaanID'], 'integer'],
             [['presentasiTglMulai', 'presentasiTglSelesai'], 'safe'],
             ['presentasiTglMulai', 'compare', 'compareAttribute' => 'presentasiTglSelesai', 'operator' => '<=', 'enableClientValidation' => false],
-            [['webPresentasiStatus'], 'string', 'max' => 50],
+
         ];
     }
 
@@ -48,7 +48,7 @@ class WebPresentasi extends \yii\db\ActiveRecord
             'presentasiTglMulai' => 'Tanggal Mulai',
             'presentasiTglSelesai' => 'Tanggal Selesai',
             'presentasiPerusahaanID' => 'Nama Perusahaan',
-            'webPresentasiStatus' => 'Status',
+
         ];
     }
 }

@@ -6,13 +6,13 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebPresentasi */
 
-$this->title = $model->presentasiID;
-$this->params['breadcrumbs'][] = ['label' => 'Web Presentasis', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = "jadwal presentasi";
+$this->params['breadcrumbs'][] = ['label' => 'Jadwal Presentasi', 'url' => ['index', 'id'=>$model->presentasiEventsID]];
+$this->params['breadcrumbs'][] = \common\models\WebPerusahaan::findOne($model->presentasiPerusahaanID)['perusahaanNama'];
 ?>
 <div class="web-presentasi-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->presentasiID], ['class' => 'btn btn-primary']) ?>
@@ -29,11 +29,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'presentasiID',
-            'presentasiEventsID',
+            [
+                    'attribute' => 'presentasiEventsID',
+                    'value' => function($model) {
+                        return \common\models\WebEvents::findOne($model->presentasiEventsID)['eventsJudul'];
+                    }
+            ],
+
             'presentasiTglMulai',
             'presentasiTglSelesai',
-            'presentasiPerusahaanID',
-            'webPresentasiStatus',
+
+            [
+                'attribute' => 'presentasiPerusahaanID',
+                'value' => function($model) {
+                    return \common\models\WebPerusahaan::findOne($model->presentasiPerusahaanID)['perusahaanNama'];
+                }
+            ],
+
         ],
     ]) ?>
 

@@ -30,19 +30,31 @@ class EventPerusahaanController extends \yii\web\Controller
     {
         $this->layout = 'denah_per';
         $event = \common\models\WebEvents::findOne($id);
+        $Gold = \common\models\WebKategoriStand::find()->where(["kategoriStandNama"=>"Gold"])->one();
+        $standart = \common\models\WebKategoriStand::find()->where(["kategoriStandNama"=>"Standart"])->one();
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_denah'] = 'active';
-        return $this->render('denah',['event'=>$event]);
+
+        return $this->render('denah',['event'=>$event,"gold"=>$Gold, "standart"=>$standart]);
     }
 
     public function actionJadwal($id){
         $this->layout = 'denah_per';
         $event = \common\models\WebEvents::findOne($id);
+        $kategoriseleksi = \common\models\WebKategoriSeleksi::find()->where(['kategoriSeleksiNama'=>$event->eventsJudul])->one();
+        if (isset($kategoriseleksi)){
+            $jadwaltes = \common\models\WebSeleksi::find()->where(['seleksiKategoriSeleksiID'=>$kategoriseleksi->kategoriSeleksiID])->all();
+        }
+        $jadwalpresentasi = \common\models\WebPresentasi::find()->where(['presentasiEventsID'=>$event->eventsID])->all();
         Yii::$app->view->params['id'] = $event->eventsID;
         Yii::$app->view->params['active_jadwal'] = 'active';
 
+        if (isset($kategoriseleksi)){
+            return $this->render('jadwal',['event'=>$event, 'presentasi'=>$jadwalpresentasi, 'jadwaltes'=>$jadwaltes]);
+        }else{
+            return $this->render('jadwal',['event'=>$event, 'presentasi'=>$jadwalpresentasi]);
+        }
 
-        return $this->render('jadwal',['event'=>$event]);
 
     }
 

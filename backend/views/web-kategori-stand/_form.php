@@ -14,7 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'kategoriStandNama')->textInput(['maxlength' => true, 'placeholder' => 'Masukkan Nama Kategori']) ?>
 
-    <?= $form->field($model, 'kategoriStandFasilitas')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'kategoriStandFasilitas')->widget(\marqu3s\summernote\Summernote::className(), [
+        'clientOptions' => [
+            'lang' => 'id'
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'kategoriStandHarga')->textInput(['placeholder' => 'Masukkan Harga']) ?>
 

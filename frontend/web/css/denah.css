@@ -1,6 +1,12 @@
 .kotak{
-    width: 35px;
-    height: 30px;
+     width: 42px;
+     height: 38px;
+     cursor: pointer;
+     position : absolute;
+ }
+.kotak2{
+    width: 87px;
+    height: 27px;
     cursor: pointer;
     position : absolute;
 }
@@ -9,23 +15,40 @@
     border: dashed 2px white;
     animation: blink .5s step-end infinite alternate;
 }
+ul{
+    margin-left: 15px !important;
+}
+.kiri1{
+    left: 455px;
+}
+.kiri2{
+    left: 499px;
+}
 
-.kiri{
-    left: 632px;
+.tengah1{
+    left: 619px;
 }
-.kanan{
-    left: 671px;
+.tengah2{
+    left: 664px;
 }
 
-.A3{
-    top: 183px;
+.kanan1{
+    left: 796px;
 }
-.A2{
-    top: 218px;
+.kanan2{
+    left: 841px;
 }
-.A1{
-    top: 253px;
+
+.G1, .G2, .G3{
+    top: 180px;
 }
-.A4{
-    top: 183px;
+.A1, .A4, .A7, .A10, .A13, .A16{
+    top: 210px;
 }
+.A2, .A5, .A8, .A11, .A14, .A17{
+    top: 250px;
+}
+.A3, .A6, .A9, .A12, .A15, .A18{
+    top: 290px;
+}
+

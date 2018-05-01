@@ -30,15 +30,9 @@ use yii\helpers\Html;
 
 								<div class="pull-left">
 
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#form" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> Form Booking</a></li>
-									<li><a href="#fasilitas" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> Fasilitas Stand</a></li>
-								</ul>
+
 
 								</div>
-
-
-
 								<div class="clearfix"></div>
 
 							</span>
@@ -48,7 +42,7 @@ use yii\helpers\Html;
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="form">
-                        <h2 class="el-title">Form Booking Stand</h2>
+                        <h2 class="el-title">Formulir Booking Stand <?php echo $stand->standsNama?></h2>
                         <div class="divider"></div>
                         <br>
                         <?= $this->render('_form-booking', [

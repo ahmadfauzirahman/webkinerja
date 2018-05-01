@@ -13,7 +13,15 @@ use kartik\widgets\DateTimePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'presentasiPerusahaanID')->textInput() ?>
+    <?= $form->field($model, 'presentasiPerusahaanID')->widget(\kartik\select2\Select2::className(), [
+        'data' => \yii\helpers\ArrayHelper::map(\common\models\WebPerusahaan::find()->all(),
+            'perusahaanID', 'perusahaanNama'),
+        'language' => 'en',
+        'options' => ['placeholder' => 'Pilih Nama Perusahaan .... ',],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]) ?>
 
     <?= $form->field($model, 'presentasiEventsID')->hiddenInput(['value'=>$id])->label(false) ?>
 
@@ -21,7 +29,7 @@ use kartik\widgets\DateTimePicker;
             'options' => ['placeholder'=>'Masukkan Tanggal Mulai'],
         'pluginOptions' => [
                 'autoClose' => 'true',
-            'format' => 'yyyy-mm-dd HH:ii'
+            'format' => 'yyyy-mm-dd hh:ii'
         ]
     ]) ?>
 
@@ -33,10 +41,10 @@ use kartik\widgets\DateTimePicker;
         ]
     ]) ?>
 
-    <?= $form->field($model, 'webPresentasiStatus')->dropDownList(['ajukan'=>'Ajukan', 'setujui'=>'Setujui', 'batalkan'=>'Batalkan']) ?>
+
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Simpan', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

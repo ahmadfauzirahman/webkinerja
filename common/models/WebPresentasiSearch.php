@@ -19,7 +19,7 @@ class WebPresentasiSearch extends WebPresentasi
     {
         return [
             [['presentasiID', 'presentasiEventsID', 'presentasiPerusahaanID'], 'integer'],
-            [['presentasiTglMulai', 'presentasiTglSelesai', 'webPresentasiStatus'], 'safe'],
+            [['presentasiTglMulai', 'presentasiTglSelesai'], 'safe'],
         ];
     }
 
@@ -66,7 +66,7 @@ class WebPresentasiSearch extends WebPresentasi
             'presentasiPerusahaanID' => $this->presentasiPerusahaanID,
         ]);
 
-        $query->andFilterWhere(['like', 'webPresentasiStatus', $this->webPresentasiStatus]);
+//        $query->andFilterWhere(['like', 'webPresentasiStatus', $this->webPresentasiStatus]);
 
         return $dataProvider;
     }

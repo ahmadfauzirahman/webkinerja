@@ -21,8 +21,14 @@ padding-top:20px;padding-bottom: 10px;
     </div>
 </div>
 
-<div class="section">
+<div class="section" style="padding: 20px">
     <div class="row">
-        <h1>asd</h1>
+        <ol style="font-size: 20px">
+            <li><p>Login di halaman website Suska Karir (<a href="<?= Yii::$app->urlManager->createUrl('site/login') ?> " target="_blank">karir-suska.org</a> ) melalui browser baik itu di PC maupun smartphone milikmu</p></li>
+            <li><p>klik menu cetak tiket pada halaman dashboard</p></li>
+            <li><p>klik banner event Job Fair</p></li>
+            <li><p>QR Code dapat dicetak/print maupun ditunjukan melalui smartphone milikmu</p></li>
+            <li><p>Tunjukan QR Code ini pada petugas di pintu masuk job fair</p></li>
+        </ol>
     </div>
 </div>

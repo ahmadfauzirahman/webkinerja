@@ -121,9 +121,10 @@ class WebEventsController extends Controller
 
         if ($model->load($data)) {
             if ($data['WebEvents']['eventsThumbnails'] != "") {
-                $model->save();
+
                 $model->eventsThumbnails->saveAs(Yii::$app->basePath . "/web/foto_events/" .
                     $model->eventsThumbnails->name);
+                $model->save();
             }else{
                 $model['eventsThumbnails'] = WebEvents::findOne($id)['eventsThumbnails'];
                 $model->save();

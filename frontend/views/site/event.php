@@ -17,7 +17,9 @@ use yii\helpers\Html;
                 <p class="el-subtitle">EVENT</p>
                 <h1 class="el-title">Suska Karir.</h1>
                 <div class="divider float-left"></div>
-                <p class="m-t-30">Suska Karir adalah event regular yang dilaksanakan oleh Pusat Pengembangan Karir dan Alumni UIN Suska yang bersifat gratis untuk seluruh pengunjung. </p>
+                <p class="m-t-30">Suska Karir adalah event regular yang dilaksanakan oleh Pusat Pengembangan Karir dan Alumni UIN Suska Riau yang bersifat gratis untuk seluruh pengunjung. Suska Karir bekerjasama dengan banyak perusahaan dan pencari kerja dalam satu waktu dan tempat yang sama. Suska Karir juga memberi sinergi kuat antara pihak Akademik,
+                    Bisnis dan Pemerintah dalam bidang pencarian tenaga kerja, penelitian, pendidikan dan pengembangan diri.
+                </p>
                 <div class="clear"></div>
             </div>
         </div>

@@ -84,15 +84,13 @@ class DashboardController extends Controller
     public function actionIndex()
     {
         $this->view->params['dashboard'] = true;
-        $event = \common\models\WebEvents::find()->where(['eventsStatus'=>'Aktif'])->one();
+
 
         if(!Yii::$app->user->isGuest) {
 
             if (Yii::$app->user->identity->role == 'perusahaan-premium' || Yii::$app->user->identity->role == 'perusahaan-non-premium') {
 
-                return $this->render('index_perusahaan', [
-                    'event' => $event
-                ]);
+                return $this->render('index_perusahaan');
 
             } else {
 
@@ -228,10 +226,16 @@ class DashboardController extends Controller
 
     }
 
+    public function  actionEvent(){
+        $event = \common\models\WebEvents::find()->where(['eventsStatus'=>'Aktif'])->one();
+
+        return $this->render('event', ['model'=>$event]);
+    }
+
     public function actionTiket($id){
-        $this->layout = 'event_';
+        $this->layout = 'tiket';
         $event = \common\models\WebEvents::findOne($id);
-        $data = \common\models\WebTiketEvents::find()->where(['tiketEventsEventsID'=>$event->eventsID,'tiketEventsUserID' => Yii::$app->user->identity->userID]);
+        $data = \common\models\WebTiketEvents::find()->where(['tiketEventsEventsID'=>$event->eventsID,'tiketEventsUserID' => Yii::$app->user->identity->userID])->one();
         if (!isset($data)){
             $tiket = new \common\models\WebTiketEvents;
             $tiket->tiketEventsEventsID = $event->eventsID;
@@ -240,6 +244,8 @@ class DashboardController extends Controller
             $tiket->save();
             $format = new MeCardFormat();
             $format->firstName = $event->eventsJudul;
+            $format->note = "SK-".$tiket->tiketEventsID;
+            $format->setEmail(Yii::$app->user->identity->email);
 
 
             $qrCode = new QrCode($format);

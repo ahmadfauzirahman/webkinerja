@@ -90,12 +90,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
 //            'presentasiID',
-            'presentasiPerusahaanID',
+            [
+                    'attribute' => 'presentasiPerusahaanID',
+                'value' => function($model){
+                    return \common\models\WebPerusahaan::findOne($model->presentasiPerusahaanID)['perusahaanNama'];
+                }
+            ],
+
 //            'presentasiEventsID',
             'presentasiTglMulai',
             'presentasiTglSelesai',
 //            'presentasiPerusahaanID',
-            'webPresentasiStatus',
+
 
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{view} {update} {delete}',

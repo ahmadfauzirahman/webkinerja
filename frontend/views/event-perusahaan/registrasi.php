@@ -21,8 +21,16 @@
     </div>
 </div>
 
-<div class="section">
+<div class="section" style="padding: 20px">
     <div class="row">
-        <h1>asd</h1>
+        <ol style="font-size: 20px">
+            <p>Untuk melancarkan proses booking stand job fair ini, ada baiknya Anda mengikuti prosedur berikut.</p>
+            <li><p>Klik tombol booking stand dibawah ini</p></li>
+            <p><a href="" class="btn btn-success btn-lg">Booking Stand</a></p>
+            <li><p>Muncul denah stand Suska Karir UIN Suska. Pilih booth kosong(Kotak dengan border warna merah) sesuai kebutuhan Anda. Selanjutnya didalam kotak dialog, klik tombol "BOOK".</p></li>
+            <li><p>Login</p></li>
+            <li><p>Isi formulir booking stand dan klik submit</p></li>
+            <li><p>Pemesanan booth Anda berhasil. Tim kami akan segera menghubungi Anda maksimal 1x24 jam (pada hari kerja).</p></li>
+        </ol>
     </div>
 </div>

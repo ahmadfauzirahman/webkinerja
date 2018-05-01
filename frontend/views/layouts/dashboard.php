@@ -95,7 +95,7 @@ AppAsset::register($this);
                             <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard-panggilan-tes']) ?>" <?php if(isset($this->params['dashboard-panggilan-tes'])){ echo 'class="active"'; } ?>><i class="fa fa-bullhorn"></i> Panggilan Tes</a></li>
 
                             <?php if(\common\models\WebSetting::findOne(1)['settingTicketEvent'] == 1){ ?>
-                            <li><a href="<?= Yii::$app->urlManager->createUrl(['#']) ?>" <?php if(isset($this->params['dashboard-event'])){ echo 'class="active"'; } ?>><i class="fa fa-ticket"></i> Tiket Event</a></li>
+                            <li><a href="<?= Yii::$app->urlManager->createUrl(['dashboard/event']) ?>" <?php if(isset($this->params['dashboard-event'])){ echo 'class="active"'; } ?>><i class="fa fa-ticket"></i> Tiket Event</a></li>
                             <?php } ?>
                         <?php } elseif(Yii::$app->user->identity->role == 'admin'){ ?>
 

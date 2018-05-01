@@ -119,6 +119,51 @@ class Auth extends AuthAbstract
             'web-setting.index',
             'web-setting.update',
             'web-setting.view',
+			
+			'web-perusahaan.index',
+            'web-perusahaan.view',
+
+            'web-user-premium.index',
+            'web-user-premium.view',
+
+            'web-user-premium-transaksi.index',
+            'web-user-premium-transaksi.view',
+
+            'web-lowongan.index',
+            'web-lowongan.view',
+
+            'web-seleksi.index',
+            'web-seleksi.view',
+
+            'web-pelamar.index',
+            'web-pelamar.view',
+
+            'web-berkas-pelamar.index',
+            'web-berkas-pelamar.view',
+
+            'web-lamaran.index',
+            'web-lamaran.view',
+
+            'web-hasil-seleksi.index',
+            'web-hasil-seleksi.view',
+
+            'web-kategori-seleksi.index',
+            'web-kategori-seleksi.view',
+            'web-kategori-seleksi.create',
+            'web-kategori-seleksi.update',
+
+            'web-artikel.index',
+            'web-artikel.create',
+            'web-artikel.update',
+            'web-artikel.view',
+
+            'web-kategori-artikel.index',
+            'web-kategori-artikel.create',
+            'web-kategori-artikel.update',
+            'web-kategori-artikel.view',
+
+            'web-setting.index',
+            'web-setting.view',
         ],
         // untuk alumni
         'alumni' => [

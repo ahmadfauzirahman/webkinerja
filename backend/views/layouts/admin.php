@@ -36,7 +36,7 @@ use common\widgets\Alert;
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b> Web Kinerja</span>
+            <span class="logo-lg"><b>PPKA</b></span>
         </a>
 
         <!-- Header Navbar -->
@@ -49,42 +49,10 @@ use common\widgets\Alert;
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Tasks Menu -->
-                    <!-- User Account Menu -->
-                    <li class="dropdown user user-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- The user image in the navbar-->
-                            <img src="<?= Yii::$app->request->baseUrl ?>/foto/<?= Yii::$app->user->identity->foto ?>"
-                                 class="user-image" alt="User Image">
-                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs text-capitalize"><?= Yii::$app->user->identity->username ?></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- The user image in the menu -->
-                            <li class="user-header">
-                                <img src="<?= Yii::$app->request->baseUrl ?>/foto/<?= Yii::$app->user->identity->foto ?>"
-                                     class="img-circle" alt="User Image">
 
-                                <p class="text-capitalize">
-                                    <?= Yii::$app->user->identity->username ?>
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-
-                                    <a href="?r=site/logout" data-method="post" class="btn btn-default btn-flat">Sign
-                                        out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        <a href="?r=site/logout" data-method="post"><i class="fa fa-power-off"></i> Keluar</a>
                     </li>
                 </ul>
             </div>
@@ -108,70 +76,85 @@ use common\widgets\Alert;
                 </div>
             </div>
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-
             <!-- Sidebar Menu -->
             <?= dmstr\widgets\Menu::widget(
                 [
                     'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
                     'items' => [
                         ['label' => 'Menu', 'options' => ['class' => 'header']],
-                        ['label' => 'Home', 'icon' => 'home', 'url' => ['/site']],
+                        ['label' => 'Beranda', 'icon' => 'home', 'url' => ['/site']],
                         ['label' => 'Data Pengguna', 'icon' => 'users', 'url' => ['/user']],
+                        ['label' => 'Data Jenjang Pendidikan', 'icon' => 'mortar-board', 'url' => ['/web-jenjang-pendidikan'],],
 
                         [
-                            'label' => 'Data Master Umum',
-                            'icon' => 'share',
+                            'label' => 'Data Pelamar',
+                            'icon' => 'building',
                             'url' => '#',
                             'items' => [
-                                ['label' => 'Data Provinsi', 'icon' => 'users', 'url' => ['/web-provinsi'],],
-                                ['label' => 'Data Kota', 'icon' => 'file', 'url' => ['/web-kota'],],
+                                ['label' => 'Pelamar', 'icon' => 'building', 'url' => ['/web-pelamar'],],
+                                ['label' => 'Berkas Pelamar', 'icon' => 'map-pin', 'url' => ['/web-berkas-pelamar'],],
+                                ['label' => 'Lamaran', 'icon' => 'map-pin', 'url' => ['/web-lamaran'],],
+                                ['label' => 'Hasil Seleksi', 'icon' => 'map-pin', 'url' => ['/web-hasil-seleksi'],],
+                                ['label' => 'Kategori Seleksi', 'icon' => 'map-pin', 'url' => ['/web-kategori-seleksi'],],
                             ],
                         ],
+
+                        [
+                            'label' => 'Data Perusahaan',
+                            'icon' => 'building',
+                            'url' => '#',
+                            'items' => [
+                                ['label' => 'Perusahaan', 'icon' => 'building', 'url' => ['/web-perusahaan'],],
+                                ['label' => 'Perusahaan Premium', 'icon' => 'map-pin', 'url' => ['/web-user-premium'],],
+                                ['label' => 'Transaksi Premium', 'icon' => 'credit-card', 'url' => ['/web-user-premium-transaksi'],],
+                                ['label' => 'Lowongan', 'icon' => 'map-pin', 'url' => ['/web-lowongan'],],
+                                ['label' => 'Seleksi', 'icon' => 'map-pin', 'url' => ['/web-seleksi'],],
+                            ],
+                        ],
+
+                        [
+                            'label' => 'Data Wilayah',
+                            'icon' => 'globe',
+                            'url' => '#',
+                            'items' => [
+                                ['label' => 'Provinsi', 'icon' => 'map', 'url' => ['/web-provinsi'],],
+                                ['label' => 'Kota', 'icon' => 'map-pin', 'url' => ['/web-kota'],],
+                            ],
+                        ],
+
                         [
                             'label' => 'Data Universitas',
-                            'icon' => 'share',
+                            'icon' => 'folder',
                             'url' => '#',
                             'items' => [
-                                ['label' => 'Nama Universitas', 'icon' => 'file', 'url' => ['/web-univ'],],
-                                ['label' => 'Nama Jurusan', 'icon' => 'file', 'url' => ['/web-jurusan'],],
-                                ['label' => 'Data Jenjang Pendidikan', 'icon' => 'file', 'url' => ['/web-jenjang-pendidikan'],],
+                                ['label' => 'Universitas', 'icon' => 'university', 'url' => ['/web-univ'],],
+                                ['label' => 'Jurusan', 'icon' => 'id-card', 'url' => ['/web-jurusan'],],
                             ],
                         ],
+
                         [
                             'label' => 'Data Event',
-                            'icon' => 'share',
+                            'icon' => 'calendar-plus-o',
                             'url' => '#',
                             'items' => [
-                                ['label' => 'Events', 'icon' => 'file', 'url' => ['/web-events'],
+                                ['label' => 'Events', 'icon' => 'calendar', 'url' => ['/web-events'],
                                     'active'=> in_array(\Yii::$app->controller->id, ['web-events', 'web-jadwal-events', 'web-tiket-events', 'web-presentasi']) ],
-                                ['label' => 'Kategori Stand', 'icon' => 'file', 'url' => ['/web-kategori-stand'],],
-                                ['label' => 'Venue', 'icon' => 'file', 'url' => ['/web-venue'],],
+                                ['label' => 'Kategori Stand', 'icon' => 'star', 'url' => ['/web-kategori-stand'],],
+                                ['label' => 'Venue', 'icon' => 'map-marker', 'url' => ['/web-venue'],],
                             ],
                         ],
-
-
 
                         [
                             'label' => 'Data Artikel',
-                            'icon' => 'share',
+                            'icon' => 'archive',
                             'url' => '#',
                             'items' => [
-                                    ['label' => 'Data Artikel', 'icon' => 'file', 'url' => ['/web-artikel'],],
+                                ['label' => 'Data Artikel', 'icon' => 'pencil', 'url' => ['/web-artikel'],],
                                 ['label' => 'Data Kategori Artikel', 'icon' => 'file', 'url' => ['/web-kategori-artikel'],],
                             ],
                         ],
 
+                        ['label' => 'Pengaturan', 'icon' => 'gear', 'url' => ['/web-setting'] ],
                         ['label' => 'Frontend', 'icon' => 'desktop', 'url' => Yii::$app->request->baseUrl.'/../../' ],
 
                     ],
@@ -186,14 +169,6 @@ use common\widgets\Alert;
     <div class="content-wrapper">
         <!-- Content Header (Page header) --
         <!-- Main content -->
-        <?php if(isset($this->blocks['nav-event'])): ?>
-                    <div class="menu" style="padding: 0 15px; background: transparent; margin-top: 15px">
-                        <?= $this->blocks['nav-event'] ?>
-                    </div>
-
-
-        <?php endif; ?>
-
         <section class="content container-fluid">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -216,82 +191,9 @@ use common\widgets\Alert;
             Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href="#">Pusat Pengembangan Karir dan Alumni UIN Suska Riau</a>.</strong> All rights reserved.
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane active" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:;">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
     immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>

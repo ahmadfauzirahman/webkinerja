@@ -170,6 +170,9 @@ use common\widgets\Alert;
         <!-- Content Header (Page header) --
         <!-- Main content -->
         <section class="content container-fluid">
+            <?php if(isset($this->blocks['nav-event'])):?>
+                <?= $this->blocks['nav-event'] ?>
+            <?php endif;?>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <?= Breadcrumbs::widget([

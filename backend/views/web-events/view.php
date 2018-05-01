@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\WebEvents */
 
 $this->title = $model->eventsJudul;
-$this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'sdfdsf', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $this->beginBlock('nav-event');?>
